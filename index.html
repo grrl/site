@@ -496,6 +496,8 @@ console.log("is checked" + card1);
        document.getElementById("box3").disabled = true;
        document.getElementById("box4").disabled = true;
        document.getElementById("box5").disabled = true;
+
+       document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
     }
     
@@ -636,6 +638,7 @@ function showHint(str) {
         document.getElementById("cardimage5").src = get_card(card_5);
         });
         cards_dealt = true;
+        document.getElementById("play_button").value = "DRAW";
       }
     };
     xmlhttp.open("GET", "gethint.php?q=" + str, true);
@@ -749,18 +752,20 @@ window.onload = refresh_jackpot;
   <table>
     <tr>
       <th>
+        <input type="button" name="button3"
+        class="button" id="game_info" value="GAME INFO" onclick=""/>      
+      </th>
+      <th>
         <input type="button" name="button2"
         class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left"/>      
       </th>
-      <th>
-    </th>
     <th>
     </th>
     <th>
     </th>
     <th>
       <input type="button" name="button1"
-      class="button" value="DEAL" style="float:right" onclick="showHint(this.value)"/>    
+      class="button" value="DEAL" id="play_button" style="float:right" onclick="showHint(this.value)"/>    
     </th>
     </tr>
   </table>
