@@ -446,7 +446,7 @@ function change_cards(str){
   */
  }
 
-
+//let jackpot_value;
 function refresh_jackpot() {
 
   $.ajax({
@@ -454,24 +454,27 @@ function refresh_jackpot() {
         url: "gethint3.php",
         data: 
         {  
-  
+          //'progressive' : jackpot
         },
         cache:false,
         success: function (data) 
         {
            //alert('Data Send');
            //$('#msg').html(html);
-           let text = this.data;
+           //let text = this.data;
            console.log("data is " + data);
-           
+           //console.log("typeof" + typeof data);
+           //jackpot_value = data;
+           //console.log("jackpot_value is " + jackpot_value);
+
  
-           //document.getElementById("txtHint").innerHTML = "GAME OVER!";
+           document.getElementById("jackpot").innerHTML = data;
         }
         
     });
         
 }
-window.onload = codeAddress;
+window.onload = refresh_jackpot;
 
 </script>
 </head>
@@ -481,7 +484,7 @@ window.onload = codeAddress;
     <div>
     <tr>
       <td>ROYAL FLUSH</td>
-      <td style="text-align: right;">4000</td>
+      <td id="jackpot" style="text-align: right;">4000</td>
     </tr>
     <tr>
       <td>STRAIGHT FLUSH</td>

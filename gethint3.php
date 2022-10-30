@@ -22,6 +22,14 @@ $sql = "SELECT progressive FROM jackpot";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
 
+$progressive;
 
+while($row = mysqli_fetch_assoc($result)) {
+
+  $progressive = $row["progressive"];
+
+}
+
+echo $progressive;
 
 ?>
