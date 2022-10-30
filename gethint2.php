@@ -411,7 +411,7 @@ SET column1 = value1, column2 = value2, ...
 WHERE condition;
 */
 
-$sql = "UPDATE session SET win='" . $win. "', complete=". 1 . " WHERE id=" . $my_id;
+$sql = "UPDATE session SET win='" . $win. "', complete=". 1 . ", res_1=". $card_1_final . ", res_2=" . $card_2_final . ", res_3=" . $card_3_final . ", res_4=" . $card_4_final . ", res_5=" . $card_5_final . " WHERE id=" . $my_id;
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
