@@ -118,8 +118,8 @@ array_unshift($deck);
 
 $seed_10 = (random_int(0, 42));
 $card_10 = $deck[$seed_10];
-unset($deck[$seed_10]);
-array_unshift($deck);
+//unset($deck[$seed_10]);
+//array_unshift($deck);
 
 $date = new DateTimeImmutable();
 
