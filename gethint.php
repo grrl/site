@@ -129,8 +129,8 @@ $time_stamp = date_timestamp_get($date);
 
 // Output "no suggestion" if no hint was found or output correct values
 
-echo $time_stamp;
-echo " ";
+//echo $time_stamp;
+//echo " ";
 echo  $card_1;
 echo " ";
 echo  $card_2;
@@ -140,7 +140,6 @@ echo " ";
 echo  $card_4;
 echo " ";
 echo  $card_5;
-echo " ";
 //echo '<pre>';
 //echo  $card_6;
 //echo " ";
@@ -401,9 +400,6 @@ else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards
     $win = "JACKS OR BETTER";
 }
 
-echo $win;
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -437,19 +433,27 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-
-$sql = "SELECT id, card_1 FROM session";
+/*
+$sql = "SELECT id FROM session WHERE time=" . $time_stamp;
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
   while($row = mysqli_fetch_assoc($result)) {
     //echo "id: " . $row["id"]. " - Name: " . $row["card_1"] . "<br>";
+    echo $row["id"];
   }
 } else {
   //echo "0 results";
 }
+*/
 
+$id = mysqli_insert_id($conn);
+
+echo " ";
+echo $id;
+echo " ";
+echo $win;
 
 $conn->close();
 

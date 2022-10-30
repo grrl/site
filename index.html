@@ -256,12 +256,14 @@ function showHint(str) {
         let text = this.responseText;
         const myArray = text.split(" ");
         let size = myArray.length;
-        timestamp = myArray[0];
-        let card_1 = myArray[1];
-        let card_2 = myArray[2];
-        let card_3 = myArray[3];
-        let card_4 = myArray[4];
-        let card_5 = myArray[5];
+        let card_1 = myArray[0];
+        let card_2 = myArray[1];
+        let card_3 = myArray[2];
+        let card_4 = myArray[3];
+        let card_5 = myArray[4];
+        timestamp = myArray[5];
+        console.log("id is " + timestamp);
+
 
         let my_string = "";
         for (let i = 6; i< size; i++){
@@ -330,7 +332,7 @@ function change_cards(str){
         url: "gethint2.php",
         data: 
         {  
-           'timestamp' : time,
+           'id' : time,
            'box1' : $('#box1').val(),
            'box2' : $('#box2').val(),
            'box3' : $('#box3').val(),
@@ -345,6 +347,7 @@ function change_cards(str){
            let text = this.data;
            console.log("data is " + data);
            let myArray = data.split(" ");
+           let size = myArray.length;
           //timestamp = myArray[0];
           let card_1 = myArray[0];
           console.log(card_1);
@@ -356,6 +359,23 @@ function change_cards(str){
           console.log(card_4);
           let card_5 = myArray[4];
           console.log(card_5);
+          //let win = myArray[5];
+
+          let my_string = "";
+          for (let i = 5; i< size; i++){
+            if (i == size - 1)
+              my_string += myArray[i];
+            else
+              my_string += myArray[i] + " ";
+          }
+
+          console.log("win is " + my_string);
+
+          if (my_string != "")
+            document.getElementById("txtHint").innerHTML = my_string;
+          else
+            document.getElementById("txtHint").innerHTML = "GAME OVER!";
+
 
         document.getElementById("cardimage1").src = get_card(card_1);
         document.getElementById("cardimage2").src = get_card(card_2);
@@ -384,7 +404,7 @@ function change_cards(str){
            document.getElementById("box3").disabled = true;
            document.getElementById("box4").disabled = true;
            document.getElementById("box5").disabled = true;
-           document.getElementById("txtHint").innerHTML = "GAME OVER!";
+           //document.getElementById("txtHint").innerHTML = "GAME OVER!";
         }
         
     });
