@@ -282,6 +282,10 @@ return my_card;
 }
 var cards_dealt = false;
 
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 function change_cards(str){
 
 if (cards_dealt == false)
@@ -355,12 +359,121 @@ console.log("is checked" + card1);
       else
         document.getElementById("txtHint").innerHTML = "GAME OVER!";
 
+    var checked_1 = document.getElementById("box1").checked;
+    var checked_2 = document.getElementById("box2").checked;
+    var checked_3 = document.getElementById("box3").checked;
+    var checked_4 = document.getElementById("box4").checked;
+    var checked_5 = document.getElementById("box5").checked;
 
-    document.getElementById("cardimage1").src = get_card(card_1);
-    document.getElementById("cardimage2").src = get_card(card_2);
-    document.getElementById("cardimage3").src = get_card(card_3);
-    document.getElementById("cardimage4").src = get_card(card_4);
-    document.getElementById("cardimage5").src = get_card(card_5);
+    if (checked_1)
+      document.getElementById("cardimage1").src = get_card(card_1);
+    else {
+      document.getElementById("cardimage1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+    sleep(game_speed).then(() => {
+      document.getElementById("cardimage1").src = get_card(card_1);
+    });
+    }
+
+    if (checked_2)
+      document.getElementById("cardimage2").src = get_card(card_2);
+    else {
+      document.getElementById("cardimage2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+        if (checked_1){
+        sleep(game_speed).then(() => {
+          document.getElementById("cardimage2").src = get_card(card_2);
+        });
+        }
+        else{
+          sleep(game_speed * 2).then(() => {
+          document.getElementById("cardimage2").src = get_card(card_2);
+        });
+        }
+    }
+
+    if (checked_3)
+      document.getElementById("cardimage3").src = get_card(card_3);
+    else {
+      document.getElementById("cardimage3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+      if (checked_1 && checked_2){
+        sleep(game_speed).then(() => {
+          document.getElementById("cardimage3").src = get_card(card_3);
+        });
+      }
+      else if (checked_1 || checked_2){
+          sleep(game_speed * 2).then(() => {
+          document.getElementById("cardimage3").src = get_card(card_3);
+        });
+      
+      } else{
+          sleep(game_speed * 3).then(() => {
+          document.getElementById("cardimage3").src = get_card(card_3);
+        });
+      }
+    }
+    if (checked_4)
+      document.getElementById("cardimage4").src = get_card(card_4);
+    else{
+      document.getElementById("cardimage4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+      if (checked_1 && checked_2 && checked_3){
+        sleep(game_speed).then(() => {
+          document.getElementById("cardimage4").src = get_card(card_4);
+        });
+      }
+       else if (checked_1 && checked_2 || checked_1 && checked_3 || checked_2 && checked_3) {
+          sleep(game_speed * 2).then(() => {
+          document.getElementById("cardimage4").src = get_card(card_4);
+        });
+      }
+      else if (checked_1 || checked_2 || checked_3){
+          sleep(game_speed * 3).then(() => {
+          document.getElementById("cardimage4").src = get_card(card_4);
+        });
+      
+      } else{
+        sleep(game_speed * 4).then(() => {
+          document.getElementById("cardimage4").src = get_card(card_4);
+        });
+      }
+
+    }
+
+    if (checked_5)
+      document.getElementById("cardimage5").src = get_card(card_5);
+    else{
+
+      document.getElementById("cardimage5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+      if (checked_1 && checked_2 && checked_3 && checked_4){
+        sleep(game_speed).then(() => {
+          document.getElementById("cardimage5").src = get_card(card_5);
+        });
+      } else if (checked_1 && checked_2 && checked_3 || checked_1 && checked_3 && checked_4 || checked_2 && checked_3 && checked_4 |
+                 checked_1 && checked_2 && checked_4) {
+          sleep(game_speed * 2).then(() => {
+          document.getElementById("cardimage5").src = get_card(card_5);
+        });
+      }
+      else if (checked_1 && checked_2 || checked_2 && checked_3 || checked_3 && checked_4 ||
+               checked_1 && checked_3 || checked_1 && checked_4 || checked_2 && checked_4){
+          sleep(game_speed * 4).then(() => {
+          document.getElementById("cardimage5").src = get_card(card_5);
+        });
+      } 
+      else if (checked_1 || checked_2 || checked_3 || checked_4){
+          sleep(game_speed * 4).then(() => {
+          document.getElementById("cardimage5").src = get_card(card_5);
+        });
+      } 
+      else{
+        sleep(game_speed * 5).then(() => {
+          document.getElementById("cardimage5").src = get_card(card_5);
+        });
+      }
+    }
 
       /*
       document.getElementById("card1").innerHTML = card_1;
@@ -428,9 +541,6 @@ function change_speed(){
 
 }
 
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
 
 function showHint(str) {
 
