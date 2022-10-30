@@ -526,6 +526,58 @@ xmlhttp.send();
 
 game_speed = 100;
 
+var hold_1 = false;
+var hold_2 = false;
+var hold_3 = false;
+var hold_4 = false;
+var hold_5 = false;
+
+function hold(str){
+
+  if (cards_dealt){
+    
+    switch (str){
+      case 1:
+      hold_1 = !hold_1;
+      if (hold_1)
+        document.getElementById("hold_card_1").innerHTML = "HELD";
+      else
+        document.getElementById("hold_card_1").innerHTML = "";
+      break;
+      case 2:
+      hold_2 = !hold_2;
+      if (hold_2)
+        document.getElementById("hold_card_2").innerHTML = "HELD";
+      else
+        document.getElementById("hold_card_2").innerHTML = "";
+      break;
+      case 3:
+      hold_3 = !hold_3;
+      if (hold_3)
+        document.getElementById("hold_card_3").innerHTML = "HELD";
+      else
+        document.getElementById("hold_card_3").innerHTML = "";
+      break;
+      case 4:
+      hold_4 = !hold_4;
+      if (hold_4)
+        document.getElementById("hold_card_4").innerHTML = "HELD";
+      else
+        document.getElementById("hold_card_4").innerHTML = "";
+      break;
+      case 5:
+      hold_5 = !hold_5;
+      if (hold_5)
+        document.getElementById("hold_card_5").innerHTML = "HELD";
+      else
+        document.getElementById("hold_card_5").innerHTML = "";
+      break;
+    }
+
+
+  }
+}
+
 function change_speed(){
 
     if (game_speed == 100){
@@ -565,7 +617,7 @@ function showHint(str) {
 
         document.getElementById("txtHint").innerHTML = "GOOD LUCK!";
 
-        document.getElementById("box1").disabled = false;
+        //document.getElementById("box1").disabled = false;
         document.getElementById("box2").disabled = false;
         document.getElementById("box3").disabled = false;
         document.getElementById("box4").disabled = false;
@@ -613,7 +665,7 @@ function showHint(str) {
         console.log("getcard5 " + get_card(card_5));
 
 
-        document.getElementById("cardimage1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("box1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
         document.getElementById("cardimage2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
         document.getElementById("cardimage3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
         document.getElementById("cardimage4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
@@ -622,7 +674,7 @@ function showHint(str) {
         sleep(game_speed).then(() => {
         // Do something after the sleep!
 
-          document.getElementById("cardimage1").src = get_card(card_1);
+          document.getElementById("box1").src = get_card(card_1);
         }); 
         sleep(game_speed * 2).then(() => {
 
@@ -645,8 +697,6 @@ function showHint(str) {
     xmlhttp.send();
   }
 }
-
-
 
 window.onload = refresh_jackpot;
 
@@ -707,9 +757,31 @@ window.onload = refresh_jackpot;
   <table>
     <tr>
       <th>
-      <input type="checkbox" id="box1" name="vehicle1" value="0">
+        <label id="hold_card_1"></label>
+      </th>
+      <th>
+        <label>HELD</label>
+      </th>
+    <th>
+      <label>HELD</label>
+    </th>
+    <th>
+      <label>HELD</label>
+
+    </th>
+    <th>
+      <label>HELD</label>
+
+    </th>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>
+      <input type="image" id="box1" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(1)" width="100" height="100" name="vehicle1" value="0">
       <label id="card1"></label><br>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage1" width="100" height="100"></img>
+      <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage1" width="100" height="100"></img>-->
       </th>
       <th>
       <input type="checkbox" id="box2" name="vehicle2" value="0">
