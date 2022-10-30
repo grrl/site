@@ -63,17 +63,18 @@ $deck = array(
 
 // given min and max range
 // Not valid range
-$seed_1 = (random_int(0, 51));
 //echo '<pre>'; print_r($deck); echo '</pre>';
 //echo '<pre>'; echo $seed_1; echo '<pre>';
+$seed_1 = (random_int(0, 51));
 $card_1 = $deck[$seed_1];
 unset($deck[$seed_1]);
 array_unshift($deck);
 
-$seed_2 = (random_int(0, 50));
-$card_2 = $deck[$seed_2];
 //echo $seed_2;
 //echo '<pre>'; print_r($deck); echo '</pre>';
+
+$seed_2 = (random_int(0, 50));
+$card_2 = $deck[$seed_2];
 unset($deck[$seed_2]);
 array_unshift($deck);
 
