@@ -140,6 +140,7 @@ echo " ";
 echo  $card_4;
 echo " ";
 echo  $card_5;
+echo " ";
 //echo '<pre>';
 //echo  $card_6;
 //echo " ";
@@ -164,7 +165,7 @@ $cards = array($card_1, $card_2, $card_3, $card_4, $card_5);
 sort($cards);
 
 
-$win = "NOTHING";
+$win = "";
 
 //$win = $cards[0];
 
@@ -250,7 +251,7 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
           $cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[4] == "39") //4th card random
 {
 
-    $win == "4 ACES";
+  $win == "4 ACES";
 }
 
 else if ($cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
@@ -272,7 +273,7 @@ $cards[0] == "3" && $cards[1] == "16" && $cards[2] == "29" && $cards[4] == "42" 
 $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42") //first card random) //2's 3's or 4's
 {
 
-  $win == "4 2s, 3s or 4s";
+  $win[0] == "4 2s, 3s or 4s";
 } 
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
@@ -397,8 +398,10 @@ else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards
          (($cards[2] == "0" || $cards[2] == "13" || $cards[2] == "26" || $cards[2] == "39") && 
          ($cards[4] == "0" || $cards[4] == "13" || $cards[4] == "26" || $cards[4] == "39")))//jacks or better
 {
-      $win = "JACKS OR BETTER";
+    $win = "JACKS OR BETTER";
 }
+
+echo $win;
 
 
 $servername = "localhost";
