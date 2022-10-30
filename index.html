@@ -1,0 +1,438 @@
+<html>
+<head>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      width: 20.00%;
+      padding: 5px;
+    }
+    
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+let timestamp = ""; 
+
+function get_card(card){
+
+var my_card = "";
+switch (card) {
+case '0':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/3/36/Playing_card_club_A.svg";
+  break;
+case '1':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/f/f5/Playing_card_club_2.svg";
+    break;
+case '2':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Playing_card_club_3.svg";
+    break;
+case '3':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Playing_card_club_4.svg";
+
+    break;         
+case '4':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/50/Playing_card_club_5.svg";
+
+  break;
+case '5':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/a/a0/Playing_card_club_6.svg";
+
+    break;
+case '6':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playing_card_club_7.svg";
+
+    break;
+case '7':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/e/eb/Playing_card_club_8.svg";
+
+    break;
+case '8':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/27/Playing_card_club_9.svg";
+
+    break;
+case '9':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/3/3e/Playing_card_club_10.svg";
+
+    break;
+case '10':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/b/b7/Playing_card_club_J.svg";
+
+  break;
+case '11':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/f/f2/Playing_card_club_Q.svg";
+
+    break;
+case '12':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/22/Playing_card_club_K.svg";
+
+  break;
+case '13':
+   my_card = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Playing_card_diamond_A.svg";
+
+  break;
+case '14':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/59/Playing_card_diamond_2.svg";
+
+    break;                  
+case '15':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/8/82/Playing_card_diamond_3.svg";
+
+  break;
+case '16':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/20/Playing_card_diamond_4.svg";
+
+    break;
+case '17':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/f/fd/Playing_card_diamond_5.svg";
+
+    break;
+case '18':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/8/80/Playing_card_diamond_6.svg";
+
+    break;
+case '19':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/e/e6/Playing_card_diamond_7.svg";
+
+    break;
+case '20':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/7/78/Playing_card_diamond_8.svg";
+
+    break;
+case '21':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/9/9e/Playing_card_diamond_9.svg";
+
+  break;
+case '22':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/3/34/Playing_card_diamond_10.svg";
+
+    break;
+case '23':
+   my_card = "https://upload.wikimedia.org/wikipedia/commons/a/af/Playing_card_diamond_J.svg";
+
+    break;
+case '24':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Playing_card_diamond_Q.svg";
+
+    break;         
+case '25':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/7/78/Playing_card_diamond_K.svg";
+
+  break;
+case '26':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/57/Playing_card_heart_A.svg";
+
+    break;
+case '27':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/d/d5/Playing_card_heart_2.svg";
+
+    break;
+case '28':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/b/b6/Playing_card_heart_3.svg";
+
+    break;
+case '29':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/a/a2/Playing_card_heart_4.svg";
+
+    break;
+case '30':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/52/Playing_card_heart_5.svg";
+
+    break;
+case '31':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/c/cd/Playing_card_heart_6.svg";
+
+  break;
+case '32':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/9/94/Playing_card_heart_7.svg";
+
+    break;
+case '33':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/50/Playing_card_heart_8.svg";
+
+    break;
+case '34':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/50/Playing_card_heart_9.svg";
+
+    break;         
+case '35':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/9/98/Playing_card_heart_10.svg";
+
+  break;
+case '36':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/4/46/Playing_card_heart_J.svg";
+
+    break;
+case '37':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/7/72/Playing_card_heart_Q.svg";
+
+    break;
+case '38':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Playing_card_heart_K.svg";
+
+    break;
+case '39':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/25/Playing_card_spade_A.svg";
+
+    break;
+case '40':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/f/f2/Playing_card_spade_2.svg";
+
+    break;
+case '41':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/52/Playing_card_spade_3.svg";
+
+  break;
+case '42':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/2c/Playing_card_spade_4.svg";
+
+    break;
+case '43':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/9/94/Playing_card_spade_5.svg";
+
+    break;
+case '44':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/d/d2/Playing_card_spade_6.svg";
+
+    break;         
+case '45':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/6/66/Playing_card_spade_7.svg";
+
+  break;
+case '46':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/2/21/Playing_card_spade_8.svg";
+
+    break;
+case '47':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/e/e0/Playing_card_spade_9.svg";
+
+    break;
+case '48':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/8/87/Playing_card_spade_10.svg";
+
+    break;
+case '49':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/b/bd/Playing_card_spade_J.svg";
+
+    break;
+case '50':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/5/51/Playing_card_spade_Q.svg";
+
+    break;
+case '51':
+  my_card = "https://upload.wikimedia.org/wikipedia/commons/9/9f/Playing_card_spade_K.svg";
+
+  break;
+}
+return my_card;
+}
+
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+
+        document.getElementById("txtHint").innerHTML = "GOOD LUCK!";
+
+        document.getElementById("box1").disabled = false;
+        document.getElementById("box2").disabled = false;
+        document.getElementById("box3").disabled = false;
+        document.getElementById("box4").disabled = false;
+        document.getElementById("box5").disabled = false;
+
+        let text = this.responseText;
+        const myArray = text.split(" ");
+        timestamp = myArray[0];
+        let card_1 = myArray[1];
+        let card_2 = myArray[2];
+        let card_3 = myArray[3];
+        let card_4 = myArray[4];
+        let card_5 = myArray[5];
+
+        //document.getElementById("card1").innerHTML = card_1 + " " + card_2 + " " + card_3 + " " + card_4 + " " + card_5;
+
+        console.log(typeof card_1);
+        console.log(typeof card_2);
+        console.log(typeof card_3);
+        console.log(typeof card_4);
+        console.log(typeof card_5);
+
+        console.log("getcard1 " + get_card(card_1));
+        console.log("getcard2 " + get_card(card_2));
+        console.log("getcard3 " + get_card(card_3));
+        console.log("getcard4 " + get_card(card_4));
+        console.log("getcard5 " + get_card(card_5));
+
+        document.getElementById("cardimage1").src = get_card(card_1);
+        document.getElementById("cardimage2").src = get_card(card_2);
+        document.getElementById("cardimage3").src = get_card(card_3);
+        document.getElementById("cardimage4").src = get_card(card_4);
+        document.getElementById("cardimage5").src = get_card(card_5);
+      }
+    };
+    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.send();
+  }
+}
+
+function change_cards(str){
+  
+    var time = timestamp;
+    //var box1 = $('#box1').val();
+    //var box2 = $('#box2').val();
+    //var box3 = $('#box3').val();
+    //var box4 = $('#box4').val();
+    //var box5 = $('#box5').val();
+
+    document.getElementById("box1").value = $('#box1').is(':checked');
+    document.getElementById("box2").value = $('#box2').is(':checked');
+    document.getElementById("box3").value = $('#box3').is(':checked');
+    document.getElementById("box4").value = $('#box4').is(':checked');
+    document.getElementById("box5").value = $('#box5').is(':checked');
+
+    console.log("box1 value " + $('#box1').is(':checked'));
+
+    console.log("is checked" + card1);
+
+        //var descr=document.getElementById('descr').value;
+        
+        $.ajax({
+        type: "post",
+        url: "gethint2.php",
+        data: 
+        {  
+           'timestamp' : time,
+           'box1' : $('#box1').val(),
+           'box2' : $('#box2').val(),
+           'box3' : $('#box3').val(),
+           'box4' : $('#box4').val(),
+           'box5' : $('#box5').val()
+        },
+        cache:false,
+        success: function (data) 
+        {
+           //alert('Data Send');
+           //$('#msg').html(html);
+           let text = this.data;
+           console.log("data is " + data);
+           let myArray = data.split(" ");
+          //timestamp = myArray[0];
+          let card_1 = myArray[0];
+          console.log(card_1);
+          let card_2 = myArray[1];
+          console.log(card_2);
+          let card_3 = myArray[2];
+          console.log(card_3);
+          let card_4 = myArray[3];
+          console.log(card_4);
+          let card_5 = myArray[4];
+          console.log(card_5);
+
+        document.getElementById("cardimage1").src = get_card(card_1);
+        document.getElementById("cardimage2").src = get_card(card_2);
+        document.getElementById("cardimage3").src = get_card(card_3);
+        document.getElementById("cardimage4").src = get_card(card_4);
+        document.getElementById("cardimage5").src = get_card(card_5);
+
+          /*
+          document.getElementById("card1").innerHTML = card_1;
+          document.getElementById("card2").innerHTML = card_2;
+          document.getElementById("card3").innerHTML = card_3;
+          document.getElementById("card4").innerHTML = card_4;
+          document.getElementById("card5").innerHTML = card_5;
+          */
+           //$("#result").html(data);
+           console.log("data sent ok");
+           console.log("cleanup");
+
+           document.getElementById("box1").checked = false;
+           document.getElementById("box2").checked = false;
+           document.getElementById("box3").checked = false;
+           document.getElementById("box4").checked = false;
+           document.getElementById("box5").checked = false;
+           document.getElementById("box1").disabled = true;
+           document.getElementById("box2").disabled = true;
+           document.getElementById("box3").disabled = true;
+           document.getElementById("box4").disabled = true;
+           document.getElementById("box5").disabled = true;
+           document.getElementById("txtHint").innerHTML = "GAME OVER!";
+        }
+        
+    });
+    
+    return false;
+  /*
+  console.log("now in get request");
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+
+        document.getElementById("txtHint").innerHTML = this.responseText;
+
+      }
+    };
+    xmlhttp.open("POST", "gethint2.php?q=" + str, true);
+    xmlhttp.send();
+  }
+  */
+ }
+</script>
+</head>
+<body>
+
+<p><b>Start typing a name in the input field below:</b></p>
+<form action="">
+  <input type="button" name="button1"
+  class="button" value="Start game" onclick="showHint(this.value)"/>
+</form>
+<label>Suggestions: <span id="txtHint"></span></p>
+
+  <div class="row">
+    <div class="column">
+      <input type="checkbox" id="box1" name="vehicle1" value="0">
+      <label id="card1"></label><br>
+      <img src="" id="cardimage1" width="100" height="100"></img>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="box2" name="vehicle2" value="0">
+      <label id="card2"></label><br>
+      <img src="" id="cardimage2" width="100" height="100"></img>    
+    </div>
+    <div class="column">
+      <input type="checkbox" id="box3" name="vehicle3" value="0">
+      <label id="card3"></label><br>
+      <img src="" id="cardimage3" width="100" height="100"></img>    
+    </div>
+    <div class="column">
+      <input type="checkbox" id="box4" name="vehicle4" value="0">
+      <label id="card4"></label><br>
+      <img src="" id="cardimage4" width="100" height="100"></img>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="box5" name="vehicle5" value="0">
+      <label id="card5"></label><br>
+      <img src="" id="cardimage5" width="100" height="100"></img>
+    </div>
+  </div>
+<button onclick="change_cards(this.value)">Change cards</button>
+<div id="result"></div>
+
+</body>
+</html>
