@@ -666,10 +666,10 @@ function showHint(str) {
 
 
         document.getElementById("box1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("cardimage2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("cardimage3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("cardimage4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("cardimage5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("box2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("box3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("box4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("box5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
         sleep(game_speed).then(() => {
         // Do something after the sleep!
@@ -678,16 +678,16 @@ function showHint(str) {
         }); 
         sleep(game_speed * 2).then(() => {
 
-        document.getElementById("cardimage2").src = get_card(card_2);
+        document.getElementById("box2").src = get_card(card_2);
         }); 
         sleep(game_speed * 3).then(() => {
-        document.getElementById("cardimage3").src = get_card(card_3);
+        document.getElementById("box3").src = get_card(card_3);
         });
         sleep(game_speed * 4).then(() => {
-        document.getElementById("cardimage4").src = get_card(card_4);
+        document.getElementById("box4").src = get_card(card_4);
         });
         sleep(game_speed * 5).then(() => {
-        document.getElementById("cardimage5").src = get_card(card_5);
+        document.getElementById("box5").src = get_card(card_5);
         });
         cards_dealt = true;
         document.getElementById("play_button").value = "DRAW";
@@ -760,17 +760,17 @@ window.onload = refresh_jackpot;
         <label id="hold_card_1"></label>
       </th>
       <th>
-        <label>HELD</label>
+        <label id="hold_card_2"></label>
       </th>
     <th>
-      <label>HELD</label>
+      <label id="hold_card_3"></label>
     </th>
     <th>
-      <label>HELD</label>
+      <label id="hold_card_4"></label>
 
     </th>
     <th>
-      <label>HELD</label>
+      <label id="hold_card_5"></label>
 
     </th>
     </tr>
@@ -784,24 +784,20 @@ window.onload = refresh_jackpot;
       <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage1" width="100" height="100"></img>-->
       </th>
       <th>
-      <input type="checkbox" id="box2" name="vehicle2" value="0">
+      <input type="image" id="box2" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(2)" width="100" height="100" name="vehicle2" value="0">
       <label id="card2"></label><br>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage2" width="100" height="100"></img>    
     </th>
     <th>
-      <input type="checkbox" id="box3" name="vehicle3" value="0">
+      <input type="image" id="box3" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(3)" width="100" height="100" name="vehicle3" value="0">
       <label id="card3"></label><br>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage3" width="100" height="100"></img>    
     </th>
     <th>
-      <input type="checkbox" id="box4" name="vehicle4" value="0">
+      <input type="image" id="box4" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(4)" width="100" height="100" name="vehicle4" value="0">
       <label id="card4"></label><br>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage4" width="100" height="100"></img>
     </th>
     <th>
-      <input type="checkbox" id="box5" name="vehicle5" value="0">
+      <input type="image" id="box5" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(5)" width="100" height="100" name="vehicle5" value="0">
       <label id="card5"></label><br>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage5" width="100" height="100"></img>
     </th>
     </tr>
   </table>
