@@ -272,7 +272,7 @@ $cards[0] == "3" && $cards[1] == "16" && $cards[2] == "29" && $cards[4] == "42" 
 $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42") //first card random) //2's 3's or 4's
 {
 
-  $win[0] == "4 2s, 3s or 4s";
+  $win == "4 2s, 3s or 4s";
 } 
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
