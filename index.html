@@ -286,6 +286,12 @@ function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+var hold_1 = false;
+var hold_2 = false;
+var hold_3 = false;
+var hold_4 = false;
+var hold_5 = false;
+
 function change_cards(str){
 
 if (cards_dealt == false)
@@ -298,15 +304,15 @@ var time = timestamp;
 //var box4 = $('#box4').val();
 //var box5 = $('#box5').val();
 
-document.getElementById("box1").value = $('#box1').is(':checked');
-document.getElementById("box2").value = $('#box2').is(':checked');
-document.getElementById("box3").value = $('#box3').is(':checked');
-document.getElementById("box4").value = $('#box4').is(':checked');
-document.getElementById("box5").value = $('#box5').is(':checked');
+//document.getElementById("box1").value = $('#box1').is(':checked');
+//document.getElementById("box2").value = $('#box2').is(':checked');
+//document.getElementById("box3").value = $('#box3').is(':checked');
+//document.getElementById("box4").value = $('#box4').is(':checked');
+//document.getElementById("box5").value = $('#box5').is(':checked');
 
-console.log("box1 value " + $('#box1').is(':checked'));
+//console.log("box1 value " + $('#box1').is(':checked'));
 
-console.log("is checked" + card1);
+//console.log("is checked" + card1);
 
     //var descr=document.getElementById('descr').value;
     
@@ -316,11 +322,11 @@ console.log("is checked" + card1);
     data: 
     {  
        'id' : time,
-       'box1' : $('#box1').val(),
-       'box2' : $('#box2').val(),
-       'box3' : $('#box3').val(),
-       'box4' : $('#box4').val(),
-       'box5' : $('#box5').val()
+       'box1' : hold_1,
+       'box2' : hold_2,
+       'box3' : hold_3,
+       'box4' : hold_4,
+       'box5' : hold_5
     },
     cache:false,
     success: function (data) 
@@ -359,118 +365,120 @@ console.log("is checked" + card1);
       else
         document.getElementById("txtHint").innerHTML = "GAME OVER!";
 
-    var checked_1 = document.getElementById("box1").checked;
-    var checked_2 = document.getElementById("box2").checked;
-    var checked_3 = document.getElementById("box3").checked;
-    var checked_4 = document.getElementById("box4").checked;
-    var checked_5 = document.getElementById("box5").checked;
+    //var checked_1 = document.getElementById("box1").checked;
+    //var checked_2 = document.getElementById("box2").checked;
+    //var checked_3 = document.getElementById("box3").checked;
+    //var checked_4 = document.getElementById("box4").checked;
+    //var checked_5 = document.getElementById("box5").checked;
 
-    if (checked_1)
-      document.getElementById("cardimage1").src = get_card(card_1);
+    if (hold_1)
+      document.getElementById("box1").src = get_card(card_1);
     else {
-      document.getElementById("cardimage1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
     sleep(game_speed).then(() => {
-      document.getElementById("cardimage1").src = get_card(card_1);
+      document.getElementById("box1").src = get_card(card_1);
     });
     }
 
-    if (checked_2)
-      document.getElementById("cardimage2").src = get_card(card_2);
+    if (hold_2)
+      document.getElementById("box2").src = get_card(card_2);
     else {
-      document.getElementById("cardimage2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
-        if (checked_1){
+        if (hold_1){
         sleep(game_speed).then(() => {
-          document.getElementById("cardimage2").src = get_card(card_2);
+          document.getElementById("box2").src = get_card(card_2);
         });
         }
         else{
           sleep(game_speed * 2).then(() => {
-          document.getElementById("cardimage2").src = get_card(card_2);
+          document.getElementById("box2").src = get_card(card_2);
         });
         }
     }
 
-    if (checked_3)
-      document.getElementById("cardimage3").src = get_card(card_3);
+    if (hold_3)
+      document.getElementById("box3").src = get_card(card_3);
     else {
-      document.getElementById("cardimage3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
-      if (checked_1 && checked_2){
+      if (hold_1 && hold_2){
         sleep(game_speed).then(() => {
-          document.getElementById("cardimage3").src = get_card(card_3);
+          document.getElementById("box3").src = get_card(card_3);
         });
       }
-      else if (checked_1 || checked_2){
+      else if (hold_1 || hold_2){
           sleep(game_speed * 2).then(() => {
-          document.getElementById("cardimage3").src = get_card(card_3);
+          document.getElementById("box3").src = get_card(card_3);
         });
       
       } else{
           sleep(game_speed * 3).then(() => {
-          document.getElementById("cardimage3").src = get_card(card_3);
+          document.getElementById("box3").src = get_card(card_3);
         });
       }
     }
-    if (checked_4)
-      document.getElementById("cardimage4").src = get_card(card_4);
+    if (hold_4)
+      document.getElementById("box4").src = get_card(card_4);
     else{
-      document.getElementById("cardimage4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
-      if (checked_1 && checked_2 && checked_3){
+      if (hold_1 && hold_2 && hold_3){
         sleep(game_speed).then(() => {
-          document.getElementById("cardimage4").src = get_card(card_4);
+          document.getElementById("box4").src = get_card(card_4);
         });
       }
-       else if (checked_1 && checked_2 || checked_1 && checked_3 || checked_2 && checked_3) {
+       else if (hold_1 && hold_2 || hold_1 && hold_3 || hold_2 && hold_3) {
           sleep(game_speed * 2).then(() => {
-          document.getElementById("cardimage4").src = get_card(card_4);
+          document.getElementById("box4").src = get_card(card_4);
         });
       }
-      else if (checked_1 || checked_2 || checked_3){
+      else if (hold_1 || hold_2 || hold_3){
           sleep(game_speed * 3).then(() => {
-          document.getElementById("cardimage4").src = get_card(card_4);
+          document.getElementById("box4").src = get_card(card_4);
         });
       
       } else{
         sleep(game_speed * 4).then(() => {
-          document.getElementById("cardimage4").src = get_card(card_4);
+          document.getElementById("box4").src = get_card(card_4);
         });
       }
 
     }
 
-    if (checked_5)
-      document.getElementById("cardimage5").src = get_card(card_5);
+    if (hold_5)
+      document.getElementById("box5").src = get_card(card_5);
     else{
 
-      document.getElementById("cardimage5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
 
-      if (checked_1 && checked_2 && checked_3 && checked_4){
+      if (hold_1 && hold_2 && hold_3 && hold_4){
         sleep(game_speed).then(() => {
-          document.getElementById("cardimage5").src = get_card(card_5);
+          document.getElementById("box5").src = get_card(card_5);
         });
-      } else if (checked_1 && checked_2 && checked_3 || checked_1 && checked_3 && checked_4 || checked_2 && checked_3 && checked_4 |
-                 checked_1 && checked_2 && checked_4) {
+      } else if (hold_1 && hold_2 && hold_3 || 
+                hold_1 && hold_3 && hold_4 || 
+                hold_2 && hold_3 && hold_4 ||
+                 hold_1 && hold_2 && hold_4) {
           sleep(game_speed * 2).then(() => {
-          document.getElementById("cardimage5").src = get_card(card_5);
+          document.getElementById("box5").src = get_card(card_5);
         });
       }
-      else if (checked_1 && checked_2 || checked_2 && checked_3 || checked_3 && checked_4 ||
-               checked_1 && checked_3 || checked_1 && checked_4 || checked_2 && checked_4){
+      else if (hold_1 && hold_2 || hold_2 && hold_3 || hold_3 && hold_4 ||
+               hold_1 && hold_3 || hold_1 && hold_4 || hold_2 && hold_4){
           sleep(game_speed * 4).then(() => {
-          document.getElementById("cardimage5").src = get_card(card_5);
+          document.getElementById("box5").src = get_card(card_5);
         });
       } 
-      else if (checked_1 || checked_2 || checked_3 || checked_4){
+      else if (hold_1 || hold_2 || hold_3 || hold_4){
           sleep(game_speed * 4).then(() => {
-          document.getElementById("cardimage5").src = get_card(card_5);
+          document.getElementById("box5").src = get_card(card_5);
         });
       } 
       else{
         sleep(game_speed * 5).then(() => {
-          document.getElementById("cardimage5").src = get_card(card_5);
+          document.getElementById("box5").src = get_card(card_5);
         });
       }
     }
@@ -486,6 +494,7 @@ console.log("is checked" + card1);
        console.log("data sent ok");
        console.log("cleanup");
 
+       /*
        document.getElementById("box1").checked = false;
        document.getElementById("box2").checked = false;
        document.getElementById("box3").checked = false;
@@ -496,7 +505,8 @@ console.log("is checked" + card1);
        document.getElementById("box3").disabled = true;
        document.getElementById("box4").disabled = true;
        document.getElementById("box5").disabled = true;
-
+       */
+       cards_dealt = false;
        document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
     }
@@ -525,12 +535,6 @@ xmlhttp.send();
 }
 
 game_speed = 100;
-
-var hold_1 = false;
-var hold_2 = false;
-var hold_3 = false;
-var hold_4 = false;
-var hold_5 = false;
 
 function hold(str){
 
@@ -603,7 +607,18 @@ function showHint(str) {
       cards_dealt = false;
       return;
   }
-
+  else{
+    document.getElementById("hold_card_1").innerHTML = "";
+    document.getElementById("hold_card_2").innerHTML = "";
+    document.getElementById("hold_card_3").innerHTML = "";
+    document.getElementById("hold_card_4").innerHTML = "";
+    document.getElementById("hold_card_5").innerHTML = "";
+    hold_1 = false;
+    hold_2 = false;
+    hold_3 = false;
+    hold_4 = false;
+    hold_5 = false;
+  }
 
   refresh_jackpot();
 
@@ -618,10 +633,10 @@ function showHint(str) {
         document.getElementById("txtHint").innerHTML = "GOOD LUCK!";
 
         //document.getElementById("box1").disabled = false;
-        document.getElementById("box2").disabled = false;
-        document.getElementById("box3").disabled = false;
-        document.getElementById("box4").disabled = false;
-        document.getElementById("box5").disabled = false;
+        //document.getElementById("box2").disabled = false;
+        //document.getElementById("box3").disabled = false;
+        //document.getElementById("box4").disabled = false;
+        //document.getElementById("box5").disabled = false;
 
         let text = this.responseText;
         const myArray = text.split(" ");
@@ -752,91 +767,90 @@ window.onload = refresh_jackpot;
   class="button" value="DEAL" onclick="showHint(this.value)"/>
 </form>
 -->
-<label>Suggestions: <span id="txtHint"></span></p>
+<label>Suggestions: <span id="txtHint"></span></label>
+<table>
+  <tr>
+    <th>
+      <label id="hold_card_1"></label>
+    </th>
+    <th>
+      <label id="hold_card_2"></label>
+    </th>
+  <th>
+    <label id="hold_card_3"></label>
+  </th>
+  <th>
+    <label id="hold_card_4"></label>
 
-  <table>
-    <tr>
-      <th>
-        <label id="hold_card_1"></label>
-      </th>
-      <th>
-        <label id="hold_card_2"></label>
-      </th>
-    <th>
-      <label id="hold_card_3"></label>
-    </th>
-    <th>
-      <label id="hold_card_4"></label>
+  </th>
+  <th>
+    <label id="hold_card_5"></label>
 
-    </th>
-    <th>
-      <label id="hold_card_5"></label>
+  </th>
+  </tr>
+</table>
 
-    </th>
-    </tr>
-  </table>
-
-  <table>
-    <tr>
-      <th>
-      <input type="image" id="box1" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(1)" width="100" height="100" name="vehicle1" value="0">
-      <label id="card1"></label><br>
-      <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage1" width="100" height="100"></img>-->
-      </th>
-      <th>
-      <input type="image" id="box2" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(2)" width="100" height="100" name="vehicle2" value="0">
-      <label id="card2"></label><br>
+<table>
+  <tr>
+    <th>
+    <input type="image" id="box1" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(1)" width="100" height="100" name="vehicle1" value="0">
+    <label id="card1"></label><br>
+    <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" id="cardimage1" width="100" height="100"></img>-->
     </th>
     <th>
-      <input type="image" id="box3" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(3)" width="100" height="100" name="vehicle3" value="0">
-      <label id="card3"></label><br>
+    <input type="image" id="box2" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(2)" width="100" height="100" name="vehicle2" value="0">
+    <label id="card2"></label><br>
+  </th>
+  <th>
+    <input type="image" id="box3" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(3)" width="100" height="100" name="vehicle3" value="0">
+    <label id="card3"></label><br>
+  </th>
+  <th>
+    <input type="image" id="box4" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(4)" width="100" height="100" name="vehicle4" value="0">
+    <label id="card4"></label><br>
+  </th>
+  <th>
+    <input type="image" id="box5" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(5)" width="100" height="100" name="vehicle5" value="0">
+    <label id="card5"></label><br>
+  </th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>
+      <label>WIN XXX</label>
     </th>
     <th>
-      <input type="image" id="box4" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(4)" width="100" height="100" name="vehicle4" value="0">
-      <label id="card4"></label><br>
+  </th>
+  <th>
+  </th>
+  <th>
+  </th>
+  <th>
+    <label>CREDITS $??</label>
+  </th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>
+      <input type="button" name="button3"
+      class="button" id="game_info" value="GAME INFO" onclick=""/>      
     </th>
     <th>
-      <input type="image" id="box5" img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png" onclick="hold(5)" width="100" height="100" name="vehicle5" value="0">
-      <label id="card5"></label><br>
+      <input type="button" name="button2"
+      class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left"/>      
     </th>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>
-        <label>WIN XXX</label>
-      </th>
-      <th>
-    </th>
-    <th>
-    </th>
-    <th>
-    </th>
-    <th>
-      <label>CREDITS $??</label>
-    </th>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>
-        <input type="button" name="button3"
-        class="button" id="game_info" value="GAME INFO" onclick=""/>      
-      </th>
-      <th>
-        <input type="button" name="button2"
-        class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left"/>      
-      </th>
-    <th>
-    </th>
-    <th>
-    </th>
-    <th>
-      <input type="button" name="button1"
-      class="button" value="DEAL" id="play_button" style="float:right" onclick="showHint(this.value)"/>    
-    </th>
-    </tr>
-  </table>
+  <th>
+  </th>
+  <th>
+  </th>
+  <th>
+    <input type="button" name="button1"
+    class="button" value="DEAL" id="play_button" style="float:right" onclick="showHint(this.value)"/>    
+  </th>
+  </tr>
+</table>
   <!--
   <div class="row">
     <div class="column">
