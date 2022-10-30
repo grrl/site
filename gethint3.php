@@ -1,4 +1,4 @@
-
+<?php
 
 $servername = "localhost";
 $username = "root";
@@ -18,6 +18,10 @@ if ($conn->connect_error) {
 //WHERE Country='Mexico';
 
 
-$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 ." FROM session WHERE id=" . $my_id;
+$sql = "SELECT progressive FROM jackpot";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
+
+
+
+?>
