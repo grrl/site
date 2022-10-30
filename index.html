@@ -445,6 +445,34 @@ function change_cards(str){
   }
   */
  }
+
+
+function refresh_jackpot() {
+
+  $.ajax({
+        type: "get",
+        url: "gethint3.php",
+        data: 
+        {  
+  
+        },
+        cache:false,
+        success: function (data) 
+        {
+           //alert('Data Send');
+           //$('#msg').html(html);
+           let text = this.data;
+           console.log("data is " + data);
+           
+ 
+           //document.getElementById("txtHint").innerHTML = "GAME OVER!";
+        }
+        
+    });
+        
+}
+window.onload = codeAddress;
+
 </script>
 </head>
 <body>
