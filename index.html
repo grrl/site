@@ -39,6 +39,35 @@
 
 let timestamp = ""; 
 
+//let jackpot_value;
+function refresh_jackpot() {
+
+$.ajax({
+      type: "get",
+      url: "gethint3.php",
+      data: 
+      {  
+        //'progressive' : jackpot
+      },
+      cache:false,
+      success: function (data) 
+      {
+         //alert('Data Send');
+         //$('#msg').html(html);
+         //let text = this.data;
+         console.log("data is " + data);
+         //console.log("typeof" + typeof data);
+         //jackpot_value = data;
+         //console.log("jackpot_value is " + jackpot_value);
+
+
+         document.getElementById("jackpot").innerHTML = "$" + data;
+      }
+      
+  });
+      
+}
+
 function get_card(card){
 
 var my_card = "";
@@ -251,8 +280,169 @@ case '51':
 }
 return my_card;
 }
+var cards_dealt = false;
+
+function change_cards(str){
+
+if (cards_dealt == false)
+  return;
+
+var time = timestamp;
+//var box1 = $('#box1').val();
+//var box2 = $('#box2').val();
+//var box3 = $('#box3').val();
+//var box4 = $('#box4').val();
+//var box5 = $('#box5').val();
+
+document.getElementById("box1").value = $('#box1').is(':checked');
+document.getElementById("box2").value = $('#box2').is(':checked');
+document.getElementById("box3").value = $('#box3').is(':checked');
+document.getElementById("box4").value = $('#box4').is(':checked');
+document.getElementById("box5").value = $('#box5').is(':checked');
+
+console.log("box1 value " + $('#box1').is(':checked'));
+
+console.log("is checked" + card1);
+
+    //var descr=document.getElementById('descr').value;
+    
+    $.ajax({
+    type: "post",
+    url: "gethint2.php",
+    data: 
+    {  
+       'id' : time,
+       'box1' : $('#box1').val(),
+       'box2' : $('#box2').val(),
+       'box3' : $('#box3').val(),
+       'box4' : $('#box4').val(),
+       'box5' : $('#box5').val()
+    },
+    cache:false,
+    success: function (data) 
+    {
+       //alert('Data Send');
+       //$('#msg').html(html);
+       let text = this.data;
+       console.log("data is " + data);
+       let myArray = data.split(" ");
+       let size = myArray.length;
+      //timestamp = myArray[0];
+      let card_1 = myArray[0];
+      console.log(card_1);
+      let card_2 = myArray[1];
+      console.log(card_2);
+      let card_3 = myArray[2];
+      console.log(card_3);
+      let card_4 = myArray[3];
+      console.log(card_4);
+      let card_5 = myArray[4];
+      console.log(card_5);
+      //let win = myArray[5];
+
+      let my_string = "";
+      for (let i = 5; i< size; i++){
+        if (i == size - 1)
+          my_string += myArray[i];
+        else
+          my_string += myArray[i] + " ";
+      }
+
+      console.log("win is " + my_string);
+
+      if (my_string != "")
+        document.getElementById("txtHint").innerHTML = my_string;
+      else
+        document.getElementById("txtHint").innerHTML = "GAME OVER!";
+
+
+    document.getElementById("cardimage1").src = get_card(card_1);
+    document.getElementById("cardimage2").src = get_card(card_2);
+    document.getElementById("cardimage3").src = get_card(card_3);
+    document.getElementById("cardimage4").src = get_card(card_4);
+    document.getElementById("cardimage5").src = get_card(card_5);
+
+      /*
+      document.getElementById("card1").innerHTML = card_1;
+      document.getElementById("card2").innerHTML = card_2;
+      document.getElementById("card3").innerHTML = card_3;
+      document.getElementById("card4").innerHTML = card_4;
+      document.getElementById("card5").innerHTML = card_5;
+      */
+       //$("#result").html(data);
+       console.log("data sent ok");
+       console.log("cleanup");
+
+       document.getElementById("box1").checked = false;
+       document.getElementById("box2").checked = false;
+       document.getElementById("box3").checked = false;
+       document.getElementById("box4").checked = false;
+       document.getElementById("box5").checked = false;
+       document.getElementById("box1").disabled = true;
+       document.getElementById("box2").disabled = true;
+       document.getElementById("box3").disabled = true;
+       document.getElementById("box4").disabled = true;
+       document.getElementById("box5").disabled = true;
+       //document.getElementById("txtHint").innerHTML = "GAME OVER!";
+    }
+    
+});
+
+return false;
+/*
+console.log("now in get request");
+if (str.length == 0) {
+document.getElementById("txtHint").innerHTML = "";
+return;
+} else {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+
+    document.getElementById("txtHint").innerHTML = this.responseText;
+
+  }
+};
+xmlhttp.open("POST", "gethint2.php?q=" + str, true);
+xmlhttp.send();
+}
+*/
+}
+
+game_speed = 100;
+
+function change_speed(){
+
+    if (game_speed == 100){
+      game_speed = 50;
+      document.getElementById("speed").value = "SPEED >>>";
+    }
+    else if (game_speed == 50){
+      game_speed = 200;
+      document.getElementById("speed").value = "SPEED >";
+    }
+    else if (game_speed == 200){
+      game_speed = 100;
+      document.getElementById("speed").value = "SPEED >>";
+    }
+
+}
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 function showHint(str) {
+
+  if (cards_dealt == true){
+      change_cards(str);
+      cards_dealt = false;
+      return;
+  }
+
+
+  refresh_jackpot();
+
   if (str.length == 0) {
     document.getElementById("txtHint").innerHTML = "";
     return;
@@ -310,11 +500,32 @@ function showHint(str) {
         console.log("getcard4 " + get_card(card_4));
         console.log("getcard5 " + get_card(card_5));
 
-        document.getElementById("cardimage1").src = get_card(card_1);
+
+        document.getElementById("cardimage1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("cardimage2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("cardimage3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("cardimage4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+        document.getElementById("cardimage5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+        sleep(game_speed).then(() => {
+        // Do something after the sleep!
+
+          document.getElementById("cardimage1").src = get_card(card_1);
+        }); 
+        sleep(game_speed * 2).then(() => {
+
         document.getElementById("cardimage2").src = get_card(card_2);
+        }); 
+        sleep(game_speed * 3).then(() => {
         document.getElementById("cardimage3").src = get_card(card_3);
+        });
+        sleep(game_speed * 4).then(() => {
         document.getElementById("cardimage4").src = get_card(card_4);
+        });
+        sleep(game_speed * 5).then(() => {
         document.getElementById("cardimage5").src = get_card(card_5);
+        });
+        cards_dealt = true;
       }
     };
     xmlhttp.open("GET", "gethint.php?q=" + str, true);
@@ -322,158 +533,8 @@ function showHint(str) {
   }
 }
 
-function change_cards(str){
-  
-    var time = timestamp;
-    //var box1 = $('#box1').val();
-    //var box2 = $('#box2').val();
-    //var box3 = $('#box3').val();
-    //var box4 = $('#box4').val();
-    //var box5 = $('#box5').val();
-
-    document.getElementById("box1").value = $('#box1').is(':checked');
-    document.getElementById("box2").value = $('#box2').is(':checked');
-    document.getElementById("box3").value = $('#box3').is(':checked');
-    document.getElementById("box4").value = $('#box4').is(':checked');
-    document.getElementById("box5").value = $('#box5').is(':checked');
-
-    console.log("box1 value " + $('#box1').is(':checked'));
-
-    console.log("is checked" + card1);
-
-        //var descr=document.getElementById('descr').value;
-        
-        $.ajax({
-        type: "post",
-        url: "gethint2.php",
-        data: 
-        {  
-           'id' : time,
-           'box1' : $('#box1').val(),
-           'box2' : $('#box2').val(),
-           'box3' : $('#box3').val(),
-           'box4' : $('#box4').val(),
-           'box5' : $('#box5').val()
-        },
-        cache:false,
-        success: function (data) 
-        {
-           //alert('Data Send');
-           //$('#msg').html(html);
-           let text = this.data;
-           console.log("data is " + data);
-           let myArray = data.split(" ");
-           let size = myArray.length;
-          //timestamp = myArray[0];
-          let card_1 = myArray[0];
-          console.log(card_1);
-          let card_2 = myArray[1];
-          console.log(card_2);
-          let card_3 = myArray[2];
-          console.log(card_3);
-          let card_4 = myArray[3];
-          console.log(card_4);
-          let card_5 = myArray[4];
-          console.log(card_5);
-          //let win = myArray[5];
-
-          let my_string = "";
-          for (let i = 5; i< size; i++){
-            if (i == size - 1)
-              my_string += myArray[i];
-            else
-              my_string += myArray[i] + " ";
-          }
-
-          console.log("win is " + my_string);
-
-          if (my_string != "")
-            document.getElementById("txtHint").innerHTML = my_string;
-          else
-            document.getElementById("txtHint").innerHTML = "GAME OVER!";
 
 
-        document.getElementById("cardimage1").src = get_card(card_1);
-        document.getElementById("cardimage2").src = get_card(card_2);
-        document.getElementById("cardimage3").src = get_card(card_3);
-        document.getElementById("cardimage4").src = get_card(card_4);
-        document.getElementById("cardimage5").src = get_card(card_5);
-
-          /*
-          document.getElementById("card1").innerHTML = card_1;
-          document.getElementById("card2").innerHTML = card_2;
-          document.getElementById("card3").innerHTML = card_3;
-          document.getElementById("card4").innerHTML = card_4;
-          document.getElementById("card5").innerHTML = card_5;
-          */
-           //$("#result").html(data);
-           console.log("data sent ok");
-           console.log("cleanup");
-
-           document.getElementById("box1").checked = false;
-           document.getElementById("box2").checked = false;
-           document.getElementById("box3").checked = false;
-           document.getElementById("box4").checked = false;
-           document.getElementById("box5").checked = false;
-           document.getElementById("box1").disabled = true;
-           document.getElementById("box2").disabled = true;
-           document.getElementById("box3").disabled = true;
-           document.getElementById("box4").disabled = true;
-           document.getElementById("box5").disabled = true;
-           //document.getElementById("txtHint").innerHTML = "GAME OVER!";
-        }
-        
-    });
-    
-    return false;
-  /*
-  console.log("now in get request");
-  if (str.length == 0) {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-
-        document.getElementById("txtHint").innerHTML = this.responseText;
-
-      }
-    };
-    xmlhttp.open("POST", "gethint2.php?q=" + str, true);
-    xmlhttp.send();
-  }
-  */
- }
-
-//let jackpot_value;
-function refresh_jackpot() {
-
-  $.ajax({
-        type: "get",
-        url: "gethint3.php",
-        data: 
-        {  
-          //'progressive' : jackpot
-        },
-        cache:false,
-        success: function (data) 
-        {
-           //alert('Data Send');
-           //$('#msg').html(html);
-           //let text = this.data;
-           console.log("data is " + data);
-           //console.log("typeof" + typeof data);
-           //jackpot_value = data;
-           //console.log("jackpot_value is " + jackpot_value);
-
- 
-           document.getElementById("jackpot").innerHTML = data;
-        }
-        
-    });
-        
-}
 window.onload = refresh_jackpot;
 
 </script>
@@ -522,10 +583,12 @@ window.onload = refresh_jackpot;
   </table>
 
 <p><b>Start typing a name in the input field below:</b></p>
+<!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
-  class="button" value="Start game" onclick="showHint(this.value)"/>
+  class="button" value="DEAL" onclick="showHint(this.value)"/>
 </form>
+-->
 <label>Suggestions: <span id="txtHint"></span></p>
 
   <table>
@@ -586,8 +649,17 @@ window.onload = refresh_jackpot;
     </div>
   </div>
   -->
-<button onclick="change_cards(this.value)">Change cards</button>
-<div id="result"></div>
+<!--<button onclick="change_cards(this.value)">DEAL</button>-->
+<!--<button onclick="showHint(this.value)">DEAL</button>-->
+<form action="">
+  <input type="button" name="button2"
+  class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left"/>
+  <input type="button" name="button1"
+  class="button" value="DEAL" style="float:right" onclick="showHint(this.value)"/>
+</form>
+<!--<div id="result"></div>-->
+<br>
+<p>BONUS POKER</p>
 
 </body>
 </html>

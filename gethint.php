@@ -422,7 +422,7 @@ card_4, card_5, card_6, card_7, card_8, card_9, card_10, win, complete)
 VALUES (default," . $time_stamp . "," . $card_1
   . "," . $card_2 . "," . $card_3 . "," . $card_4 . "," .
    $card_5 . "," . $card_6 . "," . $card_7 . "," .
-   $card_8 . "," . $card_9 . "," . $card_10 . ",'" . $win ."',0)";
+   $card_8 . "," . $card_9 . "," . $card_10 . ",'" . $win . "', 0)";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -453,6 +453,21 @@ echo " ";
 echo $id;
 echo " ";
 echo $win;
+
+//increase progressive by 1% meter
+
+/*
+Update MyTable
+Set IDColumn = IDColumn + 1
+*/
+
+$sql = "UPDATE jackpot SET progressive=progressive +" . 0.0125;
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $conn->close();
 
