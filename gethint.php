@@ -116,7 +116,7 @@ $card_9 = $deck[$seed_9];
 unset($deck[$seed_5]);
 array_unshift($deck);
 
-$seed_10 = (random_int(0, 43));
+$seed_10 = (random_int(0, 42));
 $card_10 = $deck[$seed_10];
 unset($deck[$seed_10]);
 array_unshift($deck);
