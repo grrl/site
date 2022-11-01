@@ -196,6 +196,8 @@ $card0 == 39 && $card1 == 48 && $card2 == 49 && $card3 == 50 && $card4 == 51){
 
 $three_of_kind = FALSE;
 $four_of_kind = FALSE;
+$two_pair = 0;
+$full_house = FALSE;
 
 for ($i = 0; $i < 12; $i++) { //go through all 13 values
   //cards[$i] is card
@@ -215,9 +217,17 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
       $four_of_kind = TRUE;
       break;
   }
+  else if ($of_kind_counter == 3 && $two_pair == 1){
+      $full_house == TRUE;
+      break;
+  }
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
   }
+  else if ($of_kind_counter == 2 && $two_pair != 2){
+      $two_pair++;
+  }
+  
 }
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
@@ -308,6 +318,9 @@ else if ($four_of_kind == TRUE){ //3 of kind
 else if ($three_of_kind == TRUE){
 
   $win = "3 OF KIND";
+}
+else if ($two_pair == 2){
+  $win = "TWO PAIR";
 }
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
