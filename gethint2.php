@@ -185,7 +185,7 @@ echo $card_4_final;
 echo " ";
 echo $card_5_final;
 echo " ";
-  
+
 
 $cards = array($card_1_final, $card_2_final, $card_3_final, $card_4_final, $card_5_final);
 
@@ -193,6 +193,7 @@ sort($cards);
 
 $win = "";
 
+$cards_all = array(0, 13, 26, 39);
 $cards_a = array(0, 13, 26, 39);
 $cards_2 = array(1, 14, 27, 40);
 $cards_3 = array(2, 15, 28, 41);
@@ -206,6 +207,37 @@ $cards_10 = array(9, 22, 35, 48);
 $cards_J = array(10, 23, 36, 49);
 $cards_Q = array(11, 24, 37, 50);
 $cards_K = array(12, 25, 38, 51);
+
+//if contains 3 of them
+// 0, 1, 13, 26, 29
+// 0, 13, 26, 39
+
+
+$three_of_kind = FALSE;
+$four_of_kind = FALSE;
+
+for ($i = 0; $i < 12; $i++) { //go through all 13 values
+  //cards[$i] is card
+    
+  $of_kind_counter = 0;
+
+  for ($j = 0; $j < 5; $j++) { //go through selected cards
+
+      if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
+          $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
+          
+          $of_kind_counter++;
+      }
+  }
+
+  if ($of_kind_counter == 4){
+      $four_of_kind = TRUE;
+      break;
+  }
+  else if ($of_kind_counter == 3){
+      $three_of_kind = TRUE;
+  }
+}
 
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
@@ -288,7 +320,15 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
 {
 
   $win == "4 2s, 3s or 4s";
-} 
+}
+else if ($four_of_kind == TRUE){ //3 of kind
+
+    $win = "4 OF KIND";
+  }
+  else if ($three_of_kind == TRUE){
+  
+    $win = "3 OF KIND";
+  }
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
          

@@ -194,6 +194,32 @@ $card0 == 39 && $card1 == 48 && $card2 == 49 && $card3 == 50 && $card4 == 51){
 }
 */
 
+$three_of_kind = FALSE;
+$four_of_kind = FALSE;
+
+for ($i = 0; $i < 12; $i++) { //go through all 13 values
+  //cards[$i] is card
+    
+  $of_kind_counter = 0;
+
+  for ($j = 0; $j < 5; $j++) { //go through selected cards
+
+      if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
+          $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
+          
+          $of_kind_counter++;
+      }
+  }
+
+  if ($of_kind_counter == 4){
+      $four_of_kind = TRUE;
+      break;
+  }
+  else if ($of_kind_counter == 3){
+      $three_of_kind = TRUE;
+  }
+}
+
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
     $cards[0] == "26" && $cards[1] == "35" && $cards[2] == "36" && $cards[3] == "37" && $cards[4] == "38" ||
@@ -274,7 +300,15 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
 {
 
   $win == "4 2s, 3s or 4s";
-} 
+}
+else if ($four_of_kind == TRUE){ //3 of kind
+
+  $win = "4 OF KIND";
+}
+else if ($three_of_kind == TRUE){
+
+  $win = "3 OF KIND";
+}
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
          
