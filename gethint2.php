@@ -193,20 +193,6 @@ sort($cards);
 
 $win = "";
 
-$cards_all = array(0, 13, 26, 39);
-$cards_a = array(0, 13, 26, 39);
-$cards_2 = array(1, 14, 27, 40);
-$cards_3 = array(2, 15, 28, 41);
-$cards_4 = array(3, 16, 29, 42);
-$cards_5 = array(4, 17, 30, 43);
-$cards_6 = array(5, 18, 31, 44);
-$cards_7 = array(6, 19, 32, 45);
-$cards_8 = array(7, 20, 33, 46);
-$cards_9 = array(8, 21, 34, 47);
-$cards_10 = array(9, 22, 35, 48);
-$cards_J = array(10, 23, 36, 49);
-$cards_Q = array(11, 24, 37, 50);
-$cards_K = array(12, 25, 38, 51);
 
 //if contains 3 of them
 // 0, 1, 13, 26, 29
@@ -343,7 +329,7 @@ else if ($four_of_kind == TRUE){ //3 of kind
   
     $win = "3 OF KIND";
 }
-  else if ($two_pair == 2){
+else if ($two_pair == 2){
     $win = "TWO PAIR";
 }
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
