@@ -324,11 +324,11 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
 else if ($four_of_kind == TRUE){ //3 of kind
 
     $win = "4 OF KIND";
-  }
+}
   else if ($three_of_kind == TRUE){
   
     $win = "3 OF KIND";
-  }
+}
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
          
