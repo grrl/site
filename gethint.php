@@ -315,6 +315,10 @@ else if ($four_of_kind == TRUE){ //3 of kind
 
   $win = "4 OF KIND";
 }
+else if ($full_house == TRUE){
+  
+  $win = "FULL HOUSE";
+}
 else if ($three_of_kind == TRUE){
 
   $win = "3 OF KIND";
