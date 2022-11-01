@@ -193,6 +193,21 @@ sort($cards);
 
 $win = "";
 
+$cards_a = array(0, 13, 26, 39);
+$cards_2 = array(1, 14, 27, 40);
+$cards_3 = array(2, 15, 28, 41);
+$cards_4 = array(3, 16, 29, 42);
+$cards_5 = array(4, 17, 30, 43);
+$cards_6 = array(5, 18, 31, 44);
+$cards_7 = array(6, 19, 32, 45);
+$cards_8 = array(7, 20, 33, 46);
+$cards_9 = array(8, 21, 34, 47);
+$cards_10 = array(9, 22, 35, 48);
+$cards_J = array(10, 23, 36, 49);
+$cards_Q = array(11, 24, 37, 50);
+$cards_K = array(12, 25, 38, 51);
+
+
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
     $cards[0] == "26" && $cards[1] == "35" && $cards[2] == "36" && $cards[3] == "37" && $cards[4] == "38" ||
