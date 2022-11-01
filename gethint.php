@@ -217,17 +217,17 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
       $four_of_kind = TRUE;
       break;
   }
-  else if ($of_kind_counter == 3 && $two_pair == 1){
+  else if ($three_of_kind == TRUE && $two_pair == 1){
       $full_house == TRUE;
       break;
   }
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
+      $two_pair--;
   }
   else if ($of_kind_counter == 2 && $two_pair != 2){
       $two_pair++;
   }
-  
 }
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
@@ -316,7 +316,7 @@ else if ($four_of_kind == TRUE){ //3 of kind
   $win = "4 OF KIND";
 }
 else if ($full_house == TRUE){
-  
+
   $win = "FULL HOUSE";
 }
 else if ($three_of_kind == TRUE){
