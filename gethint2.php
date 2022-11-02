@@ -216,6 +216,7 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
           
           $of_kind_counter++;
       }
+
   }
 
 
@@ -230,11 +231,10 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
   }
-  else if ($of_kind_counter == 2 && $two_pair != 2){
+  else if ($of_kind_counter == 2/* && $two_pair != 2*/){
       $two_pair++;
   }
 }
-
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
