@@ -270,9 +270,12 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
   }
 }
 
-if ($two_pair == 2){
+if ($three_of_kind && !$full_house){
+  $win = "THREE OF KIND"
+}
+else if ($two_pair == 2 & !$full_house){
 
-    $win = "TWO PAIR";
+  $win = "TWO PAIR";
 }
 
 if ($win == ""){
