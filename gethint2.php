@@ -370,6 +370,7 @@ else{
       }
       else if ($three_of_kind == TRUE && $two_pair == 2){
           $full_house == TRUE;
+
           //break;
       }
       else if ($of_kind_counter == 3){
@@ -379,8 +380,6 @@ else{
           $two_pair++;
       }
     }
-
-
 
 }
 /*
@@ -399,7 +398,9 @@ else if ($four_of_kind == TRUE){ //3 of kind
 else if ($two_pair == 2){
     $win = "TWO PAIR";
 }*/
-else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
+
+if ($win == ""){
+    if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
          
          (($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && 
@@ -533,10 +534,11 @@ else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards
          
          (($cards[2] == "0" || $cards[2] == "13" || $cards[2] == "26" || $cards[2] == "39") && 
          ($cards[4] == "0" || $cards[4] == "13" || $cards[4] == "26" || $cards[4] == "39")))//jacks or better
-{
-    $win = "JACKS OR BETTER";
+    	{
+            $win = "JACKS OR BETTER";
+        }
 }
-*/
+
 echo $win;
 
 //update database finished round and update win
