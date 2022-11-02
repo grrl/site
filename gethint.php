@@ -199,7 +199,7 @@ $four_of_kind = FALSE;
 $two_pair = 0;
 $full_house = FALSE;
 
-for ($i = 0; $i < 12; $i++) { //go through all 13 values
+for ($i = 0; $i < 13; $i++) { //go through all 13 values
   //cards[$i] is card
     
   $of_kind_counter = 0;

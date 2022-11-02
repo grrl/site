@@ -203,8 +203,9 @@ $three_of_kind = FALSE;
 $four_of_kind = FALSE;
 $two_pair = 0;
 $full_house = FALSE;
+$four_aces = FALSE;
 
-for ($i = 0; $i < 12; $i++) { //go through all 13 values
+for ($i = 0; $i < 13; $i++) { //go through all 13 values
   //cards[$i] is card
     
   $of_kind_counter = 0;
@@ -214,19 +215,22 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
       if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
           $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
           
-          $of_kind_counter++;
+            $of_kind_counter++;
       }
 
   }
 
-
   if ($of_kind_counter == 4){
+        $four_aces = TRUE;
+        
+  }
+  else if ($of_kind_counter == 4){
       $four_of_kind = TRUE;
-      break;
+      //break;
   }
   else if ($three_of_kind == TRUE && $two_pair == 2){
       $full_house == TRUE;
-      break;
+      //break;
   }
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
@@ -239,30 +243,30 @@ for ($i = 0; $i < 12; $i++) { //go through all 13 values
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
     $cards[0] == "26" && $cards[1] == "35" && $cards[2] == "36" && $cards[3] == "37" && $cards[4] == "38" ||
-    $cards[0] == '39' && $cards[1] == '48' && $cards[2] == '49' && $cards[3] == '50' && $cards[4] == '51'){
+    $cards[0] == "39" && $cards[1] == "48" && $cards[2] == "49" && $cards[3] == "50" && $cards[4] == "51"){
 
       $win = "ROYAL FLUSH";
 
 } else if (
-    $cards[0] == "0" && $cards[1] == "1" && $cards[2] == "2" && $cards[3] == "3" && $cards[4] == "4" ||
-    $cards[0] == "1" && $cards[1] == "2" && $cards[2] == "3" && $cards[3] == "4" && $cards[4] == "5" ||
-    $cards[0] == "2" && $cards[1] == "3" && $cards[2] == "4" && $cards[3] == "5" && $cards[4] == "6" ||
-    $cards[0] == "3" && $cards[1] == "4" && $cards[2] == "5" && $cards[3] == "6" && $cards[4] == "7" ||
-    $cards[0] == "4" && $cards[1] == "5" && $cards[2] == "6" && $cards[3] == "7" && $cards[4] == "8" ||
-    $cards[0] == "5" && $cards[1] == "6" && $cards[2] == "7" && $cards[3] == "8" && $cards[4] == "9" ||
-    $cards[0] == "6" && $cards[1] == "7" && $cards[2] == "8" && $cards[3] == "9" && $cards[4] == "10" ||
-    $cards[0] == "7" && $cards[1] == "8" && $cards[2] == "9" && $cards[3] == "10" && $cards[4] == "11" ||
-    $cards[0] == "8" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
+    ($cards[0] == "0" && $cards[1] == "1" && $cards[2] == "2" && $cards[3] == "3" && $cards[4] == "4") ||
+    ($cards[0] == "1" && $cards[1] == "2" && $cards[2] == "3" && $cards[3] == "4" && $cards[4] == "5") ||
+    ($cards[0] == "2" && $cards[1] == "3" && $cards[2] == "4" && $cards[3] == "5" && $cards[4] == "6") ||
+    ($cards[0] == "3" && $cards[1] == "4" && $cards[2] == "5" && $cards[3] == "6" && $cards[4] == "7") ||
+    ($cards[0] == "4" && $cards[1] == "5" && $cards[2] == "6" && $cards[3] == "7" && $cards[4] == "8") ||
+    ($cards[0] == "5" && $cards[1] == "6" && $cards[2] == "7" && $cards[3] == "8" && $cards[4] == "9") ||
+    ($cards[0] == "6" && $cards[1] == "7" && $cards[2] == "8" && $cards[3] == "9" && $cards[4] == "10") ||
+    ($cards[0] == "7" && $cards[1] == "8" && $cards[2] == "9" && $cards[3] == "10" && $cards[4] == "11") ||
+    ($cards[0] == "8" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12") ||
     
-    $cards[0] == "13" && $cards[1] == "14" && $cards[2] == "15" && $cards[3] == "16" && $cards[4] == "17" ||
-    $cards[0] == "14" && $cards[1] == "15" && $cards[2] == "16" && $cards[3] == "17" && $cards[4] == "18" ||
-    $cards[0] == "15" && $cards[1] == "16" && $cards[2] == "17" && $cards[3] == "18" && $cards[4] == "19" ||
-    $cards[0] == "16" && $cards[1] == "17" && $cards[2] == "18" && $cards[3] == "19" && $cards[4] == "20" ||
-    $cards[0] == "17" && $cards[1] == "18" && $cards[2] == "19" && $cards[3] == "20" && $cards[4] == "21" ||
-    $cards[0] == "18" && $cards[1] == "19" && $cards[2] == "20" && $cards[3] == "21" && $cards[4] == "22" ||
-    $cards[0] == "19" && $cards[1] == "20" && $cards[2] == "21" && $cards[3] == "22" && $cards[4] == "23" ||
-    $cards[0] == "20" && $cards[1] == "21" && $cards[2] == "22" && $cards[3] == "23" && $cards[4] == "24" ||
-    $cards[0] == "21" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
+    ($cards[0] == "13" && $cards[1] == "14" && $cards[2] == "15" && $cards[3] == "16" && $cards[4] == "17") ||
+    ($cards[0] == "14" && $cards[1] == "15" && $cards[2] == "16" && $cards[3] == "17" && $cards[4] == "18") ||
+    ($cards[0] == "15" && $cards[1] == "16" && $cards[2] == "17" && $cards[3] == "18" && $cards[4] == "19") ||
+    ($cards[0] == "16" && $cards[1] == "17" && $cards[2] == "18" && $cards[3] == "19" && $cards[4] == "20") ||
+    ($cards[0] == "17" && $cards[1] == "18" && $cards[2] == "19" && $cards[3] == "20" && $cards[4] == "21") ||
+    ($cards[0] == "18" && $cards[1] == "19" && $cards[2] == "20" && $cards[3] == "21" && $cards[4] == "22") ||
+    ($cards[0] == "19" && $cards[1] == "20" && $cards[2] == "21" && $cards[3] == "22" && $cards[4] == "23") ||
+    ($cards[0] == "20" && $cards[1] == "21" && $cards[2] == "22" && $cards[3] == "23" && $cards[4] == "24") ||
+    ($cards[0] == 21 && $cards[1] == 22 && $cards[2] == 23 && $cards[3] == 24 && $cards[4] == 25) ||
     
     $cards[0] == "26" && $cards[1] == "27" && $cards[2] == "28" && $cards[3] == "29" && $cards[4] == "30" ||
     $cards[0] == "27" && $cards[1] == "28" && $cards[2] == "29" && $cards[3] == "30" && $cards[4] == "31" ||
@@ -282,20 +286,21 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
     $cards[0] == "44" && $cards[1] == "45" && $cards[2] == "46" && $cards[3] == "47" && $cards[4] == "48" ||
     $cards[0] == "45" && $cards[1] == "46" && $cards[2] == "47" && $cards[3] == "48" && $cards[4] == "49" ||
     $cards[0] == "46" && $cards[1] == "47" && $cards[2] == "48" && $cards[3] == "49" && $cards[4] == "50" ||
-    $cards[0] == "47" && $cards[1] == "48" && $cards[2] == "49" && $cards[3] == "50" && $cards[4] == "51"){
+    $cards[0] == "47" && $cards[1] == "48" && $cards[2] == "49" && $cards[3] == "50" && $cards[4] == "51")
+{
   //straight flush
 
       $win == "STRAIGHT FLUSH";
 
- } else if ($cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[3] == "39" || //last card random
+ } else if /* ($cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[3] == "39" || //last card random
           $cards[0] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39" || //2nd card random
           $cards[0] == "0" && $cards[1] == "13" && $cards[3] == "26" && $cards[4] == "39" || //3rd card random
-          $cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[4] == "39") //4th card random
-{
-
-  $win == "4 ACES";
+          $cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[4] == "39" ||
+          $cards[1] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39"  )*/ //4th card random
+($four_aces == TRUE)
+{ 
+        $win == "4 ACES";
 }
-
 else if ($cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
 $cards[0] == "1" && $cards[2] == "14" && $cards[3] == "27" && $cards[4] == "40" || //2nd card random
 $cards[0] == "1" && $cards[1] == "14" && $cards[3] == "27" && $cards[4] == "40" || //3rd card random
@@ -327,7 +332,7 @@ else if ($four_of_kind == TRUE){ //3 of kind
 }
   else if ($three_of_kind == TRUE){
   
-    $win = "3 OF KIND";
+    $win = "FAULT IS HERE 3";
 }
 else if ($two_pair == 2){
     $win = "TWO PAIR";
