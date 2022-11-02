@@ -249,6 +249,14 @@ if ($four_aces == TRUE)
     $win == "4 ACES";
 }
 */
+/*
+if (($cards[0] == "0" && $cards[1] == "1" && $cards[2] == "2" && $cards[3] == "3" && $cards[4] == "4") ||
+($cards[0] == "1" && $cards[1] == "2" && $cards[2] == "3" && $cards[3] == "4" && $cards[4] == "5")){
+
+    $win == "STRAIGHT FLUSH";
+    echo $win;
+}
+*/
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
@@ -257,7 +265,7 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 
       $win = "ROYAL FLUSH";
 
-} else if (
+}/* else if (
     ($cards[0] == "0" && $cards[1] == "1" && $cards[2] == "2" && $cards[3] == "3" && $cards[4] == "4") ||
     ($cards[0] == "1" && $cards[1] == "2" && $cards[2] == "3" && $cards[3] == "4" && $cards[4] == "5") ||
     ($cards[0] == "2" && $cards[1] == "3" && $cards[2] == "4" && $cards[3] == "5" && $cards[4] == "6") ||
@@ -302,7 +310,7 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 
       $win == "STRAIGHT FLUSH";
 
- }
+}*/
  /* else if ($cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[3] == "39" || //last card random
           $cards[0] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39" || //2nd card random
           $cards[0] == "0" && $cards[1] == "13" && $cards[3] == "26" && $cards[4] == "39" || //3rd card random
@@ -312,7 +320,20 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 { 
         $win == "4 ACES";
 }*/
-else if (
+
+for ($i = 0; $i < 31; $i++){
+
+
+    if ($cards[$i] == $i && $cards[$i + 1] == $i + 1 &&
+    $cards[$i + 2] == $i + 2 && $cards[$i + 3] == $i + 3 &&
+    $cards[$i + 4] == $i + 4){
+    
+        $win = "STRAIGHT FLUSH";
+        break;
+    }
+}
+
+if (
 $cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
 $cards[0] == "1" && $cards[2] == "14" && $cards[3] == "27" && $cards[4] == "40" || //2nd card random
 $cards[0] == "1" && $cards[1] == "14" && $cards[3] == "27" && $cards[4] == "40" || //3rd card random
@@ -331,8 +352,8 @@ $cards[0] == "3" && $cards[1] == "16" && $cards[3] == "29" && $cards[4] == "42" 
 $cards[0] == "3" && $cards[1] == "16" && $cards[2] == "29" && $cards[4] == "42" || //4th card random
 $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42") //first card random) //2's 3's or 4's
 {
-
-  $win == "4 2s, 3s or 4s";
+  //change to for loop
+  $win = "4 2s, 3s or 4s";
 }
 else{
 
