@@ -215,16 +215,21 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
       if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
           $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
           
+            //echo $cards[$j];
+            //echo " ";
             $of_kind_counter++;
       }
   }
 
-  if ($of_kind_counter == 4){
+  if ($of_kind_counter == 4 && $i == 0){
         $four_aces = TRUE;
+        //echo "fouracestrue";
+        $win = "4 ACES";
+        break;
   }
   else if ($of_kind_counter == 4){
       $four_of_kind = TRUE;
-      //break;
+      break;
   }
   else if ($three_of_kind == TRUE && $two_pair == 2){
       $full_house == TRUE;
@@ -238,6 +243,13 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
   }
 }
 
+/*
+if ($four_aces == TRUE)
+{ 
+    $win == "4 ACES";
+}
+*/
+/*
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
     $cards[0] == "26" && $cards[1] == "35" && $cards[2] == "36" && $cards[3] == "37" && $cards[4] == "38" ||
@@ -290,12 +302,12 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 
       $win == "STRAIGHT FLUSH";
 
- } else if /* ($cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[3] == "39" || //last card random
+ } else if ($cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[3] == "39" || //last card random
           $cards[0] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39" || //2nd card random
           $cards[0] == "0" && $cards[1] == "13" && $cards[3] == "26" && $cards[4] == "39" || //3rd card random
           $cards[0] == "0" && $cards[1] == "13" && $cards[2] == "26" && $cards[4] == "39" ||
-          $cards[1] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39"  )*/ //4th card random
-($four_aces == TRUE)
+          $cards[1] == "0" && $cards[2] == "13" && $cards[3] == "26" && $cards[4] == "39"  ) //4th card random
+//($four_aces == TRUE)
 { 
         $win == "4 ACES";
 }
@@ -472,7 +484,7 @@ else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards
 {
     $win = "JACKS OR BETTER";
 }
-
+*/
 echo $win;
 
 //update database finished round and update win
