@@ -346,6 +346,10 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
   }
 }
 
+if ($two_pair == 2){
+
+    $win = "TWO PAIR";
+}
 
 if ($win == ""){
     if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
