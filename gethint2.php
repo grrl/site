@@ -321,12 +321,12 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
         $win == "4 ACES";
 }*/
 
-for ($i = 0; $i < 31; $i++){
+for ($i = 0; $i < 32; $i++){
 
 
-    if ($cards[$i] == $i && $cards[$i + 1] == $i + 1 &&
-    $cards[$i + 2] == $i + 2 && $cards[$i + 3] == $i + 3 &&
-    $cards[$i + 4] == $i + 4){
+    if ($cards[0] == $i && $cards[1] == $i + 1 &&
+        $cards[2] == $i + 2 && $cards[3] == $i + 3 &&
+        $cards[4] == $i + 4){
     
         $win = "STRAIGHT FLUSH";
         break;
@@ -336,11 +336,11 @@ for ($i = 0; $i < 31; $i++){
 for ($i = 0; $i < 31; $i++){
 
 
-    if (($cards[$i] == $i || $cards[$i] == $i + 13 || $cards[$i] == $i + 26 || $cards[$i] == $i + 39) 
-        && ($cards[$i + 1] == $i + 1 || $cards[$i + 1] == $i + 14 || $cards[$i + 1] == $i + 27 || $cards[$i + 1] == $i + 40)
-        && ($cards[$i + 2] == $i + 2 || $cards[$i + 2] == $i + 15 || $cards[$i + 2] == $i + 28 || $cards[$i + 2] == $i + 41)
-        && ($cards[$i + 3] == $i + 3 || $cards[$i + 3] == $i + 16 || $cards[$i + 3] == $i + 29 || $cards[$i + 3] == $i + 42)
-        && ($cards[$i + 4] == $i + 4 || $cards[$i + 4] == $i + 17 || $cards[$i + 4] == $i + 30 || $cards[$i + 4] == $i + 43))
+    if (($cards[0] == $i || $cards[0] == $i + 13 || $cards[0] == $i + 26 || $cards[0] == $i + 39) 
+        && ($cards[1] == $i + 1 || $cards[1] == $i + 14 || $cards[1] == $i + 27 || $cards[1] == $i + 40)
+        && ($cards[2] == $i + 2 || $cards[2] == $i + 15 || $cards[2] == $i + 28 || $cards[2] == $i + 41)
+        && ($cards[3] == $i + 3 || $cards[3] == $i + 16 || $cards[3] == $i + 29 || $cards[3] == $i + 42)
+        && ($cards[4] == $i + 4 || $cards[4] == $i + 17 || $cards[4] == $i + 30 || $cards[4] == $i + 43))
     {
     
         $win = "STRAIGHT";
@@ -372,56 +372,58 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
 }
 else{
 */
-    $three_of_kind = FALSE;
-    $four_of_kind = FALSE;
-    $two_pair = 0;
-    $full_house = FALSE;
-    $four_aces = FALSE;
-    
-    for ($i = 0; $i < 13; $i++) { //go through all 13 values
-      //cards[$i] is card
-        
-      $of_kind_counter = 0;
-    
-      for ($j = 0; $j < 5; $j++) { //go through selected cards
-    
-          if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
-              $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
-              
-                //echo $cards[$j];
-                //echo " ";
-                $of_kind_counter++;
-          }
-      }
-    
-      if ($of_kind_counter == 4 && $i == 0){
-            $four_aces = TRUE;
-            //echo "fouracestrue";
-            $win = "4 ACES";
-            break;
-      }
-      else if ($of_kind_counter == 4 && ($i > 0 && i < 4){
+$three_of_kind = FALSE;
+$four_of_kind = FALSE;
+$two_pair = 0;
+$full_house = FALSE;
+$four_aces = FALSE;
 
-            $win = "4 2's, 3's or 4's";
-            break;
+for ($i = 0; $i < 13; $i++) { //go through all 13 values
+  //cards[$i] is card
+    
+  $of_kind_counter = 0;
+
+  for ($j = 0; $j < 5; $j++) { //go through selected cards
+
+      if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
+          $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
+          
+            //echo $cards[$j];
+            //echo " ";
+            $of_kind_counter++;
       }
-      else if ($of_kind_counter == 4){
-          $four_of_kind = TRUE;
-          $win = "4 OF KIND";
-          break;
-      }
-      else if ($three_of_kind == TRUE && $two_pair == 2){
-          $full_house == TRUE;
-          $win = "FULL HOUSE";
-          //break;
-      }
-      else if ($of_kind_counter == 3){
-          $three_of_kind = TRUE;
-      }
-      else if ($of_kind_counter == 2/* && $two_pair != 2*/){
-          $two_pair++;
-      }
-    }
+  }
+
+  if ($of_kind_counter == 4 && $i == 0){
+        $four_aces = TRUE;
+        //echo "fouracestrue";
+        $win = "4 ACES";
+        break;
+  }
+  else if (($of_kind_counter == 4 && $i == 1)||
+           ($of_kind_counter == 4 && $i == 2)||
+           ($of_kind_counter == 4 && $i == 3)){
+
+        $win = "4 2s 3s or 4s";
+        break;
+  }
+  else if ($of_kind_counter == 4){
+      $four_of_kind = TRUE;
+      $win = "4 OF KIND";
+      break;
+  }
+  else if ($three_of_kind == TRUE && $two_pair == 2){
+      $full_house == TRUE;
+      $win = "FULL HOUSE";
+      //break;
+  }
+  else if ($of_kind_counter == 3){
+      $three_of_kind = TRUE;
+  }
+  else if ($of_kind_counter == 2/* && $two_pair != 2*/){
+      $two_pair++;
+  }
+}
 
 //}
 /*
