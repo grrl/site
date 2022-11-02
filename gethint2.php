@@ -332,7 +332,7 @@ for ($i = 0; $i < 31; $i++){
         break;
     }
 }
-
+/*
 if (
 $cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
 $cards[0] == "1" && $cards[2] == "14" && $cards[3] == "27" && $cards[4] == "40" || //2nd card random
@@ -356,7 +356,7 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
   $win = "4 2s, 3s or 4s";
 }
 else{
-
+*/
     $three_of_kind = FALSE;
     $four_of_kind = FALSE;
     $two_pair = 0;
@@ -385,6 +385,11 @@ else{
             $win = "4 ACES";
             break;
       }
+      else if ($of_kind_counter == 4 && ($i > 0 && i < 4){
+
+            $win = "4 2's, 3's or 4's";
+            break;
+      }
       else if ($of_kind_counter == 4){
           $four_of_kind = TRUE;
           $win = "4 OF KIND";
@@ -392,7 +397,7 @@ else{
       }
       else if ($three_of_kind == TRUE && $two_pair == 2){
           $full_house == TRUE;
-
+          $win = "FULL HOUSE";
           //break;
       }
       else if ($of_kind_counter == 3){
@@ -403,7 +408,7 @@ else{
       }
     }
 
-}
+//}
 /*
 else if ($four_of_kind == TRUE){ //3 of kind
 
