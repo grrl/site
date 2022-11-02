@@ -332,6 +332,21 @@ for ($i = 0; $i < 31; $i++){
         break;
     }
 }
+
+for ($i = 0; $i < 31; $i++){
+
+
+    if (($cards[$i] == $i || $cards[$i] == $i + 13 || $cards[$i] == $i + 26 || $cards[$i] == $i + 39) 
+        && ($cards[$i + 1] == $i + 1 || $cards[$i + 1] == $i + 14 || $cards[$i + 1] == $i + 27 || $cards[$i + 1] == $i + 40)
+        && ($cards[$i + 2] == $i + 2 || $cards[$i + 2] == $i + 15 || $cards[$i + 2] == $i + 28 || $cards[$i + 2] == $i + 41)
+        && ($cards[$i + 3] == $i + 3 || $cards[$i + 3] == $i + 16 || $cards[$i + 3] == $i + 29 || $cards[$i + 3] == $i + 42)
+        && ($cards[$i + 4] == $i + 4 || $cards[$i + 4] == $i + 17 || $cards[$i + 4] == $i + 30 || $cards[$i + 4] == $i + 43))
+    {
+    
+        $win = "STRAIGHT";
+        break;
+    }
+}
 /*
 if (
 $cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
