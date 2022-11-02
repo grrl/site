@@ -203,6 +203,18 @@ for ($i = 0; $i < 32; $i++){
     }
 }
 
+$card_1_straight;
+$card_2_straight;
+$card_3_straight;
+$card_4_straight;
+$card_5_straight;
+
+if ($cards[0] > 39){
+
+    $card_1_straight = cards[0]  - 36;
+
+}
+
 for ($i = 0; $i < 32; $i++){
 
     if (($cards[0] == $i || $cards[0] == $i + 13 || $cards[0] == $i + 26 || $cards[0] == $i + 39) 
