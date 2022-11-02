@@ -323,7 +323,6 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 
 for ($i = 0; $i < 32; $i++){
 
-
     if ($cards[0] == $i && $cards[1] == $i + 1 &&
         $cards[2] == $i + 2 && $cards[3] == $i + 3 &&
         $cards[4] == $i + 4){
@@ -334,7 +333,6 @@ for ($i = 0; $i < 32; $i++){
 }
 
 for ($i = 0; $i < 31; $i++){
-
 
     if (($cards[0] == $i || $cards[0] == $i + 13 || $cards[0] == $i + 26 || $cards[0] == $i + 39) 
         && ($cards[1] == $i + 1 || $cards[1] == $i + 14 || $cards[1] == $i + 27 || $cards[1] == $i + 40)
