@@ -217,12 +217,10 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
           
             $of_kind_counter++;
       }
-
   }
 
   if ($of_kind_counter == 4){
         $four_aces = TRUE;
-        
   }
   else if ($of_kind_counter == 4){
       $four_of_kind = TRUE;
