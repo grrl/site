@@ -266,6 +266,7 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
       $win = "ROYAL FLUSH";
 
 }
+else {
 
 for ($i = 0; $i < 32; $i++){
 
@@ -485,7 +486,7 @@ if ($win == ""){
        $win = "JACKS OR BETTER";
    }
 }
-
+}
 echo $win;
 
 //update database finished round and update win
