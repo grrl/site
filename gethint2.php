@@ -198,7 +198,7 @@ $win = "";
 // 0, 1, 13, 26, 29
 // 0, 13, 26, 39
 
-
+/*
 $three_of_kind = FALSE;
 $four_of_kind = FALSE;
 $two_pair = 0;
@@ -238,11 +238,11 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
   }
-  else if ($of_kind_counter == 2/* && $two_pair != 2*/){
+  else if ($of_kind_counter == 2){
       $two_pair++;
   }
 }
-
+*/
 /*
 if ($four_aces == TRUE)
 { 
@@ -312,7 +312,8 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 { 
         $win == "4 ACES";
 }*/
-else if ($cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
+else if (
+$cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[3] == "40" || //last card random
 $cards[0] == "1" && $cards[2] == "14" && $cards[3] == "27" && $cards[4] == "40" || //2nd card random
 $cards[0] == "1" && $cards[1] == "14" && $cards[3] == "27" && $cards[4] == "40" || //3rd card random
 $cards[0] == "1" && $cards[1] == "14" && $cards[2] == "27" && $cards[4] == "40" || //4th card random
@@ -333,6 +334,56 @@ $cards[1] == "3" && $cards[2] == "16" && $cards[3] == "29" && $cards[4] == "42")
 
   $win == "4 2s, 3s or 4s";
 }
+else{
+
+    $three_of_kind = FALSE;
+    $four_of_kind = FALSE;
+    $two_pair = 0;
+    $full_house = FALSE;
+    $four_aces = FALSE;
+    
+    for ($i = 0; $i < 13; $i++) { //go through all 13 values
+      //cards[$i] is card
+        
+      $of_kind_counter = 0;
+    
+      for ($j = 0; $j < 5; $j++) { //go through selected cards
+    
+          if ($cards[$j] == $i || $cards[$j] == $i + 13 ||
+              $cards[$j] == $i + 26 || $cards[$j] == $i + 39){
+              
+                //echo $cards[$j];
+                //echo " ";
+                $of_kind_counter++;
+          }
+      }
+    
+      if ($of_kind_counter == 4 && $i == 0){
+            $four_aces = TRUE;
+            //echo "fouracestrue";
+            $win = "4 ACES";
+            break;
+      }
+      else if ($of_kind_counter == 4){
+          $four_of_kind = TRUE;
+          break;
+      }
+      else if ($three_of_kind == TRUE && $two_pair == 2){
+          $full_house == TRUE;
+          //break;
+      }
+      else if ($of_kind_counter == 3){
+          $three_of_kind = TRUE;
+      }
+      else if ($of_kind_counter == 2/* && $two_pair != 2*/){
+          $two_pair++;
+      }
+    }
+
+
+
+}
+/*
 else if ($four_of_kind == TRUE){ //3 of kind
 
     $win = "4 OF KIND";
@@ -347,7 +398,7 @@ else if ($four_of_kind == TRUE){ //3 of kind
 }
 else if ($two_pair == 2){
     $win = "TWO PAIR";
-}
+}*/
 else if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
          ($cards[1] == "10" || $cards[1] == "23" || $cards[1] == "36" || $cards[1] == "49")) ||
          
