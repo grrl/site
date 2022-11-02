@@ -366,6 +366,7 @@ else{
       }
       else if ($of_kind_counter == 4){
           $four_of_kind = TRUE;
+          $win = "4 OF KIND";
           break;
       }
       else if ($three_of_kind == TRUE && $two_pair == 2){
