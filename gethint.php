@@ -203,30 +203,71 @@ for ($i = 0; $i < 32; $i++){
     }
 }
 
-$card_1_straight;
-$card_2_straight;
-$card_3_straight;
-$card_4_straight;
-$card_5_straight;
+if ($win != "STRAIGHT FLUSH"){
+
+$card_1_straight = $cards[0];
+$card_2_straight = $cards[1];
+$card_3_straight = $cards[2];
+$card_4_straight = $cards[3];
+$card_5_straight = $cards[4];
 
 if ($cards[0] > 39){
-
-    $card_1_straight = cards[0]  - 36;
-
+  $card_1_straight = $cards[0] - 39;
+}
+else if ($cards[0] > 25){
+  $card_1_straight = $cards[0] - 26;
+}
+else if ($cards[0] > 13){
+  $card_1_straight = $cards[0] - 13;
+}
+if ($cards[1] > 39){
+  $card_2_straight = $cards[1] - 39;
+}
+else if ($cards[1] > 25){
+  $card_2_straight = $cards[1] - 26;
+}
+else if ($cards[1] > 13){
+  $card_2_straight = $cards[1] - 13;
+}
+if ($cards[2] > 39){
+  $card_3_straight = $cards[2] - 39;
+}
+else if ($cards[2] > 25){
+  $card_3_straight = $cards[2] - 26;
+}
+else if ($cards[2] > 13){
+  $card_3_straight = $cards[2] - 13;
+}
+if ($cards[3] > 39){
+  $card_4_straight = $cards[3] - 39;
+}
+else if ($cards[3] > 25){
+  $card_4_straight = $cards[3] - 26;
+}
+else if ($cards[3] > 13){
+  $card_4_straight = $cards[3] - 13;
+}
+if ($cards[4] > 39){
+  $card_5_straight = $cards[4] - 39;
+}
+else if ($cards[4] > 25){
+  $card_5_straight = $cards[4] - 26;
+}
+else if ($cards[4] > 13){
+  $card_5_straight = $cards[4] - 13;
 }
 
-for ($i = 0; $i < 32; $i++){
 
-    if (($cards[0] == $i || $cards[0] == $i + 13 || $cards[0] == $i + 26 || $cards[0] == $i + 39) 
-        && ($cards[1] == $i + 1 || $cards[1] == $i + 14 || $cards[1] == $i + 27 || $cards[1] == $i + 40)
-        && ($cards[2] == $i + 2 || $cards[2] == $i + 15 || $cards[2] == $i + 28 || $cards[2] == $i + 41)
-        && ($cards[3] == $i + 3 || $cards[3] == $i + 16 || $cards[3] == $i + 29 || $cards[3] == $i + 42)
-        && ($cards[4] == $i + 4 || $cards[4] == $i + 17 || $cards[4] == $i + 30 || $cards[4] == $i + 43))
-    {
-    
-        $win = "STRAIGHT";
-        break;
-    }
+for ($i = 0; $i < 8; $i++){
+
+  if ($card_1_straight == $i && $card_2_straight == $i + 1 &&
+    $card_3_straight == $i + 2 && $card_4_straight == $i + 3 &&
+    $card_5_straight == $i + 4){
+
+      $win = "STRAIGHT";
+      break;
+  }
+}
 }
 
 $three_of_kind = FALSE;
