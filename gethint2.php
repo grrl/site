@@ -336,7 +336,7 @@ for ($i = 0; $i < 13; $i++) { //go through all 13 values
   else if ($three_of_kind == TRUE && $two_pair == 2){
       $full_house == TRUE;
       $win = "FULL HOUSE";
-      //break;
+      break;
   }
   else if ($of_kind_counter == 3){
       $three_of_kind = TRUE;
