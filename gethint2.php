@@ -186,13 +186,11 @@ echo " ";
 echo $card_5_final;
 echo " ";
 
-
 $cards = array($card_1_final, $card_2_final, $card_3_final, $card_4_final, $card_5_final);
 
 sort($cards);
 
 $win = "";
-
 
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
@@ -216,6 +214,36 @@ for ($i = 0; $i < 32; $i++){
 }
 
 if ($win != "STRAIGHT FLUSH"){
+
+    if ((($cards[0] >= 0 && $cards[0] <= 12) && 
+    ($cards[1] >= 0 && $cards[1] <= 12) &&
+    ($cards[2] >= 0 && $cards[2] <= 12) &&
+    ($cards[3] >= 0 && $cards[3] <= 12) &&
+    ($cards[4] >= 0 && $cards[4] <= 12)) ||
+    
+    (($cards[0] >= 13 && $cards[0] <= 25) && 
+    ($cards[1] >= 13 && $cards[1] <= 25) &&
+    ($cards[2] >= 13 && $cards[2] <= 25) &&
+    ($cards[3] >= 13 && $cards[3] <= 25) &&
+    ($cards[4] >= 13 && $cards[4] <= 25)) ||
+  
+    (($cards[0] >= 26 && $cards[0] <= 38) && 
+    ($cards[1] >= 26 && $cards[1] <= 38) &&
+    ($cards[2] >= 26 && $cards[2] <= 38) &&
+    ($cards[3] >= 26 && $cards[3] <= 38) &&
+    ($cards[4] >= 26 && $cards[4] <= 38)) ||
+  
+    (($cards[0] >= 39 && $cards[0] <= 51) && 
+    ($cards[1] >= 39 && $cards[1] <= 51) &&
+    ($cards[2] >= 39 && $cards[2] <= 51) &&
+    ($cards[3] >= 39 && $cards[3] <= 51) &&
+    ($cards[4] >= 39 && $cards[4] <= 51)))
+    {
+      $win = "FLUSH";
+    }
+}
+  
+if ($win != "FLUSH" && $win != "STRAIGHT FLUSH"){
 
 $card_1_straight = $cards[0];
 $card_2_straight = $cards[1];

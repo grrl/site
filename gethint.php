@@ -205,6 +205,36 @@ for ($i = 0; $i < 32; $i++){
 
 if ($win != "STRAIGHT FLUSH"){
 
+  if ((($cards[0] >= 0 && $cards[0] <= 12) && 
+  ($cards[1] >= 0 && $cards[1] <= 12) &&
+  ($cards[2] >= 0 && $cards[2] <= 12) &&
+  ($cards[3] >= 0 && $cards[3] <= 12) &&
+  ($cards[4] >= 0 && $cards[4] <= 12)) ||
+  
+  (($cards[0] >= 13 && $cards[0] <= 25) && 
+  ($cards[1] >= 13 && $cards[1] <= 25) &&
+  ($cards[2] >= 13 && $cards[2] <= 25) &&
+  ($cards[3] >= 13 && $cards[3] <= 25) &&
+  ($cards[4] >= 13 && $cards[4] <= 25)) ||
+
+  (($cards[0] >= 26 && $cards[0] <= 38) && 
+  ($cards[1] >= 26 && $cards[1] <= 38) &&
+  ($cards[2] >= 26 && $cards[2] <= 38) &&
+  ($cards[3] >= 26 && $cards[3] <= 38) &&
+  ($cards[4] >= 26 && $cards[4] <= 38)) ||
+
+  (($cards[0] >= 39 && $cards[0] <= 51) && 
+  ($cards[1] >= 39 && $cards[1] <= 51) &&
+  ($cards[2] >= 39 && $cards[2] <= 51) &&
+  ($cards[3] >= 39 && $cards[3] <= 51) &&
+  ($cards[4] >= 39 && $cards[4] <= 51)))
+  {
+    $win = "FLUSH";
+  }
+}
+
+if ($win != "FLUSH" && $win != "STRAIGHT FLUSH"){
+
 $card_1_straight = $cards[0];
 $card_2_straight = $cards[1];
 $card_3_straight = $cards[2];
@@ -330,6 +360,8 @@ else if ($two_pair == 2 & !$full_house){
 
   $win = "TWO PAIR";
 }
+
+//check flush
 
 if ($win == ""){
     if ((($cards[0] == "10" || $cards[0] == "23" || $cards[0] == "36" || $cards[0] == "49") && //jacks
