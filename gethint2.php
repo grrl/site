@@ -192,12 +192,18 @@ sort($cards);
 
 $win = "";
 
+$progressive;
+
 if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "11" && $cards[4] == "12" ||
     $cards[0] == "13" && $cards[1] == "22" && $cards[2] == "23" && $cards[3] == "24" && $cards[4] == "25" ||
     $cards[0] == "26" && $cards[1] == "35" && $cards[2] == "36" && $cards[3] == "37" && $cards[4] == "38" ||
     $cards[0] == "39" && $cards[1] == "48" && $cards[2] == "49" && $cards[3] == "50" && $cards[4] == "51"){
 
       $win = "ROYAL FLUSH";
+
+      $sql = "SELECT progressive FROM jackpot";
+//echo $sql;
+      $progressive = mysqli_query($conn, $sql);
 
 }
 else {
@@ -530,6 +536,59 @@ if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$win_amount = 0;
+
+switch ($win){
+
+    case "ROYAL FLUSH":
+        $win_amount = $progressive;
+    break;
+    case "STRAIGHT FLUSH":
+        $win_amount = 50 * 1.25;
+    break;
+    case "4 OF KIND":
+        $win_amount = 25 * 1.25;
+    break;
+    case "FULL HOUSE":
+        $win_amount = 7 * 1.25;
+    break;
+    case "FLUSH":
+        $win_amount = 5 * 1.25;
+    break;
+    case "STRAIGHT":
+        $win_amount = 4 * 1.25;
+    break;
+    case "3 OF KIND":
+        $win_amount = 3 * 1.25;
+    break;
+    case "TWO PAIR":
+        $win_amount = 2 * 1.25;
+    break;
+    case "JACKS OR BETTER":
+        $win_amount = 1 * 1.25;
+    break;
+}
+
+if ($win_amount != 0){
+
+    $sql = "UPDATE coin SET coinout=coinout +" . $win_amount;
+
+    if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+    } else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+}
+
+$sql = "UPDATE coin SET payback=coinout/coinin";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 

@@ -574,6 +574,22 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+$sql = "UPDATE coin SET coinin=coinin +" . 1.25;
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE coin SET payback=coinout/coinin";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 $conn->close();
 
 ?>
