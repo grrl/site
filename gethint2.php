@@ -257,58 +257,84 @@ $card_3_straight = $cards[2];
 $card_4_straight = $cards[3];
 $card_5_straight = $cards[4];
 
-if ($cards[0] > 39){
+if ($cards[0] >= 39){
   $card_1_straight = $cards[0] - 39;
 }
-else if ($cards[0] > 25){
+else if ($cards[0] >= 25){
   $card_1_straight = $cards[0] - 26;
 }
-else if ($cards[0] > 13){
+else if ($cards[0] >= 13){
   $card_1_straight = $cards[0] - 13;
 }
-if ($cards[1] > 39){
+if ($cards[1] >= 39){
   $card_2_straight = $cards[1] - 39;
 }
-else if ($cards[1] > 25){
+else if ($cards[1] >= 26){
   $card_2_straight = $cards[1] - 26;
 }
-else if ($cards[1] > 13){
+else if ($cards[1] >= 13){
   $card_2_straight = $cards[1] - 13;
 }
-if ($cards[2] > 39){
+if ($cards[2] >= 39){
   $card_3_straight = $cards[2] - 39;
 }
-else if ($cards[2] > 25){
+else if ($cards[2] >= 26){
   $card_3_straight = $cards[2] - 26;
 }
-else if ($cards[2] > 13){
+else if ($cards[2] >= 13){
   $card_3_straight = $cards[2] - 13;
 }
-if ($cards[3] > 39){
+if ($cards[3] >= 39){
   $card_4_straight = $cards[3] - 39;
 }
-else if ($cards[3] > 25){
+else if ($cards[3] >= 26){
   $card_4_straight = $cards[3] - 26;
 }
-else if ($cards[3] > 13){
+else if ($cards[3] >= 13){
   $card_4_straight = $cards[3] - 13;
 }
-if ($cards[4] > 39){
+if ($cards[4] >= 39){
   $card_5_straight = $cards[4] - 39;
 }
-else if ($cards[4] > 25){
+else if ($cards[4] >= 26){
   $card_5_straight = $cards[4] - 26;
 }
-else if ($cards[4] > 13){
+else if ($cards[4] >= 13){
   $card_5_straight = $cards[4] - 13;
 }
 
+/*
+echo $card_1_straight;
+echo " ";
+echo $card_2_straight;
+echo " ";
+echo $card_3_straight;
+echo " ";
+echo $card_4_straight;
+echo " ";
+echo $card_5_straight;
+echo " ";
+*/
+$cards_straight = array($card_1_straight, $card_2_straight, $card_3_straight, $card_4_straight, $card_5_straight);
 
-for ($i = 0; $i < 8; $i++){
+sort($cards_straight);
+/*
+echo $cards_straight[0];
+echo " ";
+echo $cards_straight[1];
+echo " ";
+echo $cards_straight[2];
+echo " ";
+echo $cards_straight[3];
+echo " ";
+echo $cards_straight[4];
+echo " ";
+*/
+for ($i = 0; $i < 9; $i++){
 
-  if ($card_1_straight == $i && $card_2_straight == $i + 1 &&
-    $card_3_straight == $i + 2 && $card_4_straight == $i + 3 &&
-    $card_5_straight == $i + 4){
+  if ($cards_straight[0] == $i && $cards_straight[1] == $i + 1 &&
+    $cards_straight[2] == $i + 2 && $cards_straight[3] == $i + 3 &&
+    $cards_straight[4] == $i + 4){
 
       $win = "STRAIGHT";
       break;
@@ -560,7 +586,7 @@ switch ($win){
     case "STRAIGHT":
         $win_amount = 4 * 1.25;
     break;
-    case "3 OF KIND":
+    case "THREE OF KIND":
         $win_amount = 3 * 1.25;
     break;
     case "TWO PAIR":
