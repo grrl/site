@@ -205,6 +205,14 @@ if ($cards[0] == "0" && $cards[1] == "9" && $cards[2] == "10" && $cards[3] == "1
 //echo $sql;
       $progressive = mysqli_query($conn, $sql);
 
+      $sql = "UPDATE jackpot SET progressive=" . 1000.00;
+
+    if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+    } else {
+      //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 }
 else {
 
