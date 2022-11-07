@@ -3,7 +3,9 @@ session_start();
 
 //connect to database
 //$db=mysqli_connect("localhost","root","","mysite");
-
+if(!isset($_SESSION['username'])){
+    die(header("location: 404.php"));
+}
 
 ?>
 <!DOCTYPE html>
@@ -30,8 +32,8 @@ session_start();
   <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center">
-        <li><a href="login.php">LogIN</a></li>
-        <li><a href="register.php">SignUp</a></li>
+        <li><a href="loginuser.php">LogIN</a></li>
+        <li><a href="registeruser.php">SignUp</a></li>
         <li><a href="logout.php">LogOut</a></li>
       </ul>
 

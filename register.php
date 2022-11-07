@@ -10,9 +10,9 @@ $dbname = "game";
 
 // Create connection
 $db = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
 
 if(isset($_POST['register_btn']))
 {
