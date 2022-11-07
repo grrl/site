@@ -600,7 +600,7 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE coin SET coinin=coinin +" . 1.25;
+$sql = "UPDATE coin SET coinin=coinin +" . 1.25 . ", cycle=cycle +" . 1;
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
