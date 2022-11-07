@@ -1,51 +1,48 @@
-<?php 
-session_start(); 
-//include "db_conn.php";
+<?php
+session_start();
 
-if (isset($_POST['uname']) && isset($_POST['password'])) {
-
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
-
-	$uname = validate($_POST['uname']);
-	$pass = validate($_POST['password']);
-
-	if (empty($uname)) {
-		header("Location: index.php?error=User Name is required");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: index.php?error=Password is required");
-	    exit();
-	}else{
-		$sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
-
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['user_name'] = $row['user_name'];
-            	$_SESSION['name'] = $row['name'];
-            	$_SESSION['id'] = $row['id'];
-            	header("Location: home.php");
-		        exit();
-            }else{
-				header("Location: index.php?error=Incorect User name or password");
-		        exit();
-			}
-		}else{
-			header("Location: index.php?error=Incorect User name or password");
-	        exit();
-		}
-	}
-	
-}else{
-	header("Location: index.php");
-	exit();
+if(  isset($_SESSION['username']) )
+{
+  header("location:home.php");
+  die();
 }
+//connect to database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "game";
 
+// Create connection
+$db = new mysqli($servername, $username, $password, $dbname);
+//if ($conn->connect_error) {
+//    //die("Connection failed: " . $conn->connect_error);
+//}
+
+if($db)
+{
+  if(isset($_POST['login_btn']))
+  {
+      $username=mysqli_real_escape_string($db,$_POST['username']);
+      $password=mysqli_real_escape_string($db,$_POST['password']);
+      $password=md5($password); //Remember we hashed password before storing last time
+      $sql="SELECT * FROM users WHERE  username='$username' AND password='$password'";
+      $result=mysqli_query($db,$sql);
+      
+      if($result)
+      {
+     
+        if( mysqli_num_rows($result)>=1)
+        {
+            $_SESSION['message']="You are now Loggged In";
+            $_SESSION['username']=$username;
+            header("location:home.php");
+        }
+       else
+       {
+              $_SESSION['message']="Username and Password combiation incorrect";
+              header("location:loginuser.php");
+       }
+      }
+  }
+}
 ?>
