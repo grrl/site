@@ -770,7 +770,7 @@ window.onload = refresh_jackpot;
   </div>
 </table>
 
-<p><b>Welcome <?php echo $_SESSION['username']; ?> you have 0 points this session</b></p>
+<p><b>Welcome <?php echo $_SESSION['username']; ?></b></p>
 <!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
@@ -858,6 +858,23 @@ window.onload = refresh_jackpot;
   <th>
     <input type="button" name="button1"
     class="button" value="DEAL" id="play_button" style="float:right" onclick="showHint(this.value)"/>    
+  </th>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>
+      <p>Session points:</p>
+    </th>
+    <th>
+  </th>
+  <th>
+  <p>Points total:</p>
+  </th>
+  <th>
+  </th>
+  <th>
   </th>
   </tr>
 </table>
