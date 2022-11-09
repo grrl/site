@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center">
         <li><a href="loginuser.php">LogIN</a></li>
-        <li><a href="registeruser.php">SignUp</a></li>
+        <li><a href="newuser.php">SignUp</a></li>
         <li><a href="logout.php">LogOut</a></li>
       </ul>
 
