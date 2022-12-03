@@ -770,7 +770,7 @@ window.onload = refresh_jackpot;
   </div>
 </table>
 
-<p><b>Welcome <?php echo $_SESSION['username']; ?></b></p>
+<p><b>Welcome <?php echo $_SESSION['username']; ?> id <?php echo $_SESSION['id']; ?></b></p>
 <!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
@@ -781,20 +781,20 @@ window.onload = refresh_jackpot;
 <table style="height: 40px">
   <tr>
     <th>
-      <label id="hold_card_1"></label>
+      <label id="hold_card_1" style="color: black"></label>
     </th>
     <th>
-      <label id="hold_card_2"></label>
+      <label id="hold_card_2" style="color: black"></label>
     </th>
   <th>
-    <label id="hold_card_3"></label>
+    <label id="hold_card_3" style="color: black"></label>
   </th>
   <th>
-    <label id="hold_card_4"></label>
+    <label id="hold_card_4" style="color: black"></label>
 
   </th>
   <th>
-    <label id="hold_card_5"></label>
+    <label id="hold_card_5" style="color: black"></label>
 
   </th>
   </tr>
