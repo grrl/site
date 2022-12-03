@@ -750,7 +750,7 @@ window.onload = refresh_jackpot;
         <li><a href="register.php">SignUp</a></li>
         -->
         <li><a href="home.php">Home</a></li>
-        <li><a href="logout.php">LogOut</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div>
   </div>
