@@ -54,7 +54,7 @@ function refresh_jackpot() {
 
 $.ajax({
       type: "get",
-      url: "gethint3.php",
+      url: "jackpot.php",
       data: 
       {  
         //'progressive' : jackpot
@@ -328,7 +328,7 @@ var time = timestamp;
     
     $.ajax({
     type: "post",
-    url: "gethint2.php",
+    url: "result.php",
     data: 
     {  
        'id' : time,
@@ -718,7 +718,7 @@ function showHint(str) {
         document.getElementById("play_button").value = "DRAW";
       }
     };
-    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.open("GET", "draw.php?q=" + str, true);
     xmlhttp.send();
   }
 }

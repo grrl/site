@@ -42,7 +42,7 @@ if($db)
        else
        {
               $_SESSION['message']="Username and Password combiation incorrect";
-              header("location:loginuser.php");
+              header("location:login.php");
        }
       }
   }
