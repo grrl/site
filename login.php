@@ -24,7 +24,9 @@
       <ul class="nav navbar-nav center">
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
+        <!--
         <li><a href="logout.php">LogOut</a></li>
+        -->
       </ul>
 
     </div>
