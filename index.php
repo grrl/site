@@ -729,6 +729,26 @@ window.onload = refresh_jackpot;
 </head>
 <body>
 
+<div class="container">
+  <hgroup>
+    <h1 class="site-title" style="text-align: center; color: green;">Login, Rrgistration, Logout</h1><br>
+  </hgroup>
+
+<br>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav center">
+        <li><a href="login.php">LogIN</a></li>
+        <li><a href="register.php">SignUp</a></li>
+        <li><a href="logout.php">LogOut</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
   <table>
     <div>
     <tr>
