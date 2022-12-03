@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+//connect to database
+//$db=mysqli_connect("localhost","root","","mysite");
+if(isset($_SESSION['username'])){
+    header("location: home.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +81,7 @@
 </div>
 
 </main>
-</div>
+<!--</div>-->
 
 </body>
 </html>

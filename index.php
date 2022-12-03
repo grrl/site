@@ -15,19 +15,20 @@ if(!isset($_SESSION['username'])){
       box-sizing: border-box;
     }
     
+    
     .column {
       float: left;
       width: 20.00%;
       padding: 5px;
     }
     
-    /* Clearfix (clear floats) */
+    /*Clearfix (clear floats)*/ 
     .row::after {
       content: "";
       clear: both;
       display: table;
     }
-
+    
     table {
         border-collapse: separate;
         /*border-spacing: 0 15px;*/
@@ -43,6 +44,7 @@ if(!isset($_SESSION['username'])){
         /*border: 1px solid black;*/
         padding: 5px;
       }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -728,7 +730,10 @@ window.onload = refresh_jackpot;
 </script>
 </head>
 <body>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 <div class="container">
   <hgroup>
     <h1 class="site-title" style="text-align: center; color: green;">Login, Rrgistration, Logout</h1><br>
@@ -740,14 +745,14 @@ window.onload = refresh_jackpot;
   <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center">
+        <!--
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
+        -->
         <li><a href="logout.php">LogOut</a></li>
       </ul>
-
-    </div>
-  </div>
-</nav>
+    </nav>
+  </div<>
 
   <table>
     <div>
@@ -940,6 +945,12 @@ window.onload = refresh_jackpot;
 <!--<div id="result"></div>-->
 <br>
 <p>BONUS POKER</p>
+
+
+  
+</nav>
+</div>
+
 
 </body>
 </html>
