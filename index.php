@@ -736,7 +736,7 @@ window.onload = refresh_jackpot;
   <link rel="stylesheet" href="style.css">
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Login, Rrgistration, Logout</h1><br>
+    <h1 class="site-title" style="text-align: center; color: green;">Bonus Poker</h1><br>
   </hgroup>
 
 <br>
@@ -749,6 +749,7 @@ window.onload = refresh_jackpot;
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
         -->
+        <li><a href="home.php">Home</a></li>
         <li><a href="logout.php">LogOut</a></li>
       </ul>
     </div>

@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])){
 
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Login, Registration, Logout</h1><br>
+    <h1 class="site-title" style="text-align: center; color: green;">Login</h1><br>
   </hgroup>
 
 <br>

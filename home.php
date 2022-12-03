@@ -23,7 +23,7 @@ if(!isset($_SESSION['username'])){
 
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Login, Rrgistration, Logout</h1><br>
+    <h1 class="site-title" style="text-align: center; color: green;">Lobby</h1><br>
   </hgroup>
 
 <br>
@@ -36,6 +36,7 @@ if(!isset($_SESSION['username'])){
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
         -->
+        <li><a href="index.php">Bonus Poker</a></li>
         <li><a href="logout.php">LogOut</a></li>
       </ul>
     </nav>
