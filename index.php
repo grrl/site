@@ -751,9 +751,14 @@ window.onload = refresh_jackpot;
         -->
         <li><a href="logout.php">LogOut</a></li>
       </ul>
-    </nav>
-  </div<>
+    </div>
+  </div>
+</nav>
 
+  <div style="
+        margin-left: 250px;    
+    ">  
+  
   <table>
     <div>
     <tr>
@@ -946,10 +951,8 @@ window.onload = refresh_jackpot;
 <br>
 <p>BONUS POKER</p>
 
-
-  
-</nav>
 </div>
+  
 
 
 </body>

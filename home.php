@@ -38,12 +38,10 @@ if(!isset($_SESSION['username'])){
         -->
         <li><a href="logout.php">LogOut</a></li>
       </ul>
-
-    </div>
-  </div>
-</nav>
+    </nav>
 
 
+<!--</div>-->
 <main class="main-content">
  <div class="col-md-6 col-md-offset-4">
 <?php
@@ -59,8 +57,10 @@ if(!isset($_SESSION['username'])){
 </div>
 <a href="logout.php">Log Out</a>
 </div>
-</main>
+</nav>
 </div>
+</main>
+
 
 </body>
 </html>
