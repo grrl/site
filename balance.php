@@ -51,7 +51,8 @@ $loyalty = "loyalty";
 $winloss = "winloss";
 $coinin  = "coinin";
 
-$sql="SELECT " . $id . "," . $balance . "," . $loyalty . " FROM users WHERE username='$user'";
+$sql="SELECT " . $id . "," . $balance . "," . $loyalty . "," .
+ $winloss . "," . $coinin . " FROM users WHERE username='$user'";
 
 //echo $sql;
 $result = mysqli_query($conn, $sql);
