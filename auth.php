@@ -34,9 +34,10 @@ if($db)
      
         if( mysqli_num_rows($result)>=1)
         {
+            
             $_SESSION['message']="You are now logged in.";
             $_SESSION['username']=$username;
-            $_SESSION['id']= $id;
+            //$_SESSION['id']= $id;
             header("location:home.php");
         }
        else
