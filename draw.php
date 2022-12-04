@@ -38,19 +38,20 @@ while($row = mysqli_fetch_assoc($result)) {
 
 // Array with names
 
-
 // get the q parameter from URL
 //$q = $_REQUEST["q"];
 
 if ($number >= 1.25){
 
-$sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE user='$user'";
+$sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
 } else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$conn->close();
 
 $deck = array(
   
@@ -663,8 +664,8 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
-
 }
+
+$conn->close();
 
 ?>

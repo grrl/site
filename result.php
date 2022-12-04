@@ -1,7 +1,11 @@
 <?php
 
+session_start();
 
- 
+$user = $_SESSION['username'];
+if(!isset($_SESSION['username'])){
+   die(header("location: 404.php"));
+}
 
 #$data = $_POST['card1'];
 //$data = array("card1"=>$data, "Status"=>"Success");
@@ -603,6 +607,20 @@ switch ($win){
     case "JACKS OR BETTER":
         $win_amount = 1 * 1.25;
     break;
+}
+
+
+//update user balance
+if ($win_amount != 0){
+
+  $sql = "UPDATE users SET balance=balance +" . $win_amount . " WHERE username='$user'";
+
+  if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+  } else {
+//echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 }
 
 if ($win_amount != 0){

@@ -674,7 +674,7 @@ function showHint(str) {
     hold_5 = false;
   }
 
-  refresh_jackpot();
+  //refresh_jackpot();
 
   if (str.length == 0) {
     document.getElementById("txtHint").innerHTML = "";
@@ -765,6 +765,7 @@ function showHint(str) {
     xmlhttp.open("GET", "draw.php?q=" + str, true);
     xmlhttp.send();
   }
+  refresh_jackpot();
 }
 
 window.onload = refresh_jackpot;
