@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(  isset($_SESSION['username']) )
+if(isset($_SESSION['username']) )
 {
   header("location:home.php");
   die();
@@ -34,7 +34,6 @@ if($db)
      
         if( mysqli_num_rows($result)>=1)
         {
-            
             $_SESSION['message']="You are now logged in.";
             $_SESSION['username']=$username;
             //$_SESSION['id']= $id;

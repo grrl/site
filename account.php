@@ -1,13 +1,15 @@
 <?php
 session_start();
 
-
 //connect to database
 //$db=mysqli_connect("localhost","root","","mysite");
+
+//echo $_SESSION['username'];
 
 if(!isset($_SESSION['username'])){
    die(header("location: 404.php"));
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ $.ajax({
       url: "balance.php",
       data: 
       {  
-        //'progressive' : jackpot
+        //'username' : $username
       },
       cache:false,
       success: function (data) 
@@ -42,13 +44,19 @@ $.ajax({
          //alert('Data Send');
          //$('#msg').html(html);
          //let text = this.data;
-         console.log("data is " + data);
+        let text = this.data;
+        console.log("data is " + data);
+        let mydata = JSON.parse(data);
+
+        //console.log("data is " + data[0]);
          //console.log("typeof" + typeof data);
          //jackpot_value = data;
          //console.log("jackpot_value is " + jackpot_value);
 
 
-         document.getElementById("jackpot").innerHTML = data;
+         document.getElementById("jackpot").innerHTML = "Id: " + mydata.id;
+         document.getElementById("balance").innerHTML = "Balance: " + mydata.balance;
+
       }
       
   });
@@ -84,6 +92,7 @@ window.onload = refresh_jackpot;
  <div class="col-md-6 col-md-offset-4">
 
 <p id="jackpot">Home</p>
+<p id="balance">Balance</p>
 
 <a href="logout.php">Log Out</a>
 </div>

@@ -1,5 +1,33 @@
 <?php
 
+session_start();
+
+//connect to database
+//$db=mysqli_connect("localhost","root","","mysite");
+
+//echo $_SESSION['username'];
+
+$user = $_SESSION['username'];
+if(!isset($_SESSION['username'])){
+   die(header("location: 404.php"));
+}
+
+/*
+$username;
+
+foreach ($_POST as $param_name => $param_val) {
+
+    
+    switch ($param_name){
+
+        case "username":
+        $username = $param_val;
+        break;
+    }
+
+    //echo "Param: $param_name; Value: $param_val<br />\n";
+}
+*/
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,9 +44,14 @@ if ($conn->connect_error) {
 
 //SELECT * FROM Customers
 //WHERE Country='Mexico';
-$username = $_SESSION['username'];
 
-$sql="SELECT " . $id . " FROM users WHERE  username='$username'";
+$id = "id";
+$balance = "balance";
+$loyalty = "loyalty";
+$winloss = "winloss";
+$coinin  = "coinin";
+
+$sql="SELECT " . $id . "," . $balance . "," . $loyalty . " FROM users WHERE username='$user'";
 
 //echo $sql;
 $result = mysqli_query($conn, $sql);
@@ -27,13 +60,11 @@ $number;
 
 while($row = mysqli_fetch_assoc($result)) {
 
-    $number = $id;
-
+    $number = $row;
     //$progressive = $row["progressive"];
-
 }
 
-echo $number;
+echo json_encode($number);
 
 $conn->close();
 
