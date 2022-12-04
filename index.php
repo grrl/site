@@ -80,6 +80,34 @@ $.ajax({
       
 }
 
+function refresh_credits(){
+
+  $.ajax({
+      type: "get",
+      url: "credits.php",
+      data: 
+      {  
+        //'progressive' : jackpot
+      },
+      cache:false,
+      success: function (data) 
+      {
+         //alert('Data Send');
+         //$('#msg').html(html);
+         //let text = this.data;
+         console.log("data is " + data);
+         //console.log("typeof" + typeof data);
+         //jackpot_value = data;
+         //console.log("jackpot_value is " + jackpot_value);
+
+
+         document.getElementById("jackpot").innerHTML = "$" + data;
+      }
+      
+  });
+
+}
+
 function get_card(card){
 
 var my_card = "";

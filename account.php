@@ -27,7 +27,7 @@ if(!isset($_SESSION['username'])){
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 20%;
+  width: 40%;
 }
 
 td, th {
