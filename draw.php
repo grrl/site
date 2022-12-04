@@ -1,9 +1,56 @@
 <?php
+
+
+//check if balance
+session_start();
+
+$user = $_SESSION['username'];
+if(!isset($_SESSION['username'])){
+   die(header("location: 404.php"));
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "game";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$balance = "balance";
+
+$sql="SELECT " . $balance . " FROM users WHERE username='$user'";
+
+//echo $sql;
+$result = mysqli_query($conn, $sql);
+
+$number;
+
+while($row = mysqli_fetch_assoc($result)) {
+
+    $number = $row;
+    //$progressive = $row["progressive"];
+}
+
 // Array with names
 
 
 // get the q parameter from URL
 //$q = $_REQUEST["q"];
+
+if ($number >= 1.25){
+
+$sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE user='$user'";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $deck = array(
   
@@ -617,5 +664,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+
+}
 
 ?>

@@ -792,6 +792,7 @@ window.onload = refresh_jackpot;
         <li><a href="register.php">SignUp</a></li>
         -->
         <li><a href="home.php">Home</a></li>
+        <li><a href="account.php">Account</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </div>
@@ -949,6 +950,7 @@ window.onload = refresh_jackpot;
   <th>
   </th>
   <th>
+  <p id ="gamestate">GAME OVER</p>
   </th>
   </tr>
 </table>
