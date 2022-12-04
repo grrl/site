@@ -37,6 +37,7 @@ if(!isset($_SESSION['username'])){
         <li><a href="register.php">SignUp</a></li>
         -->
         <li><a href="index.php">Bonus Poker</a></li>
+        <li><a href="account.php">Account</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </nav>
@@ -55,6 +56,7 @@ if(!isset($_SESSION['username'])){
 <h1>Home</h1>
 <div>
     <h4>Welcome <?php echo $_SESSION['username']; ?></h4>
+
 </div>
 <a href="logout.php">Log Out</a>
 </div>
