@@ -680,6 +680,23 @@ function showHint(str) {
     hold_5 = false;
   }
 
+  if (cash == true){
+    if (document.getElementById("balance").value < 1.25){
+      return;
+    }
+    else{
+      document.getElementById("balance").value = document.getElementById("balance").value - 1.25;
+    }
+  }
+  else{
+    if (document.getElementById("balance").value < 5){
+      return;
+    }
+    else {
+      document.getElementById("balance").value = document.getElementById("balance").value - 5;
+    }
+  }
+
   //refresh_jackpot();
 
   if (str.length == 0) {
@@ -770,8 +787,9 @@ function showHint(str) {
     };
     xmlhttp.open("GET", "draw.php?q=" + str, true);
     xmlhttp.send();
+    refresh_jackpot();
   }
-  refresh_jackpot();
+  
 }
 
 window.onload = refresh_jackpot;
