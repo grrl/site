@@ -23,6 +23,23 @@ if(!isset($_SESSION['username'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 2px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -54,8 +71,11 @@ $.ajax({
          //console.log("jackpot_value is " + jackpot_value);
 
 
-         document.getElementById("jackpot").innerHTML = "Id: " + mydata.id;
-         document.getElementById("balance").innerHTML = "Balance: " + mydata.balance;
+         document.getElementById("jackpot").innerHTML = mydata.id;
+         document.getElementById("balance").innerHTML = mydata.balance;
+         document.getElementById("loyalty").innerHTML = mydata.loyalty;
+         document.getElementById("winloss").innerHTML = mydata.winloss;
+         document.getElementById("coinin").innerHTML = mydata.coinin;
 
       }
       
@@ -81,6 +101,7 @@ window.onload = refresh_jackpot;
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
         -->
+        <li><a href="home.php">Home</a></li>
         <li><a href="index.php">Bonus Poker</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
@@ -91,8 +112,29 @@ window.onload = refresh_jackpot;
 <main class="main-content">
  <div class="col-md-6 col-md-offset-4">
 
-<p id="jackpot">Home</p>
-<p id="balance">Balance</p>
+
+ <table>
+  <tr>
+    <th>ID</th>
+    <th id="jackpot"></th>
+  </tr>
+  <tr>
+    <td>Balance $</td>
+    <td id="balance"></td>
+  </tr>
+  <tr>
+    <td>Loyalty</td>
+    <td id="loyalty"></td>
+  </tr>
+  <tr>
+    <td>Winloss</td>
+    <td id="winloss"></td>
+  </tr>
+  <tr>
+    <td>Coinin</td>
+    <td id="coinin"></td>
+  </tr>
+</table>
 
 <a href="logout.php">Log Out</a>
 </div>

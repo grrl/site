@@ -801,7 +801,7 @@ window.onload = refresh_jackpot;
   </div>
 </table>
 
-<p><b>Welcome <?php echo $_SESSION['username']; ?> id <?php echo $_SESSION['id']; ?></b></p>
+<p><b>Welcome <?php echo $_SESSION['username']; ?></b></p>
 <!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
