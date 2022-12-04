@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
 <script type="text/javascript">
 
 let timestamp = ""; 
-
+var cash = false;
 //let jackpot_value;
 function refresh_jackpot() {
 
@@ -72,8 +72,8 @@ $.ajax({
          //jackpot_value = data;
          //console.log("jackpot_value is " + jackpot_value);
 
+          document.getElementById("jackpot").innerHTML = "$ " + data;
 
-         document.getElementById("jackpot").innerHTML = "$" + data;
       }
       
   });
@@ -92,7 +92,12 @@ $.ajax({
         console.log("data is " + data);
         let mydata = JSON.parse(data);
 
-         document.getElementById("balance").value = mydata.balance * 4;
+        if (cash == true){
+          document.getElementById("balance").value = mydata.balance;
+         }
+         else{
+          document.getElementById("balance").value = mydata.balance * 4;
+         }         
          document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
 
       }
@@ -326,7 +331,6 @@ var hold_3 = false;
 var hold_4 = false;
 var hold_5 = false;
 
-var cash = false;
 
 function change_cash(){
 
@@ -563,9 +567,11 @@ var time = timestamp;
        cards_dealt = false;
        document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
+       refresh_jackpot();
     }
     
 });
+
 
 return false;
 /*

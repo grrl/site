@@ -30,12 +30,20 @@ $result = mysqli_query($conn, $sql);
 
 $number;
 
+/*
 while($row = mysqli_fetch_assoc($result)) {
 
     $number = $row;
     //$progressive = $row["progressive"];
 }
+*/
 
+//$row = mysqli_fetch_row($result);
+$row = $result->fetch_row();
+
+$number = $row[0];
+
+//echo $number;
 // Array with names
 
 // get the q parameter from URL
