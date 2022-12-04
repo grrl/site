@@ -26,8 +26,6 @@ if(!isset($_SESSION['username'])){
 
 let timestamp = "";
 
-window.onload = refresh_jackpot;
-
 //let jackpot_value;
 function refresh_jackpot() {
 
@@ -56,6 +54,9 @@ $.ajax({
   });
       
 }
+
+window.onload = refresh_jackpot;
+</script>
 <body>
 <div class="container">
   <hgroup>
