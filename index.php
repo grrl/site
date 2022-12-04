@@ -77,10 +77,6 @@ $.ajax({
       }
       
   });
-      
-}
-
-function refresh_credits(){
 
   $.ajax({
       type: "get",
@@ -92,21 +88,19 @@ function refresh_credits(){
       cache:false,
       success: function (data) 
       {
-         //alert('Data Send');
-         //$('#msg').html(html);
-         //let text = this.data;
-         console.log("data is " + data);
-         //console.log("typeof" + typeof data);
-         //jackpot_value = data;
-         //console.log("jackpot_value is " + jackpot_value);
+        let text = this.data;
+        console.log("data is " + data);
+        let mydata = JSON.parse(data);
 
+         document.getElementById("balance").value = mydata.balance * 4;
+         document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
 
-         document.getElementById("jackpot").innerHTML = "$" + data;
       }
-      
   });
-
+      
 }
+
+
 
 function get_card(card){
 
@@ -331,6 +325,26 @@ var hold_2 = false;
 var hold_3 = false;
 var hold_4 = false;
 var hold_5 = false;
+
+var cash = false;
+
+function change_cash(){
+
+  if (!cash){
+
+    document.getElementById("balance").value =  document.getElementById("balance").value * 4;
+    document.getElementById("credit_cash").innerHTML =  "CASH $";
+
+    cash = true;
+  }
+  else{
+
+    document.getElementById("balance").value = document.getElementById("balance").value / 4;
+    document.getElementById("credit_cash").innerHTML =  "CREDIT";
+
+    cash = false;
+  }
+}
 
 function change_cards(str){
 
@@ -896,7 +910,8 @@ window.onload = refresh_jackpot;
   <th>
   </th>
   <th>
-    <label>CREDITS $??</label>
+    <label id="credit_cash">CREDIT</label>
+    <input type="button" id="balance" onclick="change_cash()" value="" style="border:none"/>
   </th>
   </tr>
 </table>
@@ -929,7 +944,7 @@ window.onload = refresh_jackpot;
     <th>
   </th>
   <th>
-  <p>Points total:</p>
+  <p id ="loyalty">Points total:</p>
   </th>
   <th>
   </th>
