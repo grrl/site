@@ -796,6 +796,7 @@ function blink_win(win) {         //  create a loop function
 
 }
 
+
 function showHint(str) {
 
   if (cards_dealt == true){
@@ -810,6 +811,7 @@ function showHint(str) {
       document.getElementById("jp").style.color = "black";
 
       change_cards(str);
+      refresh_jackpot();
       cards_dealt = false;
       return;
   }
@@ -969,7 +971,7 @@ function showHint(str) {
     };
     xmlhttp.open("GET", "draw.php?q=" + str, true);
     xmlhttp.send();
-    refresh_jackpot();
+    
   }
   
 }
