@@ -776,7 +776,7 @@ function change_speed(){
 var blink_white = true;
 function blink_win(win) {         //  create a loop function
 
-  var my_color = document.getElementById(win).style.color;
+  var my_color = "#BFBFBF";//document.getElementById(win).style.color;
   var timer1 = setInterval(function() {   //  call a 3s setTimeout when the loop is called
     if (document.getElementById("play_button").value != "DRAW") {           //  if the counter < 10, call the loop function
       document.getElementById(win).style.color = my_color;
@@ -803,16 +803,17 @@ function blink_win(win) {         //  create a loop function
 
 function showHint(str) {
 
+  document.getElementById("rf").style.color = "#BFBFBF";
+  document.getElementById("sf").style.color = "#BFBFBF";
+  document.getElementById("4ok").style.color = "#BFBFBF";
+  document.getElementById("fh").style.color = "#BFBFBF";
+  document.getElementById("fl").style.color = "#BFBFBF";
+  document.getElementById("st").style.color = "#BFBFBF";
+  document.getElementById("3ok").style.color = "#BFBFBF";
+  document.getElementById("tp").style.color = "#BFBFBF";
+  document.getElementById("jb").style.color = "#BFBFBF";
+
   if (cards_dealt == true){
-      document.getElementById("rf").style.color = "#BFBFBF";
-      document.getElementById("sf").style.color = "#BFBFBF";
-      document.getElementById("4ok").style.color = "#BFBFBF";
-      document.getElementById("fh").style.color = "#BFBFBF";
-      document.getElementById("fl").style.color = "#BFBFBF";
-      document.getElementById("st").style.color = "#BFBFBF";
-      document.getElementById("3ok").style.color = "#BFBFBF";
-      document.getElementById("tp").style.color = "#BFBFBF";
-      document.getElementById("jp").style.color = "#BFBFBF";
 
       change_cards(str);
       refresh_jackpot();
@@ -921,7 +922,7 @@ function showHint(str) {
           blinkme = "tp";
           break;
           case "JACKS OR BETTER":
-          blinkme = "jp";
+          blinkme = "jb";
           break;
         }
 
@@ -1053,7 +1054,7 @@ window.onload = refresh_everything;
       <td style="text-align: right;color:#BFBFBF;" id="tp">10</td>
     </tr>
     <tr>
-      <td id="jp" style="color:#BFBFBF;">JACKS OR BETTER</td>
+      <td id="jb" style="color:#BFBFBF;">JACKS OR BETTER</td>
       <td style="text-align: right;color:#BFBFBF;" id="jp">5</td>
     </tr>
   </div>
@@ -1070,20 +1071,20 @@ window.onload = refresh_everything;
 <table style="height: 40px">
   <tr>
     <th>
-      <label id="hold_card_1" style="color: white; text-align:center"></label>
+      <label id="hold_card_1" style="color: white; padding-left: 25px;"></label>
     </th>
     <th>
-      <label id="hold_card_2" style="color: white; text-align:center"></label>
+      <label id="hold_card_2" style="color: white; padding-left: 25px"></label>
     </th>
   <th>
-    <label id="hold_card_3" style="color: white; text-align:center"></label>
+    <label id="hold_card_3" style="color: white; padding-left: 25px"></label>
   </th>
   <th>
-    <label id="hold_card_4" style="color: white; text-align:center"></label>
+    <label id="hold_card_4" style="color: white; padding-left: 25px"></label>
 
   </th>
   <th>
-    <label id="hold_card_5" style="color: white; text-align:center"></label>
+    <label id="hold_card_5" style="color: white; padding-left: 25px"></label>
 
   </th>
   </tr>
