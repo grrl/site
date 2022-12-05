@@ -51,110 +51,7 @@ if(!isset($_SESSION['username'])){
 
 let timestamp = ""; 
 var cash = false;
-var cards_dealt = false;
 
-function refresh_everything(){
-
-  $.ajax({
-      type: "get",
-      url: "gamestate.php",
-      data: 
-      {  
-        //'progressive' : jackpot
-      },
-      cache:false,
-      success: function (data) 
-      {
-         //alert('Data Send');
-         //$('#msg').html(html);
-         //let text = this.data;
-        let text = this.data;
-
-        if (text != ""){
-        console.log("data is " + data);
-        let mydata = JSON.parse(data);
-
-        document.getElementById("box1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("box2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("box3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("box4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-        document.getElementById("box5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
-
-        sleep(game_speed).then(() => {
-        // Do something after the sleep!
-
-          document.getElementById("box1").src = get_card(mydata.card_1);
-        }); 
-        sleep(game_speed * 2).then(() => {
-
-        document.getElementById("box2").src = get_card(mydata.card_2);
-        }); 
-        sleep(game_speed * 3).then(() => {
-        document.getElementById("box3").src = get_card(mydata.card_3);
-        });
-        sleep(game_speed * 4).then(() => {
-        document.getElementById("box4").src = get_card(mydata.card_4);
-        });
-        sleep(game_speed * 5).then(() => {
-        document.getElementById("box5").src = get_card(mydata.card_5);
-        });
-        cards_dealt = true;
-        document.getElementById("play_button").value = "DRAW";
-
-        }
-      }
-  });  
-
-  $.ajax({
-      type: "get",
-      url: "jackpot.php",
-      data: 
-      {  
-        //'progressive' : jackpot
-      },
-      cache:false,
-      success: function (data) 
-      {
-         //alert('Data Send');
-         //$('#msg').html(html);
-         //let text = this.data;
-         console.log("data is " + data);
-         //console.log("typeof" + typeof data);
-         //jackpot_value = data;
-         //console.log("jackpot_value is " + jackpot_value);
-
-          document.getElementById("jackpot").innerHTML = "$ " + data;
-
-      }
-      
-  });
-
-  $.ajax({
-      type: "get",
-      url: "credits.php",
-      data: 
-      {  
-        //'progressive' : jackpot
-      },
-      cache:false,
-      success: function (data) 
-      {
-        let text = this.data;
-        console.log("data is " + data);
-        let mydata = JSON.parse(data);
-
-        if (cash == true){
-          document.getElementById("balance").value = mydata.balance;
-         }
-         else{
-          document.getElementById("balance").value = mydata.balance * 4;
-         }         
-         document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
-
-      }
-  });
-
-}
 //let jackpot_value;
 function refresh_jackpot() {
 
@@ -208,8 +105,6 @@ $.ajax({
   });
       
 }
-
-
 
 function get_card(card){
 
@@ -423,7 +318,117 @@ case '51':
 }
 return my_card;
 }
+
 var cards_dealt = false;
+
+function refresh_everything(){
+
+$.ajax({
+    type: "get",
+    url: "gamestate.php",
+    data: 
+    {  
+      //'progressive' : jackpot
+    },
+    cache:false,
+    success: function (data) 
+    {
+       //alert('Data Send');
+       //$('#msg').html(html);
+       //let text = this.data;
+      let text = this.data;
+
+      //console.log("data is " + data)
+      let mydata = JSON.parse(data);
+
+      if (mydata.card_1 != ""){
+      console.log("data is " + data);
+
+      timestamp = mydata.id;
+
+      document.getElementById("box1").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box2").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box3").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box4").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+      document.getElementById("box5").src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/703px-Card_back_01.svg.png";
+
+      console.log("card " + mydata.card_1);
+
+      sleep(game_speed).then(() => {
+      // Do something after the sleep!
+
+        document.getElementById("box1").src = get_card(mydata.card_1);
+      }); 
+      sleep(game_speed * 2).then(() => {
+
+      document.getElementById("box2").src = get_card(mydata.card_2);
+      }); 
+      sleep(game_speed * 3).then(() => {
+      document.getElementById("box3").src = get_card(mydata.card_3);
+      });
+      sleep(game_speed * 4).then(() => {
+      document.getElementById("box4").src = get_card(mydata.card_4);
+      });
+      sleep(game_speed * 5).then(() => {
+      document.getElementById("box5").src = get_card(mydata.card_5);
+      });
+      cards_dealt = true;
+      document.getElementById("play_button").value = "DRAW";
+
+      }
+    }
+});  
+
+$.ajax({
+    type: "get",
+    url: "jackpot.php",
+    data: 
+    {  
+      //'progressive' : jackpot
+    },
+    cache:false,
+    success: function (data) 
+    {
+       //alert('Data Send');
+       //$('#msg').html(html);
+       //let text = this.data;
+       console.log("data is " + data);
+       //console.log("typeof" + typeof data);
+       //jackpot_value = data;
+       //console.log("jackpot_value is " + jackpot_value);
+
+        document.getElementById("jackpot").innerHTML = "$ " + data;
+
+    }
+    
+});
+
+$.ajax({
+    type: "get",
+    url: "credits.php",
+    data: 
+    {  
+      //'progressive' : jackpot
+    },
+    cache:false,
+    success: function (data) 
+    {
+      let text = this.data;
+      console.log("data is " + data);
+      let mydata = JSON.parse(data);
+
+      if (cash == true){
+        document.getElementById("balance").value = mydata.balance;
+       }
+       else{
+        document.getElementById("balance").value = mydata.balance * 4;
+       }         
+       document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
+
+    }
+});
+
+}
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -896,7 +901,7 @@ function showHint(str) {
   
 }
 
-window.onload = refresh_jackpot;
+window.onload = refresh_everything;
 
 </script>
 </head>
