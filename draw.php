@@ -59,7 +59,20 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+$sql="SELECT " . $balance . " FROM users WHERE username='$user'";
+
+//echo $sql;
+$result = mysqli_query($conn, $sql);
+
+$newbalance;
+
+//$row = mysqli_fetch_row($result);
+$row = $result->fetch_row();
+
+$newbalance = $row[0];
+
 $conn->close();
+
 
 $deck = array(
   
@@ -605,11 +618,11 @@ if ($conn->connect_error) {
 //default, 
 
 $sql = "INSERT INTO session (id, time, username, card_1, card_2, card_3,
-card_4, card_5, card_6, card_7, card_8, card_9, card_10, win, complete)
+card_4, card_5, card_6, card_7, card_8, card_9, card_10, win, balance, complete)
 VALUES (default," . $time_stamp . ", '$user' ," . $card_1
   . "," . $card_2 . "," . $card_3 . "," . $card_4 . "," .
    $card_5 . "," . $card_6 . "," . $card_7 . "," .
-   $card_8 . "," . $card_9 . "," . $card_10 . ",'" . $win . "', 0)";
+   $card_8 . "," . $card_9 . "," . $card_10 . ",'" . $win . "'," . $newbalance . ", 0 )";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
