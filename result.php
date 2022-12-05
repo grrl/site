@@ -137,8 +137,9 @@ if ($conn->connect_error) {
 //SELECT * FROM Customers
 //WHERE Country='Mexico';
 
+$status = "complete";
 
-$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 ." FROM session WHERE id=" . $my_id;
+$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 //echo $sql;
 $result = mysqli_query($conn, $sql);
 

@@ -15,6 +15,9 @@ if(!isset($_SESSION['username'])){
       box-sizing: border-box;
     }
     
+    body{
+      background-color: "#1f1e1e";
+    }
     
     .column {
       float: left;
