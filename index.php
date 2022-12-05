@@ -771,8 +771,11 @@ function change_speed(){
 
 var blink_white = true;
 function blink_win(win) {         //  create a loop function
+
+  var my_color = document.getElementById(win).style.color;
   var timer1 = setInterval(function() {   //  call a 3s setTimeout when the loop is called
     if (document.getElementById("play_button").value != "DRAW") {           //  if the counter < 10, call the loop function
+      document.getElementById(win).style.color = my_color;
       clearTimeout(timer1);             //  ..  again which will trigger another 
     }      
 
@@ -788,12 +791,24 @@ function blink_win(win) {         //  create a loop function
       blink_white = true;
     }
     //  ..  setTimeout()
-  }, 1000)
+  }, 1000);
+  document.getElementById(win).style.color = my_color;
+
 }
 
 function showHint(str) {
 
   if (cards_dealt == true){
+      document.getElementById("rf").style.color = "black";
+      document.getElementById("sf").style.color = "black";
+      document.getElementById("4ok").style.color = "black";
+      document.getElementById("fh").style.color = "black";
+      document.getElementById("fl").style.color = "black";
+      document.getElementById("st").style.color = "black";
+      document.getElementById("3ok").style.color = "black";
+      document.getElementById("tp").style.color = "black";
+      document.getElementById("jp").style.color = "black";
+
       change_cards(str);
       cards_dealt = false;
       return;
@@ -891,7 +906,7 @@ function showHint(str) {
           case "STRAIGHT":
           blinkme = "st";
           break;
-          case "3 OF KIND":
+          case "THREE OF KIND":
           blinkme = "3ok";
           break;
           case "TWO PAIR":
