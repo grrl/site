@@ -139,6 +139,21 @@ if ($conn->connect_error) {
 
 $status = "complete";
 
+$sql="SELECT " . $status . " FROM session WHERE id=" . $my_id;
+
+//echo $sql;
+$result = mysqli_query($conn, $sql);
+
+$statusresult;
+
+//$row = mysqli_fetch_row($result);
+$row = $result->fetch_row();
+
+$statusresult = $row[0];
+
+
+if ($statusresult == "0"){
+
 $sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 //echo $sql;
 $result = mysqli_query($conn, $sql);
@@ -641,6 +656,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
+}
 $conn->close();
 
 
