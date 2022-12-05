@@ -679,6 +679,7 @@ var time = timestamp;
        cards_dealt = false;
        document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
+       document.getElementById("gamestate").innerHTML = "GAME OVER";
        refresh_jackpot();
     }
     
@@ -837,6 +838,7 @@ function showHint(str) {
     }
     else{
       document.getElementById("balance").value = document.getElementById("balance").value - 1.25;
+      document.getElementById("gamestate").innerHTML = "";
     }
   }
   else{
@@ -845,6 +847,7 @@ function showHint(str) {
     }
     else {
       document.getElementById("balance").value = document.getElementById("balance").value - 5;
+      document.getElementById("gamestate").innerHTML = "";
     }
   }
 
@@ -1067,20 +1070,20 @@ window.onload = refresh_everything;
 <table style="height: 40px">
   <tr>
     <th>
-      <label id="hold_card_1" style="color: black"></label>
+      <label id="hold_card_1" style="color: white; text-align:center"></label>
     </th>
     <th>
-      <label id="hold_card_2" style="color: black"></label>
+      <label id="hold_card_2" style="color: white; text-align:center"></label>
     </th>
   <th>
-    <label id="hold_card_3" style="color: black"></label>
+    <label id="hold_card_3" style="color: white; text-align:center"></label>
   </th>
   <th>
-    <label id="hold_card_4" style="color: black"></label>
+    <label id="hold_card_4" style="color: white; text-align:center"></label>
 
   </th>
   <th>
-    <label id="hold_card_5" style="color: black"></label>
+    <label id="hold_card_5" style="color: white; text-align:center"></label>
 
   </th>
   </tr>
@@ -1124,7 +1127,7 @@ window.onload = refresh_everything;
   </th>
   <th>
     <label id="credit_cash">CREDIT</label>
-    <input type="button" id="balance" onclick="change_cash()" value="" style="border:none"/>
+    <input type="button" id="balance" onclick="change_cash()" value="" style="border:none;background-color:#1f1e1e;"/>
   </th>
   </tr>
 </table>
@@ -1132,11 +1135,11 @@ window.onload = refresh_everything;
   <tr>
     <th>
       <input type="button" name="button3"
-      class="button" id="game_info" value="GAME INFO" onclick=""/>      
+      class="button" id="game_info" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>      
     </th>
     <th>
       <input type="button" name="button2"
-      class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left"/>      
+      class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left;background-color:#1f1e1e;"/>      
     </th>
   <th>
   </th>
@@ -1144,7 +1147,7 @@ window.onload = refresh_everything;
   </th>
   <th>
     <input type="button" name="button1"
-    class="button" value="DEAL" id="play_button" style="float:right" onclick="showHint(this.value)"/>    
+    class="button" value="DEAL" id="play_button" style="float:right;background-color:#1f1e1e;" onclick="showHint(this.value)"/>    
   </th>
   </tr>
 </table>
