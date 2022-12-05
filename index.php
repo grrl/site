@@ -342,7 +342,7 @@ $.ajax({
       let mydata = JSON.parse(data);
 
       if (mydata.card_1 != ""){
-      console.log("data is " + data);
+        console.log("data is " + data);
 
       timestamp = mydata.id;
 
@@ -769,6 +769,28 @@ function change_speed(){
 }
 
 
+var blink_white = true;
+function blink_win(win) {         //  create a loop function
+  var timer1 = setInterval(function() {   //  call a 3s setTimeout when the loop is called
+    if (document.getElementById("play_button").value != "DRAW") {           //  if the counter < 10, call the loop function
+      clearTimeout(timer1);             //  ..  again which will trigger another 
+    }      
+
+    console.log("blinking");
+    if (blink_white == true){
+
+      document.getElementById(win).style.color = "white";
+      blink_white = false;
+    }
+    else{
+
+      document.getElementById(win).style.color = "black";
+      blink_white = true;
+    }
+    //  ..  setTimeout()
+  }, 1000)
+}
+
 function showHint(str) {
 
   if (cards_dealt == true){
@@ -844,9 +866,45 @@ function showHint(str) {
               my_string += myArray[i] + " ";
         }
         //let win = myArray[6];
-        console.log(my_string);
+        //console.log(my_string);
 
         console.log("win is " + my_string)
+
+        var blinkme = "";
+        switch (my_string){
+
+          case "ROYAL FLUSH":
+          blinkme = "rf";
+          break;
+          case "STRAIGHT FLUSH":
+          blinkme = "sf";
+          break;
+          case "4 OF KIND":
+          blinkme = "4ok";
+          break;
+          case "FULL HOUSE":
+          blinkme = "fh";
+          break;
+          case "FLUSH":
+          blinkme = "fl";
+          break;
+          case "STRAIGHT":
+          blinkme = "st";
+          break;
+          case "3 OF KIND":
+          blinkme = "3ok";
+          break;
+          case "TWO PAIR":
+          blinkme = "tp";
+          break;
+          case "JACKS OR BETTER":
+          blinkme = "jp";
+          break;
+        }
+
+        if (blinkme != ""){
+          blink_win(blinkme);
+        }
 
         if (my_string != "")
           document.getElementById("txtHint").innerHTML = my_string;
@@ -940,40 +998,40 @@ window.onload = refresh_everything;
   <table>
     <div>
     <tr>
-      <td>ROYAL FLUSH</td>
+      <td id="rf">ROYAL FLUSH</td>
       <td id="jackpot" style="text-align: right;">4000</td>
     </tr>
     <tr>
-      <td>STRAIGHT FLUSH</td>
-      <td style="text-align: right;">250</td>
+      <td id="sf">STRAIGHT FLUSH</td>
+      <td style="text-align: right;" id="sf">250</td>
     </tr>
     <tr>
-      <td>4 OF KIND</td>
-      <td style="text-align: right;">125</td>
+      <td id="4ok">4 OF KIND</td>
+      <td style="text-align: right;" id="4ok">125</td>
     </tr>
     <tr>
-      <td>FULL HOUSE</td>
-      <td style="text-align: right;">35</td>
+      <td id="fh">FULL HOUSE</td>
+      <td style="text-align: right;" id="fh">35</td>
     </tr>
     <tr>
-      <td>FLUSH</td>
-      <td style="text-align: right;">25</td>
+      <td id="fl">FLUSH</td>
+      <td style="text-align: right;" id="fl">25</td>
     </tr>
     <tr>
-      <td>STRAIGHT</td>
-      <td style="text-align: right;">20</td>
+      <td id="st">STRAIGHT</td>
+      <td style="text-align: right;"  id="st">20</td>
     </tr>
     <tr>
-      <td>3 OF KIND</td>
-      <td style="text-align: right;">15</td>
+      <td id="3ok">3 OF KIND</td>
+      <td style="text-align: right;" id="3ok">15</td>
     </tr>
     <tr>
-      <td>TWO PAIR</td>
-      <td style="text-align: right;">10</td>
+      <td id="tp">TWO PAIR</td>
+      <td style="text-align: right;" id="tp">10</td>
     </tr>
     <tr>
-      <td>JACKS OR BETTER</td>
-      <td style="text-align: right;">5</td>
+      <td id="jp">JACKS OR BETTER</td>
+      <td style="text-align: right;" id="jp">5</td>
     </tr>
   </div>
 </table>
