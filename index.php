@@ -598,8 +598,16 @@ var time = timestamp;
       }
 
       console.log("winamount " + winamount)
+
       if (winamount != ""){
-        document.getElementById("winlabel").innterHTML = "WIN " + winamount;
+        console.log("printing winamount ");
+
+        if (cash == true){
+          document.getElementById("winlabel").innerHTML = "WIN $" + winamount;
+        }
+        else{
+          document.getElementById("winlabel").innerHTML = "WIN " + winamount;
+        }
       }
 
       if (my_string != "")
@@ -875,7 +883,7 @@ function blink_win(win) {         //  create a loop function
 
 function showHint(str) {
 
-  document.getElementById("winlabel").value = "";
+  document.getElementById("winlabel").innerHTML = "";
 
   document.getElementById("rf").style.color = "#BFBFBF";
   document.getElementById("sf").style.color = "#BFBFBF";
@@ -977,7 +985,7 @@ function showHint(str) {
           case "STRAIGHT FLUSH":
           blinkme = "sf";
           break;
-          case "4 OF KIND":
+          case "FOUR OF KIND":
           blinkme = "4ok";
           break;
           case "FULL HOUSE":
