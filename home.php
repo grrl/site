@@ -55,7 +55,7 @@ if(!isset($_SESSION['username'])){
 ?>
 <h1 style="color:white;">Home</h1>
 <div>
-    <h4 style="color:white;">Welcome <?php echo $_SESSION['username']; ?></h4>
+    <h4 style="color:white;">Welcome, <?php echo $_SESSION['username']; ?>.</h4>
 
 </div>
 <a href="logout.php">Log Out</a>
