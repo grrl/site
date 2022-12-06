@@ -103,9 +103,9 @@ $.ajax({
           document.getElementById("balance").value = mydata.balance * 4;
          } 
 
-        let mytext = '<?php echo $_SESSION['username'] ?>';
+         let mytext = '<?php echo $_SESSION['username'] ?>';
         //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
-        document.getElementById("loyalty").innerHTML = "you have " + mydata.loyalty + " points";
+        document.getElementById("loyalty").innerHTML = mytext + ", you have " + mydata.loyalty + " points";
 
 
       }
