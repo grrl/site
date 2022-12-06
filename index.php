@@ -1163,7 +1163,19 @@ window.onload = refresh_everything;
   class="button" value="DEAL" onclick="showHint(this.value)"/>
 </form>
 -->
-<label><span id="txtHint" style="padding-left:300px;color:white;"></span></label>
+<table style="height: 25px">
+<tr>
+  <th>
+  </th>
+  <th>
+  </th>
+  <th>
+    <label><span id="txtHint" style="color:white; width: 200px;white-space:nowrap;"></span></label>
+  </th>
+  <th>
+  </th>
+  </tr>
+</table>
 <table style="height: 40px">
   <tr>
     <th>
