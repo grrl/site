@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])){
 
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Login</h1><br>
+    <h1 class="site-title" style="text-align: center; color: white; -webkit-text-stroke: 2px black;  font-weight: bold;">Login</h1><br>
   </hgroup>
 
 <br>
@@ -54,18 +54,23 @@ if(isset($_SESSION['username'])){
     }
 ?>
 <form method="post" action="auth.php">
-  <table>
+  <table style="    width: 60%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display:table;
+">
      <tr>
-           <td>Username : </td>
-           <td><input type="text" name="username" class="textInput"></td>
+           <td style="color:white;">Username : </td>
+           <td ><input type="text" name="username" class="textInput"></td>
      </tr>
       <tr>
-           <td>Password : </td>
+           <td style="color:white;">Password : </td>
            <td><input type="password" name="password" class="textInput"></td>
      </tr>
       <tr>
            <td></td>
-           <td><input type="submit" name="login_btn" class="Log In"></td>
+           <td><input type="submit" value="Log in" name="login_btn" class="Log In"></td>
      </tr>
  
 </table>

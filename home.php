@@ -45,7 +45,7 @@ if(!isset($_SESSION['username'])){
 
 <!--</div>-->
 <main class="main-content">
- <div class="col-md-6 col-md-offset-4">
+ <div class="col-md-6 col-md-offset-4" style="color:white;">
 <?php
     if(isset($_SESSION['message']))
     {
