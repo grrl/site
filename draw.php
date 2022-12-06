@@ -71,8 +71,20 @@ $row = $result->fetch_row();
 
 $newbalance = $row[0];
 
-$conn->close();
+//update points
 
+$sql = "UPDATE users SET loyalty=loyalty +" . 1.25/4 . " WHERE username='$user'";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+//update points end
+
+$conn->close();
 
 $deck = array(
   

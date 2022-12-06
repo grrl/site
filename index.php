@@ -105,7 +105,7 @@ $.ajax({
 
          let mytext = '<?php echo $_SESSION['username'] ?>';
         //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
-        document.getElementById("loyalty").innerHTML = mytext + ", you have " + mydata.loyalty + " points";
+        document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
 
 
       }
@@ -438,7 +438,7 @@ $.ajax({
        }
        let mytext = '<?php echo $_SESSION['username'] ?>';
        //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
-       document.getElementById("loyalty").innerHTML = mytext + ", you have " + mydata.loyalty + " points";
+       document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
 
     }
 });

@@ -115,7 +115,7 @@ window.onload = refresh_jackpot;
 <main class="main-content">
  <div class="col-md-6 col-md-offset-4">
 
-
+ <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
  <table>
   <tr>
     <th>ID</th>
