@@ -37,7 +37,10 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #f7feff;
+}
+tr:nth-child(odd) {
+  background-color: #bdc8c9;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

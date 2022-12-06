@@ -102,7 +102,7 @@ $.ajax({
          else{
           document.getElementById("balance").value = mydata.balance * 4;
          }         
-         document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
+         document.getElementById("loyalty").innerHTML = $_SESSION['username'] + " you have " + mydata.loyalty + " points";
 
       }
   });
@@ -603,17 +603,18 @@ var time = timestamp;
         console.log("printing winamount ");
 
         if (cash == true){
-          document.getElementById("winlabel").innerHTML = "WIN $" + winamount;
+          document.getElementById("winlabel").innerHTML = "WIN $ " + winamount;
         }
         else{
           document.getElementById("winlabel").innerHTML = "WIN " + winamount;
         }
       }
+ 
 
       if (my_string != "")
         document.getElementById("txtHint").innerHTML = my_string;
       else
-        document.getElementById("txtHint").innerHTML = "GAME OVER!";
+        document.getElementById("txtHint").innerHTML = "";
 
     //var checked_1 = document.getElementById("box1").checked;
     //var checked_2 = document.getElementById("box2").checked;
@@ -759,7 +760,7 @@ var time = timestamp;
        cards_dealt = false;
        document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
-       document.getElementById("gamestate").innerHTML = "GAME OVER";
+       document.getElementById("gamestate").innerHTML = "GAME OVER!";
        refresh_jackpot();
     }
     
@@ -883,7 +884,7 @@ function blink_win(win) {         //  create a loop function
 
 function showHint(str) {
 
-  document.getElementById("winlabel").innerHTML = "";
+  //document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
 
   document.getElementById("rf").style.color = "#BFBFBF";
   document.getElementById("sf").style.color = "#BFBFBF";
@@ -921,7 +922,8 @@ function showHint(str) {
     }
     else{
       document.getElementById("balance").value = document.getElementById("balance").value - 1.25;
-      document.getElementById("gamestate").innerHTML = "";
+      document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
+      document.getElementById("winlabel").innerHTML = "";
     }
   }
   else{
@@ -930,7 +932,8 @@ function showHint(str) {
     }
     else {
       document.getElementById("balance").value = document.getElementById("balance").value - 5;
-      document.getElementById("gamestate").innerHTML = "";
+      document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
+      document.getElementById("winlabel").innerHTML = "";
     }
   }
 
@@ -944,7 +947,7 @@ function showHint(str) {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
 
-        document.getElementById("txtHint").innerHTML = "GOOD LUCK!";
+        document.getElementById("txtHint").innerHTML = "";
 
         //document.getElementById("box1").disabled = false;
         //document.getElementById("box2").disabled = false;
@@ -1142,14 +1145,14 @@ window.onload = refresh_everything;
   </div>
 </table>
 
-<p><b>Welcome <?php echo $_SESSION['username']; ?></b></p>
+<p><b><?php echo $_SESSION['username'] ?>,</b><p id="mypoints" style="display: inline"> you have x points</p></p>
 <!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
   class="button" value="DEAL" onclick="showHint(this.value)"/>
 </form>
 -->
-<label>Suggestions: <span id="txtHint"></span></label>
+<label><span id="txtHint" style="padding-left:300px;color:white;"></span></label>
 <table style="height: 40px">
   <tr>
     <th>
@@ -1225,6 +1228,11 @@ window.onload = refresh_everything;
       class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left;background-color:#1f1e1e;"/>      
     </th>
   <th>
+  <span class="dot" style="color:white;padding-left:1px; padding-top:6px;height: 30px;
+  width: 30px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;">25¢</span>
   </th>
   <th>
   </th>
@@ -1234,7 +1242,7 @@ window.onload = refresh_everything;
   </th>
   </tr>
 </table>
-
+<br>
 <table>
   <tr>
     <th>
@@ -1292,7 +1300,7 @@ window.onload = refresh_everything;
 </form>
 -->
 <!--<div id="result"></div>-->
-<br>
+
 <p>BONUS POKER</p>
 
 </div>
