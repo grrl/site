@@ -14,6 +14,8 @@ $db = new mysqli($servername, $username, $password, $dbname);
 //    die("Connection failed: " . $conn->connect_error);
 //}
 
+echo "in submit";
+
 if(isset($_POST['register_btn']))
 {
     $username=mysqli_real_escape_string($db,$_POST['username']);
@@ -39,7 +41,7 @@ if(isset($_POST['register_btn']))
             if($password==$password2)
             {           //Create User
                 $password=md5($password); //hash password before storing for security purposes
-                $sql="INSERT INTO users(username, email, password ) VALUES('$username','$email','$password')"; 
+                $sql="INSERT INTO users(username, email, password, loyalty, points, balance, winloss, coinin) VALUES('$username','$email','$password', 0, 0, 0, 0, 0)"; 
                 mysqli_query($db,$sql);  
                 $_SESSION['message']="You are now logged in"; 
                 $_SESSION['username']=$username;

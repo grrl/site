@@ -53,13 +53,12 @@ if(isset($_SESSION['username'])){
          unset($_SESSION['message']);
     }
 ?>
-<form method="post" action="register.php">
+<form method="post" action="submit.php">
   <table style="    width: 60%;
     height: 100%;
     margin: 0;
     padding: 0;
-    display:table;
-">
+    display:table;">
      <tr>
            <td style="color:white;">Username : </td>
            <td><input type="text" name="username" class="textInput"></td>
