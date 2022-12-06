@@ -101,8 +101,12 @@ $.ajax({
          }
          else{
           document.getElementById("balance").value = mydata.balance * 4;
-         }         
-         document.getElementById("loyalty").innerHTML = $_SESSION['username'] + " you have " + mydata.loyalty + " points";
+         } 
+
+        let mytext = '<?php echo $_SESSION['username'] ?>';
+        //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
+        document.getElementById("loyalty").innerHTML = "you have " + mydata.loyalty + " points";
+
 
       }
   });
@@ -342,9 +346,15 @@ $.ajax({
       let text = this.data;
 
       //console.log("data is " + data)
-      let mydata = JSON.parse(data);
 
-      if (mydata.card_1 != ""){
+      let mydata = "";
+      try {
+        mydata = JSON.parse(data);
+        } catch (exceptionVar) {
+        console.log(exceptionVar);
+      }
+
+      if (mydata != ""/*mydata.card_1 != ""*/){
         console.log("data is " + data);
 
       timestamp = mydata.id;
@@ -425,8 +435,10 @@ $.ajax({
        }
        else{
         document.getElementById("balance").value = mydata.balance * 4;
-       }         
-       document.getElementById("loyalty").innerHTML = "POINTS TOTAL " + mydata.loyalty;
+       }
+       let mytext = '<?php echo $_SESSION['username'] ?>';
+       //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
+       document.getElementById("loyalty").innerHTML = mytext + ", you have " + mydata.loyalty + " points";
 
     }
 });
@@ -1145,7 +1157,6 @@ window.onload = refresh_everything;
   </div>
 </table>
 
-<p><b><?php echo $_SESSION['username'] ?>,</b><p id="mypoints" style="display: inline"> you have x points</p></p>
 <!--showHint(this.value)
 <form action="">
   <input type="button" name="button1"
@@ -1228,7 +1239,7 @@ window.onload = refresh_everything;
       class="button" id="speed" value="SPEED >>" onclick="change_speed()"style="float:left;background-color:#1f1e1e;"/>      
     </th>
   <th>
-  <span class="dot" style="color:white;padding-left:1px; padding-top:6px;height: 30px;
+  <span class="dot" style="color:white;padding-left:2px; padding-top:6px;height: 30px;
   width: 30px;
   background-color: #bbb;
   border-radius: 50%;
@@ -1249,15 +1260,15 @@ window.onload = refresh_everything;
       <p>Session points:</p>
     </th>
     <th>
-  </th>
-  <th>
-  <p id ="loyalty">Points total:</p>
-  </th>
-  <th>
-  </th>
-  <th>
-  <p id ="gamestate">GAME OVER</p>
-  </th>
+    </th>
+    <th>
+    <p id ="loyalty">Points total:</p>
+    </th>
+    <th>
+    </th>
+    <th>
+      <p id ="gamestate">GAME OVER</p>
+    </th>
   </tr>
 </table>
   <!--
