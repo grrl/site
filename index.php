@@ -882,8 +882,12 @@ function change_speed(){
 
 
 var blink_white = true;
-function blink_win(win) {         //  create a loop function
-
+function blink_win(win) {    
+  
+  //  create a loop function
+  var win_label = win;
+  if (win != "jackpot")
+    win_label = win + "l";
   var my_color = "#BFBFBF";//document.getElementById(win).style.color;
   var timer1 = setInterval(function() {   //  call a 3s setTimeout when the loop is called
     if (document.getElementById("play_button").value != "DRAW") {           //  if the counter < 10, call the loop function
@@ -895,11 +899,13 @@ function blink_win(win) {         //  create a loop function
     if (blink_white == true){
 
       document.getElementById(win).style.color = "white";
+      document.getElementById(win_label).style.color = "white";
       blink_white = false;
     }
     else{
 
       document.getElementById(win).style.color = "#BFBFBF";
+      document.getElementById(win_label).style.color = "#BFBFBF";
       blink_white = true;
     }
     //  ..  setTimeout()
@@ -923,6 +929,16 @@ function showHint(str) {
   document.getElementById("tp").style.color = "#BFBFBF";
   document.getElementById("jb").style.color = "#BFBFBF";
 
+  document.getElementById("jackpot").style.color = "#BFBFBF";
+  document.getElementById("sfl").style.color = "#BFBFBF";
+  document.getElementById("4okl").style.color = "#BFBFBF";
+  document.getElementById("fhl").style.color = "#BFBFBF";
+  document.getElementById("fll").style.color = "#BFBFBF";
+  document.getElementById("stl").style.color = "#BFBFBF";
+  document.getElementById("3okl").style.color = "#BFBFBF";
+  document.getElementById("tpl").style.color = "#BFBFBF";
+  document.getElementById("jbl").style.color = "#BFBFBF";
+  
   if (cards_dealt == true){
 
       change_cards(str);
@@ -1145,35 +1161,35 @@ window.onload = refresh_everything;
     </tr>
     <tr>
       <td id="sf" style="color:#BFBFBF;">STRAIGHT FLUSH</td>
-      <td style="text-align: right;color:#BFBFBF;" id="sf">250</td>
+      <td id="sfl" style="text-align: right;color:#BFBFBF;">250</td>
     </tr>
     <tr>
       <td id="4ok" style="color:#BFBFBF;">4 OF KIND</td>
-      <td style="text-align: right;color:#BFBFBF;" id="4ok">125</td>
+      <td id="4okl" style="text-align: right;color:#BFBFBF;">125</td>
     </tr>
     <tr>
       <td id="fh" style="color:#BFBFBF;">FULL HOUSE</td>
-      <td style="text-align: right;color:#BFBFBF;" id="fh">35</td>
+      <td id="fhl" style="text-align: right;color:#BFBFBF;">35</td>
     </tr>
     <tr>
       <td id="fl" style="color:#BFBFBF;">FLUSH</td>
-      <td style="text-align: right;color:#BFBFBF;" id="fl">25</td>
+      <td id="fll" style="text-align: right;color:#BFBFBF;">25</td>
     </tr>
     <tr>
       <td id="st" style="color:#BFBFBF;">STRAIGHT</td>
-      <td style="text-align: right;color:#BFBFBF;"  id="st">20</td>
+      <td id="stl" style="text-align: right;color:#BFBFBF;">20</td>
     </tr>
     <tr>
       <td id="3ok" style="color:#BFBFBF;">3 OF KIND</td>
-      <td style="text-align: right;color:#BFBFBF;" id="3ok">15</td>
+      <td id="3okl" style="text-align: right;color:#BFBFBF;">15</td>
     </tr>
     <tr>
       <td id="tp" style="color:#BFBFBF;">TWO PAIR</td>
-      <td style="text-align: right;color:#BFBFBF;" id="tp">10</td>
+      <td id="tpl" style="text-align: right;color:#BFBFBF;">10</td>
     </tr>
     <tr>
       <td id="jb" style="color:#BFBFBF;">JACKS OR BETTER</td>
-      <td style="text-align: right;color:#BFBFBF;" id="jp">5</td>
+      <td id="jbl" style="text-align: right;color:#BFBFBF;">5</td>
     </tr>
   </div>
 </table>
