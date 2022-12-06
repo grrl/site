@@ -1080,6 +1080,12 @@ function showHint(str) {
   
 }
 
+function myFunction() {
+  console.log("toggled");
+  window.alert("Malfunction voids all pays.");
+
+}
+
 window.onload = refresh_everything;
 
 </script>
@@ -1248,7 +1254,7 @@ window.onload = refresh_everything;
   <tr>
     <th>
       <input type="button" name="button3"
-      class="button" id="game_info" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>      
+      class="button" id="game_info" onclick="myFunction()" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>
     </th>
     <th>
       <input type="button" name="button2"
