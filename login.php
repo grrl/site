@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])){
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center">
         <li><a href="login.php">Login</a></li>
-        <li><a href="register.php">Sign up</a></li>
+        <li><a href="register.php">Register</a></li>
         <!--
         <li><a href="logout.php">LogOut</a></li>
         -->

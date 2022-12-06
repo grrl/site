@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])){
 
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Login, Registration, Logout</h1><br>
+    <h1 class="site-title" style="site-title; text-align: center; color: white; -webkit-text-stroke: 2px black;  font-weight: bold;">Register</h1><br>
   </hgroup>
 
 <br>
@@ -33,8 +33,8 @@ if(isset($_SESSION['username'])){
   <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center">
-        <li><a href="login.php">LogIN</a></li>
-        <li><a href="register.php">SignUp</a></li>
+        <li><a href="login.php">Login</a></li>
+        <!--<li><a href="register.php">SignUp</a></li>-->
       </ul>
 
     </div>
@@ -54,26 +54,31 @@ if(isset($_SESSION['username'])){
     }
 ?>
 <form method="post" action="register.php">
-  <table>
+  <table style="    width: 60%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display:table;
+">
      <tr>
-           <td>Username : </td>
+           <td style="color:white;">Username : </td>
            <td><input type="text" name="username" class="textInput"></td>
      </tr>
      <tr>
-           <td>Email : </td>
+           <td style="color:white;">Email : </td>
            <td><input type="email" name="email" class="textInput"></td>
      </tr>
       <tr>
-           <td>Password : </td>
+           <td style="color:white;">Password : </td>
            <td><input type="password" name="password" class="textInput"></td>
      </tr>
       <tr>
-           <td>Password again: </td>
+           <td style="color:white;">Password again: </td>
            <td><input type="password" name="password2" class="textInput"></td>
      </tr>
       <tr>
            <td></td>
-           <td><input type="submit" name="register_btn" class="Register"></td>
+           <td><input type="submit" value="Register" name="register_btn" class="Register"></td>
      </tr>
     </table>
 
