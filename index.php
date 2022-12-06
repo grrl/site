@@ -643,6 +643,42 @@ var time = timestamp;
       else
         document.getElementById("txtHint").innerHTML = "";
 
+        var blinkme = "";
+        switch (my_string){
+
+          case "ROYAL FLUSH":
+          blinkme = "rf";
+          break;
+          case "STRAIGHT FLUSH":
+          blinkme = "sf";
+          break;
+          case "FOUR OF KIND":
+          blinkme = "4ok";
+          break;
+          case "FULL HOUSE":
+          blinkme = "fh";
+          break;
+          case "FLUSH":
+          blinkme = "fl";
+          break;
+          case "STRAIGHT":
+          blinkme = "st";
+          break;
+          case "THREE OF KIND":
+          blinkme = "3ok";
+          break;
+          case "TWO PAIR":
+          blinkme = "tp";
+          break;
+          case "JACKS OR BETTER":
+          blinkme = "jb";
+          break;
+        }
+
+        if (blinkme != ""){
+          blink_win(blinkme);
+        }
+
     //var checked_1 = document.getElementById("box1").checked;
     //var checked_2 = document.getElementById("box2").checked;
     //var checked_3 = document.getElementById("box3").checked;
@@ -882,6 +918,7 @@ function change_speed(){
 
 
 var blink_white = true;
+var game_start = false;
 function blink_win(win) {    
   
   //  create a loop function
@@ -890,12 +927,16 @@ function blink_win(win) {
     win_label = win + "l";
   var my_color = "#BFBFBF";//document.getElementById(win).style.color;
   var timer1 = setInterval(function() {   //  call a 3s setTimeout when the loop is called
-    if (document.getElementById("play_button").value != "DRAW") {           //  if the counter < 10, call the loop function
+    if (game_start == true/*document.getElementById("play_button").value != "DRAW"*/) {           //  if the counter < 10, call the loop function
       document.getElementById(win).style.color = my_color;
-      clearTimeout(timer1);             //  ..  again which will trigger another 
+      console.log("game_startc  " + game_start);
+      game_start = false;
+      clearTimeout(timer1);             //  ..  again which will trigger another
     }      
 
     console.log("blinking");
+    console.log("game_start " + game_start);
+
     if (blink_white == true){
 
       document.getElementById(win).style.color = "white";
@@ -940,7 +981,7 @@ function showHint(str) {
   document.getElementById("jbl").style.color = "#BFBFBF";
   
   if (cards_dealt == true){
-
+      game_start = false;
       change_cards(str);
       refresh_jackpot();
       cards_dealt = false;
@@ -964,6 +1005,7 @@ function showHint(str) {
       return;
     }
     else{
+      game_start = true;
       document.getElementById("balance").value = document.getElementById("balance").value - 1.25;
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
       document.getElementById("winlabel").innerHTML = "";
@@ -974,6 +1016,7 @@ function showHint(str) {
       return;
     }
     else {
+      game_start = true;
       document.getElementById("balance").value = document.getElementById("balance").value - 5;
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
       document.getElementById("winlabel").innerHTML = "";
