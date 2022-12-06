@@ -530,6 +530,78 @@ var time = timestamp;
 
       console.log("win is " + my_string);
 
+      var winamount = "";
+
+      if (cash == true){
+        switch (my_string){
+
+          case "ROYAL FLUSH":
+            winamount = document.getElementById("jackpot").value;
+          break;
+          case "STRAIGHT FLUSH":
+            winamount = "62.25";
+          break;
+          case "4 OF KIND":
+            winamount = "31.25";
+          break;
+          case "FULL HOUSE":
+            winamount = "8.75";
+          break;
+          case "FLUSH":
+          winamount = "6.25";
+          break;
+          case "STRAIGHT":
+          winamount = "5.00";
+          break;
+          case "THREE OF KIND":
+          winamount = "3.75";
+          break;
+          case "TWO PAIR":
+          winamount = "2.5";
+          break;
+          case "JACKS OR BETTER":
+          winamount = "1.25";
+          break;
+        }
+      }
+      else {
+        switch (my_string){
+
+          case "ROYAL FLUSH":
+            winamount = document.getElementById("jackpot").value * 4;
+          break;
+          case "STRAIGHT FLUSH":
+            winamount = "250";
+          break;
+          case "4 OF KIND":
+            winamount = "125";
+          break;
+          case "FULL HOUSE":
+            winamount = "35";
+          break;
+          case "FLUSH":
+          winamount = "25";
+          break;
+          case "STRAIGHT":
+          winamount = "20";
+          break;
+          case "THREE OF KIND":
+          winamount = "15";
+          break;
+          case "TWO PAIR":
+          winamount = "10";
+          break;
+          case "JACKS OR BETTER":
+          winamount = "5";
+          break;
+        }
+      }
+
+      console.log("winamount " + winamount)
+      if (winamount != ""){
+        document.getElementById("winlabel").innterHTML = "WIN " + winamount;
+      }
+
       if (my_string != "")
         document.getElementById("txtHint").innerHTML = my_string;
       else
@@ -802,6 +874,8 @@ function blink_win(win) {         //  create a loop function
 
 
 function showHint(str) {
+
+  document.getElementById("winlabel").value = "";
 
   document.getElementById("rf").style.color = "#BFBFBF";
   document.getElementById("sf").style.color = "#BFBFBF";
@@ -1118,7 +1192,7 @@ window.onload = refresh_everything;
 <table>
   <tr>
     <th>
-      <label>WIN XXX</label>
+      <label id="winlabel" style="color:white;"></label>
     </th>
     <th>
   </th>
