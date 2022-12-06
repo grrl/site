@@ -1097,7 +1097,7 @@ window.onload = refresh_everything;
   <link rel="stylesheet" href="style.css">
 <div class="container">
   <hgroup>
-    <h1 class="site-title" style="text-align: center; color: green;">Bonus Poker</h1><br>
+    <h1 class="site-title" style="text-align: center; color: white; -webkit-text-stroke: 2px black;  font-weight: bold;">Bonus Poker</h1><br>
   </hgroup>
 
 <br>
