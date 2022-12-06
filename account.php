@@ -76,7 +76,7 @@ $.ajax({
 
          document.getElementById("jackpot").innerHTML = mydata.id;
          document.getElementById("balance").innerHTML = mydata.balance;
-         document.getElementById("loyalty").innerHTML = mydata.loyalty;
+         document.getElementById("loyalty").innerHTML = Math.floor(mydata.loyalty);
          document.getElementById("winloss").innerHTML = mydata.winloss;
          document.getElementById("coinin").innerHTML = mydata.coinin;
 
@@ -126,7 +126,7 @@ window.onload = refresh_jackpot;
     <td id="balance"></td>
   </tr>
   <tr>
-    <td>Loyalty</td>
+    <td>Rewards points</td>
     <td id="loyalty"></td>
   </tr>
   <tr>

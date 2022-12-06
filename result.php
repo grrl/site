@@ -633,6 +633,14 @@ if ($win_amount != 0){
 //echo "Error: " . $sql . "<br>" . $conn->error;
   }
 
+  $sql = "UPDATE users SET winloss=winloss +" . $win_amount . " WHERE username='$user'";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 }
 
 if ($win_amount != 0){
