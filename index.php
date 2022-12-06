@@ -1170,7 +1170,11 @@ window.onload = refresh_everything;
   <th>
   </th>
   <th>
-    <label><span id="txtHint" style="color:white; width: 200px;white-space:nowrap;"></span></label>
+  <label><span id="txtHint" style="color:white;white-space:nowrap;"></span></label>
+  </th>
+  <th>
+  </th>
+  <th>
   </th>
   <th>
   </th>
