@@ -1278,7 +1278,7 @@ window.onload = refresh_everything;
     <th>
     </th>
     <th>
-    <p id ="loyalty">Points total:</p>
+    <p id ="loyalty" style="white-space:nowrap;">Points total:</p>
     </th>
     <th>
     </th>
