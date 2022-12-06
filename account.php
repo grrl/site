@@ -94,7 +94,6 @@ window.onload = refresh_jackpot;
     <h1 class="site-title" style="site-title; text-align: center; color: white; -webkit-text-stroke: 2px black;  font-weight: bold;">Account</h1><br>
   </hgroup>
 
-<br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
   <!-- Collect the nav links, forms, and other content for toggling -->

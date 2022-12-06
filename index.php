@@ -1174,7 +1174,6 @@ window.onload = refresh_everything;
     <h1 class="site-title" style="text-align: center; color: white; -webkit-text-stroke: 2px black;  font-weight: bold;">Bonus Poker</h1><br>
   </hgroup>
 
-<br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
   <!-- Collect the nav links, forms, and other content for toggling -->
