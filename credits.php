@@ -47,9 +47,9 @@ if ($conn->connect_error) {
 
 $balance = "balance";
 $loyalty = "loyalty";
+$points = "points";
 
-
-$sql="SELECT " . $balance . "," . $loyalty . " FROM users WHERE username='$user'";
+$sql="SELECT " . $balance . "," . $loyalty . "," . $points . " FROM users WHERE username='$user'";
 
 //echo $sql;
 $result = mysqli_query($conn, $sql);

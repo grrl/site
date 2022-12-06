@@ -81,6 +81,16 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+//update session points
+
+$sql = "UPDATE users SET points=points +" . 1.25/4 . " WHERE username='$user'";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 $sql = "UPDATE users SET coinin=coinin +" . 1.25 . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {

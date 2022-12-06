@@ -54,7 +54,6 @@ if(!isset($_SESSION['username'])){
 
 let timestamp = ""; 
 var cash = false;
-var sessionpoints = 0;
 
 //let jackpot_value;
 function refresh_jackpot() {
@@ -108,6 +107,7 @@ $.ajax({
         //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
         document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
 
+        document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
 
       }
   });
@@ -441,6 +441,7 @@ $.ajax({
        //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
        document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
 
+       document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
     }
 });
 
@@ -937,8 +938,6 @@ function showHint(str) {
       document.getElementById("balance").value = document.getElementById("balance").value - 1.25;
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
       document.getElementById("winlabel").innerHTML = "";
-      sessionpoints += 1.25/4;
-      document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(sessionpoints);
     }
   }
   else{
@@ -949,8 +948,6 @@ function showHint(str) {
       document.getElementById("balance").value = document.getElementById("balance").value - 5;
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
       document.getElementById("winlabel").innerHTML = "";
-      sessionpoints += 1.25/4;
-      document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(sessionpoints);
     }
   }
 
@@ -1294,7 +1291,7 @@ window.onload = refresh_everything;
     <th>
     </th>
     <th>
-      <p id ="gamestate">GAME OVER</p>
+      <p id ="gamestate"></p>
     </th>
   </tr>
 </table>
