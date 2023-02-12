@@ -44,6 +44,7 @@ tr:nth-child(odd) {
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="plinko.js"></script>
 <script type="text/javascript">
 
 let timestamp = "";
@@ -83,10 +84,10 @@ $.ajax({
       }
       
   });
-      
 }
 
 window.onload = refresh_jackpot;
+
 </script>
 <body>
 <div class="container">
@@ -107,14 +108,17 @@ window.onload = refresh_jackpot;
         <li><a href="index.php">Bonus Poker</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
-    </nav>
-
+</nav>
 
 <!--</div>-->
 <main class="main-content">
- <div class="col-md-6 col-md-offset-4">
+  <div class="col-md-6 col-md-offset-4">
 
- <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
+<h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
+
+
+<canvas id="mycanvas" src="plinko.js" width="400" height="300" style="border:5px solid blue;"></canvas>
+
 
 </div>
 </nav>
