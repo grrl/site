@@ -1185,6 +1185,7 @@ window.onload = refresh_everything;
         -->
         <li><a href="home.php">Home</a></li>
         <li><a href="account.php">Account</a></li>
+        <li><a href="plinko.php">Plinko</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </div>
