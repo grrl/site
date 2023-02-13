@@ -1,7 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 const canvas = document.getElementById('mycanvas');
-let firstx = 1;
+let firstx = 0;
+let firsty = 0;
 let x = 1;
 var ctx = canvas.getContext("2d"); //get the context
 var c = {  //create an object to draw
@@ -18,15 +19,35 @@ var redraw = function(){
     
   requestAnimationFrame(redraw);
 }
-//canvas size is 
-function move(){
-  firstx+=5;
-  //var x = firstx;//Math.random() // this returns a float between 0.0 and 1.0
-  c.x = x + firstx;//canvas.width;
-  c.y = x + firstx//canvas.height;
+
+const sleep = (duration) => {
+  return new Promise(resolve => setTimeout(resolve, duration));
 }
-redraw();
 
-setInterval(move, 1000);
 
+let move_array = [100,10,20,20,30,30];
+
+//canvas size is
+async function move(array){
+
+  console.log("move animation starts");
+  for (let i = 0; i < array.length; i+=2) {
+    //firstx+=5;
+    firstx = firstx + array[i];
+    firsty = firsty + array[i+1];
+
+    console.log("moving x " + array[i] + " y " + array[i+1]);
+    //var x = firstx;//Math.random() // this returns a float between 0.0 and 1.0
+    c.x = x + firstx;//canvas.width;
+    c.y = x + firstx//canvas.height;
+    redraw();
+    await sleep(1000)
+  }
+  console.log("move animation ends");
+}
+
+//redraw();
+
+move(move_array);
+//setInterval(move, 1000);
 });
