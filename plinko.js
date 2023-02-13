@@ -24,7 +24,6 @@ const sleep = (duration) => {
   return new Promise(resolve => setTimeout(resolve, duration));
 }
 
-
 let move_array = [100,10,20,20,30,30];
 
 //canvas size is
