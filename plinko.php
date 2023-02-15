@@ -104,6 +104,24 @@ $.ajax({
   });
 }
 
+function change_cash(){
+
+if (!cash){
+
+  document.getElementById("balance").value =  document.getElementById("balance").value / 4;
+  document.getElementById("credit_cash").innerHTML =  "CASH $";
+
+  cash = true;
+}
+else{
+
+  document.getElementById("balance").value = document.getElementById("balance").value * 4;
+  document.getElementById("credit_cash").innerHTML =  "CREDIT";
+
+  cash = false;
+}
+}
+
 window.onload = refresh_jackpot;
 
 </script>
@@ -186,15 +204,14 @@ window.onload = refresh_jackpot;
     <th>
     </th>
     <th>
-    <p id ="loyalty" style="white-space:nowrap;">Points total:</p>
-    </th>
-    <th>
+      <p id ="loyalty" style="white-space:nowrap;">Points total:</p>
     </th>
     <th>
       <p id ="gamestate"></p>
     </th>
   </tr>
 </table>
+<p>PLINKO</p>
 
 </div>
 </nav>

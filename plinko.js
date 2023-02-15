@@ -623,12 +623,12 @@ var redraw = function(){
 
   //left 2
   ctx.beginPath();
-  ctx.fillText("2.00", 95, 339);
+  ctx.fillText("2", 105, 339);
   ctx.closePath();
 
   //left 3
   ctx.beginPath();
-  ctx.fillText("1.10", 155, 339);
+  ctx.fillText("1.1", 160, 339);
   ctx.closePath();
 
   //left 4
@@ -648,12 +648,12 @@ var redraw = function(){
 
   //right 7
   ctx.beginPath();
-  ctx.fillText("1.10", 393, 339);
+  ctx.fillText("1.1", 395, 339);
   ctx.closePath();
   
   //right 8
   ctx.beginPath();
-  ctx.fillText("2.00", 453, 339);
+  ctx.fillText("2", 460, 339);
   ctx.closePath();
 
   //last 9

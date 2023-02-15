@@ -470,7 +470,6 @@ var hold_3 = false;
 var hold_4 = false;
 var hold_5 = false;
 
-
 function change_cash(){
 
   if (!cash){
