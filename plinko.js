@@ -648,12 +648,12 @@ var redraw = function(){
 
   //right 7
   ctx.beginPath();
-  ctx.fillText("1.10", 390, 339);
+  ctx.fillText("1.10", 393, 339);
   ctx.closePath();
   
   //right 8
   ctx.beginPath();
-  ctx.fillText("2.00", 450, 339);
+  ctx.fillText("2.00", 453, 339);
   ctx.closePath();
 
   //last 9
@@ -678,9 +678,8 @@ const sleep = (duration) => {
   return new Promise(resolve => setTimeout(resolve, duration));
 }
 
-//let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
 
-//bonus ball
+//ball middle
 let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //canvas size is
