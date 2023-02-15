@@ -584,7 +584,7 @@ const sleep = (duration) => {
 //let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
 
 //bonus ball
-let move_array = [0, 50, -30, 15, 50, 48, -48, 35];
+let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 50, 40, 15, 50];
 
 //canvas size is
 async function move(array){
