@@ -686,25 +686,6 @@ async function move(array){
       redraw();
       await sleep(1);
     }
-    /*
-    while (c.x != firstx || c.y != firsty){
-      console.log("cx " + c.x + " cy " + c.y);
-      if (c.x != firstx){
-        if (firstx > c.x){
-          c.x = c.x + 1;//canvas.width;
-        }
-        else if (firstx < c.x){
-          c.x = c.x - 1;
-        }
-        console.log("c.x is " + c.x + " firstx is " + firstx);
-      }
-      if (c.y != firsty){
-        c.y = c.y + 1;//canvas.height;
-      }
-      redraw();
-      await sleep(16);
-    }
-    */
     //await sleep(400);
   }
   console.log("move animation ends");
