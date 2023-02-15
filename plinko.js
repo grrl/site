@@ -614,15 +614,51 @@ var redraw = function(){
   ctx.closePath();
 
   ctx.fillStyle = "black";
+  ctx.font = "bold 9pt Verdana";
 
-  //first
+  //first 1
   ctx.beginPath();
-  ctx.fillText("BONUS", 32, 338);
+  ctx.fillText("BONUS", 25, 339);
   ctx.closePath();
 
-  //last
+  //left 2
   ctx.beginPath();
-  ctx.fillText("BONUS", 514, 338);
+  ctx.fillText("2.00", 95, 339);
+  ctx.closePath();
+
+  //left 3
+  ctx.beginPath();
+  ctx.fillText("1.10", 155, 339);
+  ctx.closePath();
+
+  //left 4
+  ctx.beginPath();
+  ctx.fillText("1.05", 215, 339);
+  ctx.closePath();
+
+  //middle 5
+  ctx.beginPath();
+  ctx.fillText("0.3", 280, 339);
+  ctx.closePath();
+
+  //right 6
+  ctx.beginPath();
+  ctx.fillText("1.05", 335, 339);
+  ctx.closePath();
+
+  //right 7
+  ctx.beginPath();
+  ctx.fillText("1.10", 390, 339);
+  ctx.closePath();
+  
+  //right 8
+  ctx.beginPath();
+  ctx.fillText("2.00", 450, 339);
+  ctx.closePath();
+
+  //last 9
+  ctx.beginPath();
+  ctx.fillText("BONUS", 508, 339);
   ctx.closePath();
   //ctx.fillStyle = "black";
 
