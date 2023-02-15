@@ -680,7 +680,10 @@ const sleep = (duration) => {
 
 
 //ball middle
-let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
+//let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
+
+//ball 2
+let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //canvas size is
 //add argument to function at the end
@@ -705,8 +708,15 @@ async function move(array){
 
     console.log("arrayx " + arrayx + " arrayy " + arrayy);
 
-    let movexaverage = (arrayx / arrayy);
-
+    let movexaverage;
+    if (arrayy == 0 && arrayx != 0){
+      c.x = c.x + arrayx;
+      redraw();
+      await sleep(1);
+    } else {
+       movexaverage = (arrayx / arrayy);
+    }
+    
     console.log("movexaverage " + movexaverage);
     while (c.y != firsty){
 
@@ -721,7 +731,7 @@ async function move(array){
       redraw();
       await sleep(1);
     }
-    //await sleep(400);
+
   }
   console.log("move animation ends");
   drawball = false;
