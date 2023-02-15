@@ -599,9 +599,11 @@ async function move(array){
     let currentcx = c.x;
     let currentcy = c.y;
     console.log("before while loop");
+    console.log("firstx " + firstx + " " + firsty);
+
     console.log("cx " + currentcx + " cy " + currentcy);
     
-    while (c.x < firstx && c.y < firsty){
+    while (c.x < firstx || c.y < firsty){
       console.log("cx " + c.x + " cy " + c.y);
       if (c.x != firstx){
         c.x = c.x + 1;//canvas.width;
