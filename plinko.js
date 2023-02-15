@@ -584,7 +584,7 @@ const sleep = (duration) => {
 //let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
 
 //bonus ball
-let move_array = [0,50, -20, 30];
+let move_array = [0,50, -40, 15];
 
 //canvas size is
 async function move(array){
@@ -606,7 +606,21 @@ async function move(array){
     console.log("firstx " + firstx + " " + firsty);
 
     console.log("cx " + currentcx + " cy " + currentcy);
-    
+
+    let movexaverage = array[i] / array[i+1];
+
+    while (c.y != firsty){
+
+      if (movexaverage > 0){
+          c.x = c.x + movexaverage;
+      } else {
+          c.x = c.x - movexaverage;
+      }
+      c.y = c.y + 1;
+      redraw();
+      await sleep(16);
+    }
+    /*
     while (c.x != firstx || c.y != firsty){
       console.log("cx " + c.x + " cy " + c.y);
       if (c.x != firstx){
@@ -624,7 +638,7 @@ async function move(array){
       redraw();
       await sleep(16);
     }
-    
+    */
     //await sleep(400);
   }
   console.log("move animation ends");
