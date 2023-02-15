@@ -564,6 +564,8 @@ var redraw = function(){
   ctx.fill();
 
   ctx.fillStyle = "black";
+
+  //console.log("animating " + c.x + " " + c.y);
   //game ball
   ctx.beginPath();  
   ctx.arc(c.x, c.y, c.r, 0, Math.PI*2); 
@@ -572,8 +574,6 @@ var redraw = function(){
   
   requestAnimationFrame(redraw);
 }
-
-
 
 const sleep = (duration) => {
   return new Promise(resolve => setTimeout(resolve, duration));
@@ -593,10 +593,28 @@ async function move(array){
 
     console.log("moving x " + array[i] + " y " + array[i+1]);
     //var x = firstx;//Math.random() // this returns a float between 0.0 and 1.0
-    c.x = x + firstx;//canvas.width;
-    c.y = y + firsty//canvas.height;
-    redraw();
-    await sleep(1000);
+    //console.log("before currentcx");
+
+    let currentcx = c.x;
+    let currentcy = c.y;
+    console.log("before while loop");
+    console.log("firstx " + firstx + " " + firsty);
+
+    console.log("cx " + currentcx + " cy " + currentcy);
+    
+    while (c.x < firstx || c.y < firsty){
+      console.log("cx " + c.x + " cy " + c.y);
+      if (c.x != firstx){
+        c.x = c.x + 1;//canvas.width;
+      }
+      if (c.y != firsty){
+        c.y = c.y + 1;//canvas.height;
+      }
+      redraw();
+      await sleep(20);
+    }
+    
+    //await sleep(400);
   }
   console.log("move animation ends");
 }
