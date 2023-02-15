@@ -92,10 +92,16 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-
 //update points end
 
 $conn->close();
+
+$seed = (random_int(0, 999));
+
+$date = new DateTimeImmutable();
+//echo date_timestamp_get($date);
+$time_stamp = date_timestamp_get($date);
+
 
 
 }
