@@ -679,10 +679,10 @@ const sleep = (duration) => {
 }
 
 
-//ball middle
+//ball middle 0.3
 //let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
-//ball 2
+//ball right 1.05
 let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //canvas size is
