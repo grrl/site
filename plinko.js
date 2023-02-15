@@ -7,6 +7,8 @@ let x = 0;
 let y = 0;
 var ctx = canvas.getContext("2d"); //get the context
 
+var drawball = true;
+
 //ball
 var c = {  //create an object to draw
   x:250,  //x value
@@ -624,14 +626,14 @@ var redraw = function(){
   ctx.closePath();
   //ctx.fillStyle = "black";
 
+  if (drawball){
   ctx.fillStyle = "rgba(255, 36, 0, 1)";
-
-  //console.log("animating " + c.x + " " + c.y);
   //game ball
   ctx.beginPath();  
   ctx.arc(c.x, c.y, c.r, 0, Math.PI*2); 
   ctx.closePath();
   ctx.fill();
+  }
   
   requestAnimationFrame(redraw);
 }
@@ -706,6 +708,8 @@ async function move(array){
     //await sleep(400);
   }
   console.log("move animation ends");
+  drawball = false;
+
 }
 
 //redraw();
