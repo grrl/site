@@ -24,24 +24,42 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="style.css">
 </head>
 <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 40%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 2px;
-}
-
-tr:nth-child(even) {
-  background-color: #f7feff;
-}
-tr:nth-child(odd) {
-  background-color: #bdc8c9;
-}
+    * {
+      box-sizing: border-box;
+    }
+    
+    body{
+      background-color: "#1f1e1e";
+    }
+    
+    .column {
+      float: left;
+      width: 20.00%;
+      padding: 5px;
+    }
+    
+    /*Clearfix (clear floats)*/ 
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    table {
+        border-collapse: separate;
+        /*border-spacing: 0 15px;*/
+      }
+      th {
+        /*background-color: gray;*/
+        color: white;
+      }
+      th,
+      td {
+        width: 150px;
+        /*text-align: right;*/
+        /*border: 1px solid black;*/
+        padding: 5px;
+      }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="plinko.js"></script>
@@ -119,6 +137,64 @@ window.onload = refresh_jackpot;
 
 <canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue;"></canvas>
 
+<table>
+  <tr>
+    <th>
+      <label id="winlabel" style="color:white;"></label>
+    </th>
+    <th>
+  </th>
+  <th>
+  </th>
+  <th>
+  </th>
+  <th>
+    <label id="credit_cash">CREDIT</label>
+    <input type="button" id="balance" onclick="change_cash()" value="" style="border:none;background-color:#1f1e1e;"/>
+  </th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>
+      <input type="button" name="button3"
+      class="button" id="game_info" onclick="myFunction()" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>
+    </th>
+    <th>
+    </th>
+  <th>
+  <span class="dot" style="color:white;padding-left:2px; padding-top:6px;height: 30px;
+  width: 30px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;">25¢</span>
+  </th>
+  <th>
+  </th>
+  <th>
+    <input type="button" name="button1"
+    class="button" value="PLAY" id="play_button" style="float:right;background-color:#1f1e1e;" onclick="showHint(this.value)"/>    
+  </th>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <th>
+      <p id="sessionpoints">Session points: 0</p>
+    </th>
+    <th>
+    </th>
+    <th>
+    <p id ="loyalty" style="white-space:nowrap;">Points total:</p>
+    </th>
+    <th>
+    </th>
+    <th>
+      <p id ="gamestate"></p>
+    </th>
+  </tr>
+</table>
 
 </div>
 </nav>
