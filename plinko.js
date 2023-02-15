@@ -618,7 +618,7 @@ var redraw = function(){
 
   //first 1
   ctx.beginPath();
-  ctx.fillText("BONUS", 25, 339);
+  ctx.fillText("BONUS", 26, 339);
   ctx.closePath();
 
   //left 2
