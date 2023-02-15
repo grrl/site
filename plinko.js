@@ -281,7 +281,6 @@ var l8_10 = {
   r:10  
 }
 
-
 var redraw = function(){
   ctx.clearRect(0, 0, canvas.width, canvas.height); //clear canvas
  
