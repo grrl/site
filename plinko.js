@@ -622,7 +622,7 @@ async function move(array){
       }
       c.y = c.y + 1;
       redraw();
-      await sleep(5);
+      await sleep(1);
     }
     /*
     while (c.x != firstx || c.y != firsty){
