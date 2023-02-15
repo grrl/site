@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 const canvas = document.getElementById('mycanvas');
-let firstx = 0;
+let firstx = 200;
 let firsty = 0;
 let x = 0;
 let y = 0;
@@ -581,7 +581,9 @@ const sleep = (duration) => {
   return new Promise(resolve => setTimeout(resolve, duration));
 }
 
-let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
+//let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
+
+let move_array = [0,10,0,300];
 
 //canvas size is
 async function move(array){
@@ -607,6 +609,7 @@ async function move(array){
     while (c.x < firstx || c.y < firsty){
       console.log("cx " + c.x + " cy " + c.y);
       if (c.x != firstx){
+        console.log("c.x is " + c.x + " firstx is " + firstx);
         c.x = c.x + 1;//canvas.width;
       }
       if (c.y != firsty){
