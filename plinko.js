@@ -565,7 +565,66 @@ var redraw = function(){
   ctx.closePath();
   ctx.fill();
 
+  ctx.fillStyle = "red";
+
+  ctx.beginPath();
+  ctx.fillRect(25, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "rgba(252, 94, 3, 1)";
+  ctx.beginPath();
+  ctx.fillRect(85, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "rgba(255, 157, 0, 1)";
+  ctx.beginPath();
+  ctx.fillRect(145, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "orange";
+  ctx.beginPath();
+  ctx.fillRect(206, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "rgba(255, 221, 0, 1)";
+  ctx.beginPath();
+  ctx.fillRect(265, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "orange";
+  ctx.beginPath();
+  ctx.fillRect(324, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "rgba(255, 157, 0, 1)";
+  ctx.beginPath();
+  ctx.fillRect(383, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "rgba(252, 94, 3, 1)";
+  ctx.beginPath();
+  ctx.fillRect(444, 325, 50, 20);
+  ctx.closePath();
+
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.fillRect(507, 325, 50, 20);
+  ctx.closePath();
+
   ctx.fillStyle = "black";
+
+  //first
+  ctx.beginPath();
+  ctx.fillText("BONUS", 32, 338);
+  ctx.closePath();
+
+  //last
+  ctx.beginPath();
+  ctx.fillText("BONUS", 514, 338);
+  ctx.closePath();
+  //ctx.fillStyle = "black";
+
+  ctx.fillStyle = "rgba(255, 36, 0, 1)";
 
   //console.log("animating " + c.x + " " + c.y);
   //game ball
@@ -583,10 +642,12 @@ const sleep = (duration) => {
 
 //let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
 
+
 //bonus ball
-let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 50, 40, 15, 50];
+let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //canvas size is
+//add argument to function at the end
 async function move(array){
 
   console.log("move animation starts");

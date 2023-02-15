@@ -117,7 +117,7 @@ window.onload = refresh_jackpot;
 <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
 
 
-<canvas id="mycanvas" src="plinko.js" width="580" height="400" style="border:5px solid blue;"></canvas>
+<canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue;"></canvas>
 
 
 </div>
