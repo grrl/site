@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 const canvas = document.getElementById('mycanvas');
-let firstx = 200;
+let firstx = 250;
 let firsty = 0;
 let x = 0;
 let y = 0;
@@ -9,9 +9,9 @@ var ctx = canvas.getContext("2d"); //get the context
 
 //ball
 var c = {  //create an object to draw
-  x:200,  //x value
+  x:250,  //x value
   y:0,  //y value
-  r:5 //radius
+  r:10 //radius
 }
 
 //line 1 3 balls
@@ -583,7 +583,8 @@ const sleep = (duration) => {
 
 //let move_array = [100,10,20,20,30,30, 0, 20, -50, 10, 10, 10, 0, 100];
 
-let move_array = [0,10,0,300];
+//bonus ball
+let move_array = [0,50, -20, 30];
 
 //canvas size is
 async function move(array){
@@ -606,11 +607,16 @@ async function move(array){
 
     console.log("cx " + currentcx + " cy " + currentcy);
     
-    while (c.x < firstx || c.y < firsty){
+    while (c.x != firstx || c.y != firsty){
       console.log("cx " + c.x + " cy " + c.y);
       if (c.x != firstx){
+        if (firstx > c.x){
+          c.x = c.x + 1;//canvas.width;
+        }
+        else if (firstx < c.x){
+          c.x = c.x - 1;
+        }
         console.log("c.x is " + c.x + " firstx is " + firstx);
-        c.x = c.x + 1;//canvas.width;
       }
       if (c.y != firsty){
         c.y = c.y + 1;//canvas.height;
