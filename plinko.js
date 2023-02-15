@@ -6,8 +6,10 @@ let firsty = 0;
 let x = 0;
 let y = 0;
 var ctx = canvas.getContext("2d"); //get the context
+
+//ball
 var c = {  //create an object to draw
-  x:0,  //x value
+  x:200,  //x value
   y:0,  //y value
   r:5 //radius
 }
@@ -611,7 +613,7 @@ async function move(array){
         c.y = c.y + 1;//canvas.height;
       }
       redraw();
-      await sleep(20);
+      await sleep(16);
     }
     
     //await sleep(400);
