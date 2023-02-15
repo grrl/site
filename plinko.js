@@ -597,15 +597,11 @@ async function move(array){
     firsty = firsty + array[i+1];
 
     console.log("moving x " + array[i] + " y " + array[i+1]);
-    //var x = firstx;//Math.random() // this returns a float between 0.0 and 1.0
-    //console.log("before currentcx");
 
     let currentcx = c.x;
     let currentcy = c.y;
     console.log("before while loop");
     console.log("firstx " + firstx + " " + firsty);
-
-    //console.log("cx " + currentcx + " cy " + currentcy);
 
     let arrayx = array[i];
     let arrayy = array[i+1];
