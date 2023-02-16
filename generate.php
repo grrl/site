@@ -102,6 +102,14 @@ $date = new DateTimeImmutable();
 //echo date_timestamp_get($date);
 $time_stamp = date_timestamp_get($date);
 
+if ($seed == 0 || $seed == 1){
+
+
+}
+else if ($seed > 1 || $seed <= 45){
+
+    
+}
 
 
 }
