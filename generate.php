@@ -105,7 +105,8 @@ $time_stamp = date_timestamp_get($date);
 $win_amount = 0;
 
 if ($seed == 0 || $seed == 1){ //bonus
-//bonus.php activate bonus to ask client choice
+//activate bonus to ask client choice
+//draw wins for choices 0,1,2,3,4,5
 //then send win back to user
 
   $win_amount = "BONUS";
@@ -113,23 +114,33 @@ if ($seed == 0 || $seed == 1){ //bonus
 else if ($seed >= 2 || $seed <= 45){ //2
 
   $win_amount = 2;
+
+  //generate array to return
+
 }
 else if ($seed >=46 || $seed <= 317){ //1.1
 
   $win_amount = 1.1;
+  //generate array to return
+
 }
 else if ($seed >= 318 || $seed <= 771){ // 1.05
 
   $win_amount = 1.05;
+  //generate array to return
+
 }
 else if ($seed >= 772 || $seed <= 999){ //0.3
 
   $win_amount = 0.3;
+  //generate array to return
+
 }
 
 if ($win_amount == "BONUS"){
 
-  
+//request choice from player
+//and after clicking return them with 
 
 } else {
 

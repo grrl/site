@@ -22,6 +22,7 @@ if(!isset($_SESSION['username'])){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="plinko.css">
 </head>
 <style>
     * {
@@ -122,6 +123,73 @@ else{
 }
 }
 
+function generate(){
+
+  var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+
+        document.getElementById("txtHint").innerHTML = "";
+
+        //document.getElementById("box1").disabled = false;
+        //document.getElementById("box2").disabled = false;
+        //document.getElementById("box3").disabled = false;
+        //document.getElementById("box4").disabled = false;
+        //document.getElementById("box5").disabled = false;
+
+        let text = this.responseText;
+        const myArray = text.split(" ");
+        let size = myArray.length;
+        let card_1 = myArray[0];
+        let card_2 = myArray[1];
+        let card_3 = myArray[2];
+        let card_4 = myArray[3];
+        let card_5 = myArray[4];
+        timestamp = myArray[5];
+        console.log("id is " + timestamp);
+
+
+        let my_string = "";
+        for (let i = 6; i< size; i++){
+            if (i == size - 1)
+              my_string += myArray[i];
+            else
+              my_string += myArray[i] + " ";
+        }
+        //let win = myArray[6];
+        //console.log(my_string);
+
+        console.log("win is " + my_string)
+
+        if (my_string != "")
+          document.getElementById("txtHint").innerHTML = my_string;
+
+        //document.getElementById("card1").innerHTML = card_1 + " " + card_2 + " " + card_3 + " " + card_4 + " " + card_5;
+
+        //console.log(typeof card_1);
+        //console.log(typeof card_2);
+        //console.log(typeof card_3);
+        //console.log(typeof card_4);
+        //console.log(typeof card_5);
+
+        cards_dealt = true;
+        document.getElementById("play_button").value = "DRAW";
+      }
+    };
+    xmlhttp.open("GET", "draw.php?q=" + str, true);
+    xmlhttp.send();
+
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("mycanvas").style.display = "none";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  document.getElementById("mycanvas").style.display = "block";
+}
 window.onload = refresh_jackpot;
 
 </script>
@@ -152,7 +220,20 @@ window.onload = refresh_jackpot;
 
 <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
 
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
 
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
 <canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue;"></canvas>
 
 <table>
@@ -191,7 +272,7 @@ window.onload = refresh_jackpot;
   </th>
   <th>
     <input type="button" name="button1"
-    class="button" value="PLAY" id="play_button" style="float:right;background-color:#1f1e1e;" onclick="showHint(this.value)"/>    
+    class="button" value="PLAY" id="play_button" style="float:right;background-color:#1f1e1e;" onclick="openForm()"/>    
   </th>
   </tr>
 </table>
