@@ -189,6 +189,10 @@ function openForm() {
 
 function closeForm() {
   //get number from button send to server and get win
+  //replace chosen button with award
+  //then 1 by one show rest awards
+  //increase credits counter then go back to base game
+
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
 }
@@ -226,27 +230,28 @@ window.onload = refresh_jackpot;
   <form action="/action_page.php" class="form-container">
     <h1>Jackpot name: Make a pick</h1>
     <h4>Total BET: XXX = Y Progressive Award(s) hidden</h4>
+    <h6>THE HIGHER THE BET THE MORE PROGRESSIVES AVAILABLE IN SELECTION</h5>
     <table>
     <tr>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">1</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">2</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">3</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
     </tr>
     <tr>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">4</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">5</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="btn" onclick="closeForm()">6</button>
+        <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
     </tr>
     </table>
