@@ -102,14 +102,38 @@ $date = new DateTimeImmutable();
 //echo date_timestamp_get($date);
 $time_stamp = date_timestamp_get($date);
 
-if ($seed == 0 || $seed == 1){
+$win_amount = 0;
+
+if ($seed == 0 || $seed == 1){ //bonus
+//bonus.php activate bonus to ask client choice
+//then send win back to user
+
+  $win_amount = "BONUS";
+}
+else if ($seed >= 2 || $seed <= 45){ //2
+
+  $win_amount = 2;
+}
+else if ($seed >=46 || $seed <= 317){ //1.1
+
+  $win_amount = 1.1;
+}
+else if ($seed >= 318 || $seed <= 771){ // 1.05
+
+  $win_amount = 1.05;
+}
+else if ($seed >= 772 || $seed <= 999){ //0.3
+
+  $win_amount = 0.3;
+}
+
+if ($win_amount == "BONUS"){
+
+  
+
+} else {
 
 
 }
-else if ($seed > 1 || $seed <= 45){
-
-    
-}
-
 
 }
