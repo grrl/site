@@ -182,11 +182,13 @@ function generate(){
 }
 
 function openForm() {
+  //change button color according to jackpot
   document.getElementById("myForm").style.display = "block";
   document.getElementById("mycanvas").style.display = "none";
 }
 
 function closeForm() {
+  //get number from button send to server and get win
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
 }
@@ -222,33 +224,34 @@ window.onload = refresh_jackpot;
 
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    <h1>Pick a gem</h1>
-
+    <h1>Jackpot name: Make a pick</h1>
+    <h4>Total BET: XXX = Y Progressive Award(s) hidden</h4>
     <table>
     <tr>
       <th>
-        <button type="submit" class="btn">1</button>
+        <button type="button" class="btn" onclick="closeForm()">1</button>
       </th>
       <th>
-        <button type="submit" class="btn">2</button>
+        <button type="button" class="btn" onclick="closeForm()">2</button>
       </th>
       <th>
-        <button type="submit" class="btn">3</button>
+        <button type="button" class="btn" onclick="closeForm()">3</button>
       </th>
     </tr>
     <tr>
       <th>
-        <button type="submit" class="btn">4</button>
+        <button type="button" class="btn" onclick="closeForm()">4</button>
       </th>
       <th>
-        <button type="submit" class="btn">5</button>
+        <button type="button" class="btn" onclick="closeForm()">5</button>
       </th>
       <th>
-        <button type="submit" class="btn">6</button>
+        <button type="button" class="btn" onclick="closeForm()">6</button>
       </th>
     </tr>
     </table>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <h5>SELECT A JEWEL</h5>
+    <!--<button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
   </form>
 </div>
 <canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue;"></canvas>
