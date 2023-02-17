@@ -202,12 +202,15 @@ function closeForm() {
 var bet_level = 6;
 
 function increase_bet(){
+
 //save bet preference in user settings?
 //bets 0.5 1 1.5 2 2.5 3
 //bets 0.6 1.2 1.8 2.4. 3.0 3.6
 //bets 0.8 1.6 2.4 3.2 4.0 4.8
+//bets 0.4 0.8 1.2 1.6 2.0 2.4 2.8 3.2
 
   switch (bet_level){
+    
     case 1:
       bet_level = 2;
       document.getElementById("bet_amount").value = "1.0";
@@ -228,11 +231,15 @@ function increase_bet(){
       bet_level = 6;
       document.getElementById("bet_amount").value = "3.0";
     break;
+    default:
+      break;
   }
+  
 }
 
 function decrease_bet(){
 
+  
   switch (bet_level){
     case 2:
       bet_level = 1;
@@ -254,12 +261,15 @@ function decrease_bet(){
       bet_level = 5;
       document.getElementById("bet_amount").value = "2.5";
     break;
+    default:
+      break;
   }
+  
 }
 
-change_format(){
+function change_format(){
 
-  
+
 }
 
 window.onload = refresh_jackpot;
@@ -333,8 +343,14 @@ window.onload = refresh_jackpot;
       <th>
         <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
+      <th>
+        <button type="button" class="button5" onclick="closeForm()"></button>
+      </th>
     </tr>
     <tr>
+      <th>
+        <button type="button" class="button5" onclick="closeForm()"></button>
+      </th>
       <th>
         <button type="button" class="button5" onclick="closeForm()"></button>
       </th>
