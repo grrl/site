@@ -204,15 +204,62 @@ var bet_level = 6;
 function increase_bet(){
 //save bet preference in user settings?
 //bets 0.5 1 1.5 2 2.5 3
+//bets 0.6 1.2 1.8 2.4. 3.0 3.6
+//bets 0.8 1.6 2.4 3.2 4.0 4.8
 
-  document.getElementById("bet_amount").innerHTML = ""
-
-
+  switch (bet_level){
+    case 1:
+      bet_level = 2;
+      document.getElementById("bet_amount").value = "1.0";
+    break;
+    case 2:
+      bet_level = 3;
+      document.getElementById("bet_amount").value = "1.5";
+    break;
+    case 3:
+      bet_level = 4;
+      document.getElementById("bet_amount").value = "2.0";
+    break;
+    case 4:
+      bet_level = 5;
+      document.getElementById("bet_amount").value = "2.5";
+    break;
+    case 5:
+      bet_level = 6;
+      document.getElementById("bet_amount").value = "3.0";
+    break;
+  }
 }
 
 function decrease_bet(){
 
-  document.getElementById("bet_amount").innerHTML = ""
+  switch (bet_level){
+    case 2:
+      bet_level = 1;
+      document.getElementById("bet_amount").value = "0.5";
+    break;
+    case 3:
+      bet_level = 2;
+      document.getElementById("bet_amount").value = "1.0";
+    break;
+    case 4:
+      bet_level = 3;
+      document.getElementById("bet_amount").value = "1.5";
+    break;
+    case 5:
+      bet_level = 4;
+      document.getElementById("bet_amount").value = "2.0";
+    break;
+    case 6:
+      bet_level = 5;
+      document.getElementById("bet_amount").value = "2.5";
+    break;
+  }
+}
+
+change_format(){
+
+  
 }
 
 window.onload = refresh_jackpot;
@@ -340,8 +387,7 @@ window.onload = refresh_jackpot;
   <th>
   <input type="button" name="button1"
     class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
-  <input type="button" name="button1" id="bet_amount"
-    class="button" value="3.00" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
+  <input type="button" name="button1" id="bet_amount" class="button" value="3.0" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
   <input type="button" name="button1"
     class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>
   </th>
