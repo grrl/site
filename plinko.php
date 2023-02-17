@@ -199,15 +199,20 @@ function closeForm() {
   document.getElementById("mycanvas").style.display = "block";
 }
 
+var bet_level = 6;
+
 function increase_bet(){
+//save bet preference in user settings?
 //bets 0.5 1 1.5 2 2.5 3
 
+  document.getElementById("bet_amount").innerHTML = ""
 
 
 }
 
 function decrease_bet(){
 
+  document.getElementById("bet_amount").innerHTML = ""
 }
 
 window.onload = refresh_jackpot;
@@ -326,20 +331,19 @@ window.onload = refresh_jackpot;
     <th>
     </th>
   <th>
-  <span class="dot" style="color:white;padding-left:2px; padding-top:6px;height: 30px;
+  <span class="dot" style="color:white;padding-left:7px; padding-top:6px;height: 30px;
   width: 30px;
   background-color: #bbb;
   border-radius: 50%;
-  display: inline-block;">25¢</span>
+  display: inline-block;">1¢</span>
   </th>
   <th>
   <input type="button" name="button1"
-    class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
+    class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
+  <input type="button" name="button1" id="bet_amount"
+    class="button" value="3.00" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
   <input type="button" name="button1"
-    class="button" value="XX.XX" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
-  <input type="button" name="button1"
-    class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>    
-   
+    class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>
   </th>
   <th>
     <input type="button" name="button1"

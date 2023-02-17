@@ -116,25 +116,25 @@ else if ($seed >= 2 || $seed <= 45){ //2
 
   $win_multiplier = 2;
 
-  //generate array to return
+  //generate array path to return
 
 }
 else if ($seed >=46 || $seed <= 317){ //1.1
 
   $win_multiplier = 1.1;
-  //generate array to return
+  //generate array path to return
 
 }
 else if ($seed >= 318 || $seed <= 771){ // 1.05
 
   $win_multiplier = 1.05;
-  //generate array to return
+  //generate array path to return
 
 }
 else if ($seed >= 772 || $seed <= 999){ //0.3
 
   $win_multiplier = 0.3;
-  //generate array to return
+  //generate array path to return
 
 }
 
