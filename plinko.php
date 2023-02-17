@@ -226,6 +226,31 @@ window.onload = refresh_jackpot;
 
 <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
 
+<table>
+    <tr>
+      <th>
+      <h2>2.5</h2>
+      <p>Opal</p>
+      </th>
+      <th>
+      <h2>5</h2>
+      <p>Ruby</p>
+      </th>
+      <th>
+      <h2>10</h2>
+      <p>Sapphire</p>
+      </th>
+      <th>
+      <h2>100</h2>
+      <p>Emerald</p>
+      </th>
+      <th>
+      <h2>1000</h2>
+      <p>Diamond</p>
+      </th>
+    </tr>
+    </table>
+
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
     <h1>Jackpot name: Make a pick</h1>
