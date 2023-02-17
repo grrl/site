@@ -102,6 +102,7 @@ $date = new DateTimeImmutable();
 //echo date_timestamp_get($date);
 $time_stamp = date_timestamp_get($date);
 
+//multiplier
 $win_amount = 0;
 
 if ($seed == 0 || $seed == 1){ //bonus
