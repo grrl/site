@@ -198,6 +198,18 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
 }
+
+function increase_bet(){
+//bets 0.5 1 1.5 2 2.5 3
+
+
+
+}
+
+function decrease_bet(){
+
+}
+
 window.onload = refresh_jackpot;
 
 </script>
@@ -321,6 +333,13 @@ window.onload = refresh_jackpot;
   display: inline-block;">25¢</span>
   </th>
   <th>
+  <input type="button" name="button1"
+    class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
+  <input type="button" name="button1"
+    class="button" value="XX.XX" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
+  <input type="button" name="button1"
+    class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>    
+   
   </th>
   <th>
     <input type="button" name="button1"
