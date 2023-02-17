@@ -56,7 +56,7 @@ $row = $result->fetch_row();
 
 $newbalance = $row[0];
 
-//update points
+//update points with bet
 
 $sql = "UPDATE users SET loyalty=loyalty +" . 1.25/4 . " WHERE username='$user'";
 
@@ -66,7 +66,7 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-//update session points
+//update session points with bet size
 
 $sql = "UPDATE users SET points=points +" . 1.25/4 . " WHERE username='$user'";
 
@@ -103,43 +103,42 @@ $date = new DateTimeImmutable();
 $time_stamp = date_timestamp_get($date);
 
 //multiplier
-$win_amount = 0;
+$win_multiplier = 0;
 
 if ($seed == 0 || $seed == 1){ //bonus
 //activate bonus to ask client choice
 //draw wins for choices 0,1,2,3,4,5
 //then send win back to user
 
-  $win_amount = "BONUS";
+  $win_multiplier = "BONUS";
 }
 else if ($seed >= 2 || $seed <= 45){ //2
 
-  $win_amount = 2;
+  $win_multiplier = 2;
 
   //generate array to return
 
 }
 else if ($seed >=46 || $seed <= 317){ //1.1
 
-  $win_amount = 1.1;
+  $win_multiplier = 1.1;
   //generate array to return
 
 }
 else if ($seed >= 318 || $seed <= 771){ // 1.05
 
-  $win_amount = 1.05;
+  $win_multiplier = 1.05;
   //generate array to return
 
 }
 else if ($seed >= 772 || $seed <= 999){ //0.3
 
-  $win_amount = 0.3;
+  $win_multiplier = 0.3;
   //generate array to return
 
 }
 
-if ($win_amount == "BONUS"){
-
+if ($win_multiplier == "BONUS"){
 //request choice from player
 //and after clicking return them with 
 
