@@ -188,7 +188,9 @@ function openForm() {
 }
 
 function closeForm() {
-  //get number from button send to server and get win
+  //get number from button send to server and update win to user
+  //end game
+  //send all button values back
   //replace chosen button with award
   //then 1 by one show rest awards
   //increase credits counter then go back to base game
@@ -245,7 +247,7 @@ window.onload = refresh_jackpot;
       <p>Emerald</p>
       </th>
       <th>
-      <h2>1000</h2>
+      <h2>1,000</h2>
       <p>Diamond</p>
       </th>
     </tr>
