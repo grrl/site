@@ -1190,16 +1190,18 @@ $.ajax({
          //jackpot_value = data;
          //console.log("jackpot_value is " + jackpot_value);
 
-         document.getElementById("opal").innerHTML = "$" + parseFloat(mydata[0]).toFixed(2);
-         document.getElementById("ruby").innerHTML = "$" + parseFloat(mydata[1]).toFixed(2);
-         document.getElementById("emerald").innerHTML = "$" + parseFloat(mydata[2]).toFixed(2);
-         document.getElementById("sapphire").innerHTML = "$" + parseFloat(mydata[3]).toFixed(2);
-         document.getElementById("diamond").innerHTML = "$" + addCommas(mydata[4]);
+         document.getElementById("opal").innerHTML = "$ " + parseFloat(mydata[0]).toFixed(2);
+         document.getElementById("ruby").innerHTML = "$ " + parseFloat(mydata[1]).toFixed(2);
+         document.getElementById("emerald").innerHTML = "$ " + parseFloat(mydata[2]).toFixed(2);
+         document.getElementById("sapphire").innerHTML = "$ " + parseFloat(mydata[3]).toFixed(2);
+         document.getElementById("diamond").innerHTML = "$ " + addCommas(mydata[4]);
 
       }
       
   });
 }
+
+var winamount = 0;
 
 //canvas size is
 //add argument to function at the end
@@ -1270,6 +1272,14 @@ async function move(array){
   refresh_jackpots();
 
   document.getElementById("gamestate").innerHTML = "GAME OVER!";
+
+  if (winamount > 0){
+    document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+  }
+
+  winamount = 0;
+
+  //winlabel
 
 }
 
@@ -1393,11 +1403,13 @@ function play_plinko() {
       console.log("data is " + data);
       let mydata = JSON.parse(data);
 
+      winamount = mydata[0];
       my_array = mydata[1];
       //win = mydata.win_amount;
 
       console.log(my_array);
 
+      document.getElementById("winlabel").innerHTML = "";
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
 
       document.getElementById("play_button").disabled = true;
