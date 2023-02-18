@@ -159,7 +159,7 @@ $time_stamp = date_timestamp_get($date);
 //multiplier
 $win_multiplier = 0;
 
-$array = array(60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
+//$array = array(60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
 
 if ($seed == 0 || $seed == 1){ //bonus
 //activate bonus to ask client choice
@@ -180,6 +180,8 @@ else if ($seed >=46 && $seed <= 317){ //1.1
 
   $win_multiplier = 1.1;
   //generate array path to return
+
+  //choose between one array
   $array = array(80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80);
 
   $array = array(80, 0, 0, 51, 63, 60, -55, 40, 55, 40, -55, 30, 80, 100);
@@ -189,6 +191,7 @@ else if ($seed >= 318 &&$seed <= 771){ // 1.05
 
   $win_multiplier = 1.05;
   //generate array path to return
+  $array = array(63, 0, 0, 51, -65, 55, 55, 40, -55, 40, 55, 50, 53, 90);
 
 }
 else if ($seed >= 772 && $seed <= 999){ //0.3
