@@ -1271,7 +1271,6 @@ async function move(array){
 
   document.getElementById("gamestate").innerHTML = "GAME OVER!";
 
-  
 }
 
 function change_cash(){
