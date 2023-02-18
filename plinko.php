@@ -1219,7 +1219,7 @@ $.ajax({
           document.getElementById("balance").value = addCommas(parseFloat(mydata.balance).toFixed(2));
          }
          else{
-          document.getElementById("balance").value = (mydata.balance * 4).toFixed(0);
+          document.getElementById("balance").value = (mydata.balance * 100).toFixed(0);
          } 
 
          let mytext = '<?php echo $_SESSION['username'] ?>';
@@ -1300,8 +1300,6 @@ async function move(array){
   draw_and_clear();
   document.getElementById("play_button").disabled = false;
 
-  refresh_jackpots();
-
   document.getElementById("gamestate").innerHTML = "GAME OVER!";
 
   if (winamount > 0){
@@ -1309,6 +1307,8 @@ async function move(array){
   }
 
   winamount = 0;
+
+  refresh_jackpots();
 
   //winlabel
 
@@ -1318,14 +1318,14 @@ function change_cash(){
 
 if (!cash){
 
-  document.getElementById("balance").value =  document.getElementById("balance").value / 4;
+  document.getElementById("balance").value = document.getElementById("balance").value / 100;
   document.getElementById("credit_cash").innerHTML =  "CASH $";
 
   cash = true;
 }
 else{
 
-  document.getElementById("balance").value = document.getElementById("balance").value * 4;
+  document.getElementById("balance").value = document.getElementById("balance").value * 100;
   document.getElementById("credit_cash").innerHTML =  "CREDIT";
 
   cash = false;
@@ -1418,6 +1418,92 @@ let my_array;
 
 function play_plinko() {
 
+  var creditvalue;
+
+if (!cash){
+
+switch (bet_level){
+
+  case 1:
+    creditvalue =  40;
+  break;
+  case 2:
+    creditvalue =  80;
+  break;
+  case 3:
+    creditvalue =  120;
+  break;
+  case 4:
+    creditvalue =  160;
+  break;
+  case 5:
+    creditvalue =  200;
+  break;
+  case 6:
+    creditvalue =  240;
+  break;
+  case 7:
+    creditvalue =  280;
+  break;
+  case 8:
+    creditvalue =  320;
+  break;
+  default:
+    break; 
+  } 
+}
+else{
+
+  switch (bet_level){
+
+  case 1:
+    creditvalue =  0.4;
+  break;
+  case 2:
+    creditvalue =  0.8;
+  break;
+  case 3:
+    creditvalue =  1.2;
+  break;
+  case 4:
+    creditvalue =  1.6;
+  break;
+  case 5:
+    creditvalue =  2.0;
+  break;
+  case 6:
+    creditvalue =  2.4;
+  break;
+  case 7:
+    creditvalue =  2.8;
+  break;
+  case 8:
+    creditvalue =  3.2;
+  break;
+  default:
+    break;
+  }
+}
+
+
+  if (cash == true){
+    if (document.getElementById("balance").value < creditvalue){
+      return;
+    }
+    else{
+      document.getElementById("balance").value = parseFloat(document.getElementById("balance").value - creditvalue).toFixed(2);
+      document.getElementById("winlabel").innerHTML = "";
+    }
+  }
+  else{
+    if (document.getElementById("balance").value < creditvalue){
+      return;
+    }
+    else {
+      document.getElementById("balance").value = parseFloat(document.getElementById("balance").value - creditvalue).toFixed(0);
+      document.getElementById("winlabel").innerHTML = "";
+    }
+  }
   
   console.log(bet_level);
   $.ajax({
@@ -1440,7 +1526,7 @@ function play_plinko() {
 
       console.log(my_array);
 
-      refresh_jackpots();
+      //refresh_jackpots();
 
       document.getElementById("winlabel").innerHTML = "";
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
