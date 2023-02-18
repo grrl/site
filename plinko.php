@@ -466,19 +466,19 @@ window.onload = refresh_jackpot;
       </th>
       <th>
       <h2>5</h2>
-      <p>Ruby</p>
+      <p style="color: #E0115F;">Ruby</p>
       </th>
       <th>
       <h2>10</h2>
-      <p>Emerald</p>
+      <p style="color: #50C878;">Emerald</p>
       </th>
       <th>
       <h2>100</h2>
-      <p>Sapphire</p>
+      <p style="color: #0f52ba;">Sapphire</p>
       </th>
       <th>
       <h2>1,000</h2>
-      <p>Diamond</p>
+      <p style="color: #b9f2ff;">Diamond</p>
       </th>
     </tr>
     </table>
