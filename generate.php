@@ -78,11 +78,12 @@ $sql="SELECT " . $balance . " FROM users WHERE username='$user'";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
 
-$number;
+//$number;
 
 $row = $result->fetch_row();
 
-$number = $row[0];
+$balance = $row[0];
+
 
 //echo $number;
 //echo " ";
