@@ -74,11 +74,9 @@ foreach ($_POST as $param_name => $param_val) {
 }
 
 
+if ($bet_value > 0 && $balance >= $bet_value){
 
-
-if ($bet_value > 0){
-
-$sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE username='$user'";
+$sql = "UPDATE users SET balance=balance -" . $bet_value . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -99,7 +97,7 @@ $newbalance = $row[0];
 
 //update points with bet
 
-$sql = "UPDATE users SET loyalty=loyalty +" . 1.25/4 . " WHERE username='$user'";
+$sql = "UPDATE users SET loyalty=loyalty +" . $bet_value/4 . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -109,7 +107,7 @@ if ($conn->query($sql) === TRUE) {
 
 //update session points with bet size
 
-$sql = "UPDATE users SET points=points +" . 1.25/4 . " WHERE username='$user'";
+$sql = "UPDATE users SET points=points +" . $bet_value/4 . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -117,7 +115,7 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE users SET coinin=coinin +" . 1.25 . " WHERE username='$user'";
+$sql = "UPDATE users SET coinin=coinin +" . $bet_value . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -125,7 +123,7 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE users SET winloss=winloss -" . 1.25 . " WHERE username='$user'";
+$sql = "UPDATE users SET winloss=winloss -" . $bet_value . " WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
