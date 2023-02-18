@@ -49,7 +49,7 @@ $number = $row[0];
 // get the q parameter from URL
 //$q = $_REQUEST["q"];
 
-if ($number >= 1.25){
+if (floatval($number) >= 1.25){
 
 $sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE username='$user'";
 
