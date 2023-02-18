@@ -249,13 +249,14 @@ $sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +".
 $bet_value * 0.01 * 0.2 . ", sapphire=sapphire +" . $bet_value * 0.01 * 0.2 . ", diamond=diamond +" . $bet_value * 0.01 * 0.4;
 */
 
-$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value. "coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
-", opal=opal +" . $opal_multiplier . ", ruby=ruby +". $ruby_multiplier .", emerald=emerald +" .
-$emerald_multiplier . ", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
+//$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value. "coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
+//", opal=opal +" . $opal_multiplier . ", ruby=ruby +". $ruby_multiplier .", emerald=emerald +" .
+//$emerald_multiplier . ", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
 
 
-//$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +" . $win_amount . ", cycle=cycle +" . 1 .
-//", opal=opal +" . $opal_multiplier;
+$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +" . $win_amount . ", cycle=cycle +" . 1 .
+", opal=opal +" . $opal_multiplier . ", ruby=ruby +" . $ruby_multiplier . ", emerald=emerald +" . $emerald_multiplier .
+", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
