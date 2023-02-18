@@ -1162,17 +1162,17 @@ async function move(array){
     firstx+= array[i];
     firsty += array[i+1];
 
-    console.log("moving x " + array[i] + " y " + array[i+1]);
+    //console.log("moving x " + array[i] + " y " + array[i+1]);
 
     let currentcx = c.x;
     let currentcy = c.y;
-    console.log("before while loop");
-    console.log("firstx " + firstx + " " + firsty);
+    //console.log("before while loop");
+    //console.log("firstx " + firstx + " " + firsty);
 
     let arrayx = array[i];
     let arrayy = array[i+1];
 
-    console.log("arrayx " + arrayx + " arrayy " + arrayy);
+    //console.log("arrayx " + arrayx + " arrayy " + arrayy);
 
     let movexaverage;
     if (arrayy == 0 && arrayx != 0){
@@ -1182,15 +1182,15 @@ async function move(array){
     } else {
        movexaverage = (arrayx / arrayy);
     }
-    console.log("movexaverage " + movexaverage);
+    //console.log("movexaverage " + movexaverage);
     while (c.y != firsty){
 
       if (movexaverage > 0){
           c.x = c.x + movexaverage;
       } else {
-          console.log("reducing movexaverage " + c.x);
+          //console.log("reducing movexaverage " + c.x);
           c.x = c.x + movexaverage;
-          console.log("c.x " + c.x);
+          //console.log("c.x " + c.x);
       }
       c.y = c.y + 1;
       redraw();
