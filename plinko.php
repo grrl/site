@@ -70,6 +70,9 @@ if(!isset($_SESSION['username'])){
 
 //document.addEventListener('DOMContentLoaded', function() {
 var cash = false;
+var bet_level = 8;
+var credit_format = false;
+let my_array;
 var canvas;
 var ctx; 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1314,6 +1317,7 @@ async function move(array){
 
 }
 
+
 function change_cash(){
 
 if (!cash){
@@ -1321,12 +1325,71 @@ if (!cash){
   document.getElementById("balance").value = document.getElementById("balance").value / 100;
   document.getElementById("credit_cash").innerHTML =  "CASH $";
 
+  switch (bet_level){
+
+case 1:
+  document.getElementById("bet_amount").value =  " 0.4";
+break;
+case 2:
+  document.getElementById("bet_amount").value =  " 0.8";
+break;
+case 3:
+  document.getElementById("bet_amount").value =  " 1.2";
+break;
+case 4:
+  document.getElementById("bet_amount").value =  " 1.6";
+break;
+case 5:
+  document.getElementById("bet_amount").value =  " 2.0";
+break;
+case 6:
+  document.getElementById("bet_amount").value =  " 2.4";
+break;
+case 7:
+  document.getElementById("bet_amount").value =  " 2.8";
+break;
+case 8:
+  document.getElementById("bet_amount").value =  " 3.2";
+break;
+default:
+break;
+}
   cash = true;
 }
 else{
 
   document.getElementById("balance").value = document.getElementById("balance").value * 100;
   document.getElementById("credit_cash").innerHTML =  "CREDIT";
+
+  switch (bet_level){
+
+case 1:
+  document.getElementById("bet_amount").value =  "  40";
+break;
+case 2:
+  document.getElementById("bet_amount").value =  "  80";
+break;
+case 3:
+  document.getElementById("bet_amount").value =  "120";
+break;
+case 4:
+  document.getElementById("bet_amount").value =  "160";
+break;
+case 5:
+  document.getElementById("bet_amount").value =  "200";
+break;
+case 6:
+  document.getElementById("bet_amount").value =  "240";
+break;
+case 7:
+  document.getElementById("bet_amount").value =  "280";
+break;
+case 8:
+  document.getElementById("bet_amount").value =  "320";
+break;
+default:
+break;
+}
 
   cash = false;
 }
@@ -1407,10 +1470,6 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
 }
-
-var bet_level = 8;
-var credit_format = false;
-let my_array;
 
 //let move_array = [80, 0, 0, 49, 205, 270];
 //let move_array = [80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80];
@@ -1524,8 +1583,6 @@ else{
       my_array = mydata[1];
       //win = mydata.win_amount;
 
-      console.log(my_array);
-
       //refresh_jackpots();
 
       document.getElementById("winlabel").innerHTML = "";
@@ -1569,8 +1626,8 @@ function increase_bet(){
 //bets 0.8 1.6 2.4 3.2 4.0 4.8
 //bets 0.4 0.8 1.2 1.6 2.0 2.4 2.8 3.2
 
-if (credit_format){
-
+if (!cash){
+  
   switch (bet_level){
 
     case 1:
@@ -1645,7 +1702,7 @@ if (credit_format){
 
 function decrease_bet(){
 
-  if (credit_format){
+  if (!cash){
 
     switch (bet_level){
     case 2:
@@ -1718,7 +1775,7 @@ function decrease_bet(){
 
 function change_format(){
 
-  if (credit_format){
+  if (cash){
 
       switch (bet_level){
 
@@ -1749,7 +1806,8 @@ function change_format(){
       default:
       break;
     }
-    credit_format = false;
+    change_cash();
+    
   }
   else{
 
@@ -1782,7 +1840,8 @@ function change_format(){
       default:
       break;
     }
-    credit_format = true;
+    //cash = true;
+    change_cash();
   }
 
 }
@@ -1917,7 +1976,7 @@ window.onload = refresh_jackpots;
   <th>
   <input type="button" name="button1"
     class="button" value=" + " id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
-  <input type="button" name="button1" id="bet_amount" class="button" value=" 3.2" style="float:right;background-color:#1f1e1e;" onclick="change_format()"/>
+  <input type="button" name="button1" id="bet_amount" class="button" value="320" style="float:right;background-color:#1f1e1e;" onclick="change_format()"/>
   <input type="button" name="button1"
     class="button" value=" − " id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>
   </th>
