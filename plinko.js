@@ -1,4 +1,4 @@
-
+/*
 document.addEventListener('DOMContentLoaded', function() {
 const canvas = document.getElementById('mycanvas');
 let firstx = 250;
@@ -740,6 +740,7 @@ async function move(array){
 
 //redraw();
 
-move(move_array);
+//move(move_array);
 //setInterval(move, 1000);
 });
+*/
