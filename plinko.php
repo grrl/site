@@ -1216,10 +1216,10 @@ $.ajax({
         let mydata = JSON.parse(data);
 
         if (cash == true){
-          document.getElementById("balance").value = mydata.balance;
+          document.getElementById("balance").value = addCommas(parseFloat(mydata.balance).toFixed(2));
          }
          else{
-          document.getElementById("balance").value = mydata.balance * 4;
+          document.getElementById("balance").value = (mydata.balance * 4).toFixed(0);
          } 
 
          let mytext = '<?php echo $_SESSION['username'] ?>';
@@ -1439,6 +1439,8 @@ function play_plinko() {
       //win = mydata.win_amount;
 
       console.log(my_array);
+
+      refresh_jackpots();
 
       document.getElementById("winlabel").innerHTML = "";
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
