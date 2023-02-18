@@ -200,6 +200,7 @@ function closeForm() {
 }
 
 var bet_level = 8;
+var credit_format = false;
 
 function increase_bet(){
 
@@ -209,82 +210,232 @@ function increase_bet(){
 //bets 0.8 1.6 2.4 3.2 4.0 4.8
 //bets 0.4 0.8 1.2 1.6 2.0 2.4 2.8 3.2
 
+if (credit_format){
+
   switch (bet_level){
-    
+
     case 1:
       bet_level = 2;
-      document.getElementById("bet_amount").value = "0.8";
+      document.getElementById("bet_amount").value = "  80";
     break;
     case 2:
       bet_level = 3;
-      document.getElementById("bet_amount").value = "1.2";
+      document.getElementById("bet_amount").value = "120";
     break;
     case 3:
       bet_level = 4;
-      document.getElementById("bet_amount").value = "1.6";
+      document.getElementById("bet_amount").value = "160";
     break;
     case 4:
       bet_level = 5;
-      document.getElementById("bet_amount").value = "2.0";
+      document.getElementById("bet_amount").value = "200";
     break;
     case 5:
       bet_level = 6;
-      document.getElementById("bet_amount").value = "2.4";
+      document.getElementById("bet_amount").value = "240";
     break;
     case 6:
       bet_level = 7;
-      document.getElementById("bet_amount").value = "2.8";
+      document.getElementById("bet_amount").value = "280";
     break;
     case 7:
       bet_level = 8;
-      document.getElementById("bet_amount").value = "3.2";
+      document.getElementById("bet_amount").value = "320";
+    break;
+    default:
+      break; 
+    } 
+  }
+    else{
+
+    switch (bet_level){
+
+    case 1:
+      bet_level = 2;
+      document.getElementById("bet_amount").value = " 0.8";
+    break;
+    case 2:
+      bet_level = 3;
+      document.getElementById("bet_amount").value = " 1.2";
+    break;
+    case 3:
+      bet_level = 4;
+      document.getElementById("bet_amount").value = " 1.6";
+    break;
+    case 4:
+      bet_level = 5;
+      document.getElementById("bet_amount").value = " 2.0";
+    break;
+    case 5:
+      bet_level = 6;
+      document.getElementById("bet_amount").value = " 2.4";
+    break;
+    case 6:
+      bet_level = 7;
+      document.getElementById("bet_amount").value = " 2.8";
+    break;
+    case 7:
+      bet_level = 8;
+      document.getElementById("bet_amount").value = " 3.2";
     break;
     default:
       break;
   }
-  
+  }
 }
 
 function decrease_bet(){
 
-  
-  switch (bet_level){
+  if (credit_format){
+
+    switch (bet_level){
     case 2:
       bet_level = 1;
-      document.getElementById("bet_amount").value = "0.4";
+      document.getElementById("bet_amount").value = "  40";
     break;
     case 3:
       bet_level = 2;
-      document.getElementById("bet_amount").value = "0.8";
+      document.getElementById("bet_amount").value = "  80";
     break;
     case 4:
       bet_level = 3;
-      document.getElementById("bet_amount").value = "1.2";
+      document.getElementById("bet_amount").value = "120";
     break;
     case 5:
       bet_level = 4;
-      document.getElementById("bet_amount").value = "1.6";
+      document.getElementById("bet_amount").value = "160";
     break;
     case 6:
       bet_level = 5;
-      document.getElementById("bet_amount").value = "2.0";
+      document.getElementById("bet_amount").value = "200";
     break;
     case 7:
       bet_level = 6;
-      document.getElementById("bet_amount").value = "2.4";
+      document.getElementById("bet_amount").value = "240";
     break;
     case 8:
       bet_level = 7;
-      document.getElementById("bet_amount").value = "2.8";
+      document.getElementById("bet_amount").value = "280";
     break;
     default:
     break;
   }
-  
+  }
+  else {
+  switch (bet_level){
+    case 2:
+      bet_level = 1;
+      document.getElementById("bet_amount").value = " 0.4";
+    break;
+    case 3:
+      bet_level = 2;
+      document.getElementById("bet_amount").value = " 0.8";
+    break;
+    case 4:
+      bet_level = 3;
+      document.getElementById("bet_amount").value = " 1.2";
+    break;
+    case 5:
+      bet_level = 4;
+      document.getElementById("bet_amount").value = " 1.6";
+    break;
+    case 6:
+      bet_level = 5;
+      document.getElementById("bet_amount").value = " 2.0";
+    break;
+    case 7:
+      bet_level = 6;
+      document.getElementById("bet_amount").value = " 2.4";
+    break;
+    case 8:
+      bet_level = 7;
+      document.getElementById("bet_amount").value = " 2.8";
+    break;
+    default:
+    break;
+  }
+  }
 }
 
 function change_format(){
 
+  if (credit_format){
+
+      switch (bet_level){
+
+      case 1:
+      
+      break;
+      case 2:
+      
+      break;
+      case 3:
+      
+      break;
+      case 4:
+      
+      break;
+      case 5:
+      
+      break;
+      case 6:
+      
+      break;
+      case 7:
+      
+      break;
+      case 8:
+      
+      break;
+      default:
+      break;
+    }
+    document.getElementById("bet_amount").value =  document.getElementById("bet_amount").value / 100;
+    credit_format = false;
+  }
+  else{
+
+    switch (bet_level){
+
+      case 1:
+      
+      break;
+      case 2:
+      
+      break;
+      case 3:
+      
+      break;
+      case 4:
+      
+      break;
+      case 5:
+      
+      break;
+      case 6:
+      
+      break;
+      case 7:
+      
+      break;
+      case 8:
+      
+      break;
+      default:
+      break;
+    }
+    if (bet_level == 1){
+      document.getElementById("bet_amount").value =  "  40";
+    }
+    else if (bet_level == 2){
+      document.getElementById("bet_amount").value =  "  80";
+    }
+    
+    else{
+      document.getElementById("bet_amount").value =  document.getElementById("bet_amount").value * 100;
+    }
+    credit_format = true;
+  }
 
 }
 
@@ -419,7 +570,7 @@ window.onload = refresh_jackpot;
   <th>
   <input type="button" name="button1"
     class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
-  <input type="button" name="button1" id="bet_amount" class="button" value="3.2" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
+  <input type="button" name="button1" id="bet_amount" class="button" value="3.2" style="float:right;background-color:#1f1e1e;" onclick="change_format()"/>
   <input type="button" name="button1"
     class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>
   </th>
