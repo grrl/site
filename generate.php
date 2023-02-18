@@ -215,13 +215,13 @@ $win_amount = $win_multiplier * $bet_value;
 
 $results_array = array();
 
-//array_push($results_array, $win_amount);
+array_push($results_array, $win_amount);
 //array_push($results_array, $id);
-//array_push($results_array, $array);
+array_push($results_array, $array);
 
 
-//echo json_encode($win_amount);
-echo $win_amount;
+echo json_encode($results_array);
+//echo $win_amount;
 echo " ";
 
 }

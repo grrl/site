@@ -1370,10 +1370,22 @@ function play_plinko() {
       console.log("data is " + data);
       let mydata = JSON.parse(data);
 
-      my_array = mydata.bet_value;
+      my_array = mydata[1];
       //win = mydata.win_amount;
 
       console.log(my_array);
+
+      document.getElementById("play_button").disabled = true;
+      console.log("round starting here");
+      console.log(my_array);
+      console.log(path_array);
+
+      //call draw plinkopath here
+      drawball = true;
+      move(/*path_array*/my_array);
+      drawball = false;
+
+
       //document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
 
       //document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
@@ -1389,12 +1401,6 @@ if(drawball == true){
   }
 }
 else{*/
-  document.getElementById("play_button").disabled = true;
-
-//call draw plinkopath here
-  drawball = true;
-  //move(/*path_array*/);
-  drawball = false;
 //}
 }
 
