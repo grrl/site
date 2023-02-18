@@ -34,7 +34,7 @@ $row = $result->fetch_row();
 
 $number = $row[0];
 
-$bet_value;
+$bet_value = 0;
 
 foreach ($_POST as $param_name => $param_val) {
 
@@ -42,25 +42,31 @@ foreach ($_POST as $param_name => $param_val) {
     switch ($param_name){
 
         case "1":
-        $card1_boolean = $param_val;
+        $bet_value = 0.4;
             break;
         case "2":
-        $card2_boolean = $param_val;
+        $bet_value = 0.8;
             break;
         case "3":
-        $card3_boolean = $param_val;
+        $bet_value = 1.2;
             break;
         case "4":
-        $card4_boolean = $param_val;
+        $bet_value = 1.6;
             break;
         case "5":
-        $card5_boolean = $param_val;
+        $bet_value = 2.0;
             break;
         case "6":
-        $my_id = $param_val;
+        $bet_value = 2.4;
         break;
         case "7":
-        $my_id = $param_val;
+        $bet_value = 2.8;
+        break;
+        case "8":
+        $bet_value = 3.2;
+        break;
+        default:
+        $bet_value = 0;
         break;
     }
 
@@ -68,7 +74,9 @@ foreach ($_POST as $param_name => $param_val) {
 }
 
 
-if ($number >= 1.25){
+
+
+if ($bet_value > 0){
 
 $sql = "UPDATE users SET balance=balance -" . 1.25 . " WHERE username='$user'";
 
