@@ -1268,6 +1268,10 @@ async function move(array){
   document.getElementById("play_button").disabled = false;
 
   refresh_jackpots();
+
+  document.getElementById("gamestate").innerHTML = "GAME OVER!";
+
+  
 }
 
 function change_cash(){
@@ -1395,6 +1399,8 @@ function play_plinko() {
 
       console.log(my_array);
 
+      document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
+
       document.getElementById("play_button").disabled = true;
       console.log("round starting here");
       console.log(my_array);
@@ -1404,9 +1410,7 @@ function play_plinko() {
       move(my_array);
       drawball = false;
 
-
       //document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
-
       //document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
     }
 });
@@ -1802,10 +1806,10 @@ window.onload = refresh_jackpots;
     <th>
     </th>
     <th>
-      <p id ="loyalty" style="white-space:nowrap;">Points total:</p>
+      <p id="loyalty" style="white-space:nowrap;">Points total:</p>
     </th>
     <th>
-      <p id ="gamestate"></p>
+      <p id="gamestate"></p>
     </th>
   </tr>
 </table>
