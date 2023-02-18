@@ -1687,23 +1687,23 @@ window.onload = refresh_jackpots;
 <table>
     <tr>
       <th>
-      <h2 id="opal">$2.5</h2>
+        <h4 id="opal">$2.5</h2>
       <p>Opal</p>
       </th>
       <th>
-      <h2 id="ruby">$5</h2>
+        <h4 id="ruby">$5</h2>
       <p style="color: #E0115F;">Ruby</p>
       </th>
       <th>
-      <h2 id="emerald">$10</h2>
+        <h4 id="emerald">$10</h2>
       <p style="color: #50C878;">Emerald</p>
       </th>
       <th>
-      <h2 id="sapphire">$100</h2>
+        <h4 id="sapphire">$100</h2>
       <p style="color: #0f52ba;">Sapphire</p>
       </th>
       <th>
-      <h2 id="diamond">$1,000</h2>
+        <h4 id="diamond">$1,000</h2>
       <p style="color: #b9f2ff;">Diamond</p>
       </th>
     </tr>
