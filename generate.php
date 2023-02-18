@@ -181,11 +181,16 @@ else if ($seed >=46 && $seed <= 317){ //1.1
   $win_multiplier = 1.1;
   //generate array path to return
 
+  $route = (random_int(0, 1));
+
+  if ($route == 0){
   //choose between one array
   $array = array(80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80);
-
+  }
+  else if ($route == 1) {
   $array = array(80, 0, 0, 51, 63, 60, -55, 40, 55, 40, -55, 30, 80, 100);
-
+  }
+  
 }
 else if ($seed >= 318 && $seed <= 771){ // 1.05
 

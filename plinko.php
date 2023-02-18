@@ -1178,7 +1178,7 @@ async function move(array){
     if (arrayy == 0 && arrayx != 0){
       c.x = c.x + arrayx;
       redraw();
-      await sleep(10);
+      await sleep(1);
     } else {
        movexaverage = (arrayx / arrayy);
     }
@@ -1194,7 +1194,7 @@ async function move(array){
       }
       c.y = c.y + 1;
       redraw();
-      await sleep(10);
+      await sleep(1);
     }
     
   }
@@ -1356,11 +1356,11 @@ let my_array;
 
 //let move_array = [80, 0, 0, 49, 205, 270];
 //let move_array = [80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80];
-let move_array = [63, 0, 0, 51, -65, 55, 55, 40, -55, 40, 55, 50, 53, 90];
+//let move_array = [63, 0, 0, 51, -65, 55, 55, 40, -55, 40, 55, 50, 53, 90];
 
 function play_plinko() {
 
-  /*
+  
   console.log(bet_level);
   $.ajax({
     type: "post",
@@ -1396,10 +1396,10 @@ function play_plinko() {
       //document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
     }
 });
-*/
-drawball = true;
-move(move_array);
-drawball = false;
+
+//drawball = true;
+//move(move_array);
+//drawball = false;
 
 /*
 if(drawball == true){
