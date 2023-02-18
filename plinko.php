@@ -1306,7 +1306,13 @@ async function move(array){
   document.getElementById("gamestate").innerHTML = "GAME OVER!";
 
   if (winamount > 0){
+
+    if (cash) {
     document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+    }
+    else{
+      document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
+    }
   }
 
   winamount = 0;
