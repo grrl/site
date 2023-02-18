@@ -199,7 +199,7 @@ function closeForm() {
   document.getElementById("mycanvas").style.display = "block";
 }
 
-var bet_level = 6;
+var bet_level = 8;
 
 function increase_bet(){
 
@@ -213,23 +213,31 @@ function increase_bet(){
     
     case 1:
       bet_level = 2;
-      document.getElementById("bet_amount").value = "1.0";
+      document.getElementById("bet_amount").value = "0.8";
     break;
     case 2:
       bet_level = 3;
-      document.getElementById("bet_amount").value = "1.5";
+      document.getElementById("bet_amount").value = "1.2";
     break;
     case 3:
       bet_level = 4;
-      document.getElementById("bet_amount").value = "2.0";
+      document.getElementById("bet_amount").value = "1.6";
     break;
     case 4:
       bet_level = 5;
-      document.getElementById("bet_amount").value = "2.5";
+      document.getElementById("bet_amount").value = "2.0";
     break;
     case 5:
       bet_level = 6;
-      document.getElementById("bet_amount").value = "3.0";
+      document.getElementById("bet_amount").value = "2.4";
+    break;
+    case 6:
+      bet_level = 7;
+      document.getElementById("bet_amount").value = "2.8";
+    break;
+    case 7:
+      bet_level = 8;
+      document.getElementById("bet_amount").value = "3.2";
     break;
     default:
       break;
@@ -243,26 +251,34 @@ function decrease_bet(){
   switch (bet_level){
     case 2:
       bet_level = 1;
-      document.getElementById("bet_amount").value = "0.5";
+      document.getElementById("bet_amount").value = "0.4";
     break;
     case 3:
       bet_level = 2;
-      document.getElementById("bet_amount").value = "1.0";
+      document.getElementById("bet_amount").value = "0.8";
     break;
     case 4:
       bet_level = 3;
-      document.getElementById("bet_amount").value = "1.5";
+      document.getElementById("bet_amount").value = "1.2";
     break;
     case 5:
       bet_level = 4;
-      document.getElementById("bet_amount").value = "2.0";
+      document.getElementById("bet_amount").value = "1.6";
     break;
     case 6:
       bet_level = 5;
-      document.getElementById("bet_amount").value = "2.5";
+      document.getElementById("bet_amount").value = "2.0";
+    break;
+    case 7:
+      bet_level = 6;
+      document.getElementById("bet_amount").value = "2.4";
+    break;
+    case 8:
+      bet_level = 7;
+      document.getElementById("bet_amount").value = "2.8";
     break;
     default:
-      break;
+    break;
   }
   
 }
@@ -403,7 +419,7 @@ window.onload = refresh_jackpot;
   <th>
   <input type="button" name="button1"
     class="button" value="+" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="increase_bet()"/>    
-  <input type="button" name="button1" id="bet_amount" class="button" value="3.0" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
+  <input type="button" name="button1" id="bet_amount" class="button" value="3.2" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick=""/>
   <input type="button" name="button1"
     class="button" value="-" id="bet_button" style="float:right;background-color:#1f1e1e;" onclick="decrease_bet()"/>
   </th>
