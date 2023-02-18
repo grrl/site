@@ -1140,6 +1140,10 @@ var redraw = function(){
 //ball right 1.05
 let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
+
+let endpointx = 250;
+let endpointy = 250;
+
 let firstx = 250;
 let firsty = 0;
 let x = 0;
@@ -1345,9 +1349,8 @@ function closeForm() {
 
 var bet_level = 8;
 var credit_format = false;
-
+var start = true;
 function play_plinko() {
-
   /*
   $.ajax({
     type: "get",
@@ -1376,11 +1379,24 @@ function play_plinko() {
     }
 });
 */
+
+if(drawball == true){
+
+  if (start == true){
+    drawball = true;
+    move(path_array);
+    drawball = false;
+  }
+  
+}
+else{
+  start = false;
 //call draw plinkopath here
   drawball = true;
   move(path_array);
   drawball = false;
-  /*
+}
+/*
   c = {  //create an object to draw
     x:250,  //x value
     y:0,  //y value
@@ -1391,7 +1407,7 @@ function play_plinko() {
   x = 0;
   y = 0;
   console.log("we are here");
-  */
+*/
 }
 
 function increase_bet(){
