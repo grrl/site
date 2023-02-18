@@ -238,10 +238,10 @@ echo json_encode($results_array);
 echo " ";
 
 $opal_multiplier = floatval($bet_value) * 0.01 * 0.1;
-$ruby_multiplier = $bet_value * 0.01 * 0.1;
-$emerald_multiplier = $bet_value * 0.01 * 0.2;
-$sapphire_multiplier = $bet_value * 0.01 * 0.2;
-$diamond_multiplier = $bet_value * 0.01 * 0.4;
+$ruby_multiplier = floatval($bet_value) * 0.01 * 0.1;
+$emerald_multiplier = floatval($bet_value) * 0.01 * 0.2;
+$sapphire_multiplier = floatval($bet_value) * 0.01 * 0.2;
+$diamond_multiplier = floatval($bet_value) * 0.01 * 0.4;
 
 /*
 $sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
