@@ -1190,11 +1190,11 @@ $.ajax({
          //jackpot_value = data;
          //console.log("jackpot_value is " + jackpot_value);
 
-         document.getElementById("opal").innerHTML = parseFloat(mydata[0]).toFixed(2);
-         document.getElementById("ruby").innerHTML = parseFloat(mydata[1]).toFixed(2);
-         document.getElementById("emerald").innerHTML = parseFloat(mydata[2]).toFixed(2);
-         document.getElementById("sapphire").innerHTML = parseFloat(mydata[3]).toFixed(2);
-         document.getElementById("diamond").innerHTML = addCommas(mydata[4]);
+         document.getElementById("opal").innerHTML = "$" + parseFloat(mydata[0]).toFixed(2);
+         document.getElementById("ruby").innerHTML = "$" + parseFloat(mydata[1]).toFixed(2);
+         document.getElementById("emerald").innerHTML = "$" + parseFloat(mydata[2]).toFixed(2);
+         document.getElementById("sapphire").innerHTML = "$" + parseFloat(mydata[3]).toFixed(2);
+         document.getElementById("diamond").innerHTML = "$" + addCommas(mydata[4]);
 
       }
       
