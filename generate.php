@@ -232,7 +232,6 @@ array_push($results_array, $win_amount);
 //array_push($results_array, $id);
 array_push($results_array, $array);
 
-
 echo json_encode($results_array);
 //echo $win_amount;
 echo " ";
@@ -271,6 +270,8 @@ if ($conn->query($sql) === TRUE) {
 } else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+
 
 }
 
