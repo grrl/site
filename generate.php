@@ -190,7 +190,7 @@ else if ($seed >=46 && $seed <= 317){ //1.1
   else if ($route == 1) {
   $array = array(80, 0, 0, 51, 63, 60, -55, 40, 55, 40, -55, 30, 80, 100);
   }
-  
+
 }
 else if ($seed >= 318 && $seed <= 771){ // 1.05
 
@@ -237,6 +237,27 @@ echo json_encode($results_array);
 //echo $win_amount;
 echo " ";
 
+$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
+", opal=opal +" . $bet_value * 0.01 * 0.1 . ", ruby=ruby +". $bet_value * 0.01 * 0.1 .", emerald=emerald +" .
+$bet_value * 0.01 * 0.2 . ", sapphire=sapphire +" . $bet_value * 0.01 * 0.2 . ", diamond=diamond +" . $bet_value * 0.01 * 0.4;
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE plinko SET payback=coinout/coinin";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 }
+
+$conn->close();
+
+}
+?>
