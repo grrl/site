@@ -1851,6 +1851,8 @@ window.onload = refresh_jackpots;
       <p id="loyalty" style="white-space:nowrap;">Points total:</p>
     </th>
     <th>
+    </th>
+    <th>
       <p id="gamestate"></p>
     </th>
   </tr>
