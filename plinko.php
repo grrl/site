@@ -66,7 +66,7 @@ if(!isset($_SESSION['username'])){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="plinko.js"></script>
 <script type="text/javascript">
-var path_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
+//var path_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //document.addEventListener('DOMContentLoaded', function() {
 var canvas;
@@ -1138,7 +1138,7 @@ var redraw = function(){
 //let move_array = [0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //ball right 1.05
-let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
+//let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 
 let endpointx = 250;
