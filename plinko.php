@@ -1351,15 +1351,17 @@ function closeForm() {
 
 var bet_level = 8;
 var credit_format = false;
+let my_array;
 
 function play_plinko() {
-  /*
+
+  console.log(bet_level);
   $.ajax({
-    type: "get",
+    type: "post",
     url: "generate.php",
     data: 
     {  
-      'array' : jackpot
+      'bet' : bet_level
     },
     cache:false,
     success: function (data) 
@@ -1368,19 +1370,16 @@ function play_plinko() {
       console.log("data is " + data);
       let mydata = JSON.parse(data);
 
-      if (cash == true){
-        document.getElementById("balance").value = mydata.balance;
-       }
-       else{
-        document.getElementById("balance").value = mydata.balance * 4;
-       }
-       //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
-       document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
+      my_array = mydata.bet_value;
+      //win = mydata.win_amount;
 
-       document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
+      console.log(my_array);
+      //document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
+
+      //document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
     }
 });
-*/
+
 /*
 if(drawball == true){
   if (start == true){
@@ -1394,7 +1393,7 @@ else{*/
 
 //call draw plinkopath here
   drawball = true;
-  move(path_array);
+  //move(/*path_array*/);
   drawball = false;
 //}
 }

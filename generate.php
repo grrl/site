@@ -8,6 +8,57 @@ if(!isset($_SESSION['username'])){
    die(header("location: 404.php"));
 }
 
+$bet_value;
+
+foreach ($_POST as $param_name => $param_val) {
+
+    
+    switch ($param_name){
+
+        case "bet":
+        $bet_value = $param_val;
+        break;
+        default:
+        break;
+    }
+
+    //echo "Param: $param_name; Value: $param_val<br />\n";
+}
+
+//echo $bet_value;
+//echo " ";
+
+switch ($bet_value){
+
+  case "1":
+  $bet_value = 0.4;
+  break;
+  case "2":
+  $bet_value = 0.8;
+  break;
+  case "3":
+  $bet_value = 1.2;
+  break;
+  case "4":
+  $bet_value = 1.6;
+  break;
+  case "5":
+  $bet_value = 2.0;
+  break;
+  case "6":
+  $bet_value = 2.4;
+  break;
+  case "7":
+  $bet_value = 2.8;
+  break;
+  case "8":
+  $bet_value = 3.2;
+  break;
+}
+
+//echo $bet_value;
+//echo " ";
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,50 +80,12 @@ $result = mysqli_query($conn, $sql);
 
 $number;
 
-
 $row = $result->fetch_row();
 
 $number = $row[0];
 
-$bet_value = 0;
-
-foreach ($_POST as $param_name => $param_val) {
-
-    
-    switch ($param_name){
-
-        case "1":
-        $bet_value = 0.4;
-            break;
-        case "2":
-        $bet_value = 0.8;
-            break;
-        case "3":
-        $bet_value = 1.2;
-            break;
-        case "4":
-        $bet_value = 1.6;
-            break;
-        case "5":
-        $bet_value = 2.0;
-            break;
-        case "6":
-        $bet_value = 2.4;
-        break;
-        case "7":
-        $bet_value = 2.8;
-        break;
-        case "8":
-        $bet_value = 3.2;
-        break;
-        default:
-        $bet_value = 0;
-        break;
-    }
-
-    //echo "Param: $param_name; Value: $param_val<br />\n";
-}
-
+//echo $number;
+//echo " ";
 
 if ($bet_value > 0 && $balance >= $bet_value){
 
@@ -137,12 +150,16 @@ $conn->close();
 
 $seed = (random_int(0, 999));
 
+//echo $seed;
+//echo " ";
 $date = new DateTimeImmutable();
 //echo date_timestamp_get($date);
 $time_stamp = date_timestamp_get($date);
 
 //multiplier
 $win_multiplier = 0;
+
+$array = array(60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
 
 if ($seed == 0 || $seed == 1){ //bonus
 //activate bonus to ask client choice
@@ -151,31 +168,34 @@ if ($seed == 0 || $seed == 1){ //bonus
 
   $win_multiplier = "BONUS";
 }
-else if ($seed >= 2 || $seed <= 45){ //2
+else if ($seed >= 2 && $seed <= 45){ //2
 
   $win_multiplier = 2;
 
   //generate array path to return
 
 }
-else if ($seed >=46 || $seed <= 317){ //1.1
+else if ($seed >=46 && $seed <= 317){ //1.1
 
   $win_multiplier = 1.1;
   //generate array path to return
 
 }
-else if ($seed >= 318 || $seed <= 771){ // 1.05
+else if ($seed >= 318 &&$seed <= 771){ // 1.05
 
   $win_multiplier = 1.05;
   //generate array path to return
 
 }
-else if ($seed >= 772 || $seed <= 999){ //0.3
+else if ($seed >= 772 && $seed <= 999){ //0.3
 
   $win_multiplier = 0.3;
   //generate array path to return
 
 }
+
+//echo $win_multiplier;
+//echo " ";
 
 
 if ($win_multiplier == "BONUS"){
@@ -187,7 +207,22 @@ if ($win_multiplier == "BONUS"){
 } else {
 
 //update seed and win multiplier with bet to sql database
+//plinko coinin <= bet amount
+//cointout <= bet amount * bet_multiplier
+//increment cycle
+//plinkosession
+$win_amount = $win_multiplier * $bet_value;
 
+$results_array = array();
+
+//array_push($results_array, $win_amount);
+//array_push($results_array, $id);
+//array_push($results_array, $array);
+
+
+//echo json_encode($win_amount);
+echo $win_amount;
+echo " ";
 
 }
 
