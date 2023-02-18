@@ -165,13 +165,14 @@ if ($seed == 0 || $seed == 1){ //bonus
 //activate bonus to ask client choice
 //draw wins for choices 0,1,2,3,4,5
 //then send win back to user
-
+  $array = array(80, 0, 0, 49, 205, 270);
   $win_multiplier = "BONUS";
 }
 else if ($seed >= 2 && $seed <= 45){ //2
 
   $win_multiplier = 2;
 
+  $array = array(80, 0, 0, 51, 63, 60, -55, 40, 55, 40, 75, 130);
   //generate array path to return
 
 }
@@ -179,6 +180,9 @@ else if ($seed >=46 && $seed <= 317){ //1.1
 
   $win_multiplier = 1.1;
   //generate array path to return
+  $array = array(80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80);
+
+  $array = array(80, 0, 0, 51, 63, 60, -55, 40, 55, 40, -55, 30, 80, 100);
 
 }
 else if ($seed >= 318 &&$seed <= 771){ // 1.05

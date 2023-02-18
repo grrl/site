@@ -1140,6 +1140,7 @@ var redraw = function(){
 //ball right 1.05
 //let move_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
+//ball left 1.1
 
 let endpointx = 250;
 let endpointy = 250;
@@ -1177,7 +1178,7 @@ async function move(array){
     if (arrayy == 0 && arrayx != 0){
       c.x = c.x + arrayx;
       redraw();
-      await sleep(1);
+      await sleep(10);
     } else {
        movexaverage = (arrayx / arrayy);
     }
@@ -1193,9 +1194,9 @@ async function move(array){
       }
       c.y = c.y + 1;
       redraw();
-      await sleep(1);
+      await sleep(10);
     }
-    //await sleep(100);
+    
   }
   console.log("move animation ends");
   //drawball = false;
@@ -1353,8 +1354,13 @@ var bet_level = 8;
 var credit_format = false;
 let my_array;
 
+//let move_array = [80, 0, 0, 49, 205, 270];
+//let move_array = [80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80];
+let move_array = [80, 0, 0, 51, 63, 60, -55, 40, 55, 40, -55, 30, 80, 100];
+
 function play_plinko() {
 
+  /*
   console.log(bet_level);
   $.ajax({
     type: "post",
@@ -1381,7 +1387,7 @@ function play_plinko() {
 
       //call draw plinkopath here
       drawball = true;
-      move(/*path_array*/my_array);
+      move(my_array);
       drawball = false;
 
 
@@ -1390,6 +1396,10 @@ function play_plinko() {
       //document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
     }
 });
+*/
+drawball = true;
+move(move_array);
+drawball = false;
 
 /*
 if(drawball == true){
