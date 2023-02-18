@@ -69,6 +69,7 @@ if(!isset($_SESSION['username'])){
 //var path_array = [60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50];
 
 //document.addEventListener('DOMContentLoaded', function() {
+var cash = false;
 var canvas;
 var ctx; 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1198,6 +1199,36 @@ $.ajax({
 
       }
       
+  });
+
+  $.ajax({
+      type: "get",
+      url: "credits.php",
+      data: 
+      {  
+        //'progressive' : jackpot
+      },
+      cache:false,
+      success: function (data) 
+      {
+        let text = this.data;
+        console.log("data is " + data);
+        let mydata = JSON.parse(data);
+
+        if (cash == true){
+          document.getElementById("balance").value = mydata.balance;
+         }
+         else{
+          document.getElementById("balance").value = mydata.balance * 4;
+         } 
+
+         let mytext = '<?php echo $_SESSION['username'] ?>';
+        //document.getElementById("loyalty").innerHTML = mytext + "you have " + mydata.loyalty + " points";
+        document.getElementById("loyalty").innerHTML = mytext + ", you have " + Math.floor(mydata.loyalty) + " points";
+
+        document.getElementById("sessionpoints").innerHTML = "Session points: " + Math.floor(mydata.points);
+
+      }
   });
 }
 
