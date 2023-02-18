@@ -1212,6 +1212,8 @@ async function move(array){
   //ctx.fillRect(0,0,canvas.width, canvas.height);
   console.log("we are here");
   draw_and_clear();
+  document.getElementById("play_button").disabled = false;
+
 }
 
 let timestamp = "";
@@ -1390,6 +1392,8 @@ if(drawball == true){
   
 }
 else{
+  document.getElementById("play_button").disabled = true;
+
   start = false;
 //call draw plinkopath here
   drawball = true;
