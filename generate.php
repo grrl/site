@@ -34,6 +34,39 @@ $row = $result->fetch_row();
 
 $number = $row[0];
 
+$bet_value;
+
+foreach ($_POST as $param_name => $param_val) {
+
+    
+    switch ($param_name){
+
+        case "1":
+        $card1_boolean = $param_val;
+            break;
+        case "2":
+        $card2_boolean = $param_val;
+            break;
+        case "3":
+        $card3_boolean = $param_val;
+            break;
+        case "4":
+        $card4_boolean = $param_val;
+            break;
+        case "5":
+        $card5_boolean = $param_val;
+            break;
+        case "6":
+        $my_id = $param_val;
+        break;
+        case "7":
+        $my_id = $param_val;
+        break;
+    }
+
+    //echo "Param: $param_name; Value: $param_val<br />\n";
+}
+
 
 if ($number >= 1.25){
 
@@ -138,6 +171,7 @@ else if ($seed >= 772 || $seed <= 999){ //0.3
 
 }
 
+
 if ($win_multiplier == "BONUS"){
 //request choice from player
 //and after clicking return them with
@@ -145,6 +179,8 @@ if ($win_multiplier == "BONUS"){
 //and flash winner text in jackpot
 
 } else {
+
+//update seed and win multiplier with bet to sql database
 
 
 }
