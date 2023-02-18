@@ -1843,7 +1843,7 @@ window.onload = refresh_jackpots;
 <table>
   <tr>
     <th>
-      <p id="sessionpoints">Session points: 0</p>
+      <p id="sessionpoints" style="white-space:nowrap;">Session points: 0</p>
     </th>
     <th>
     </th>
@@ -1851,9 +1851,7 @@ window.onload = refresh_jackpots;
       <p id="loyalty" style="white-space:nowrap;">Points total:</p>
     </th>
     <th>
-    </th>
-    <th>
-      <p id="gamestate"></p>
+      <p id="gamestate" style="padding-left:40px; white-space:nowrap;"></p>
     </th>
   </tr>
 </table>
