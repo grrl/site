@@ -1378,7 +1378,6 @@ function play_plinko() {
       document.getElementById("play_button").disabled = true;
       console.log("round starting here");
       console.log(my_array);
-      console.log(path_array);
 
       //call draw plinkopath here
       drawball = true;
@@ -1664,23 +1663,23 @@ window.onload = refresh_jackpot;
 <table>
     <tr>
       <th>
-      <h2>2.5</h2>
+      <h2>$2.5</h2>
       <p>Opal</p>
       </th>
       <th>
-      <h2>5</h2>
+      <h2>$5</h2>
       <p style="color: #E0115F;">Ruby</p>
       </th>
       <th>
-      <h2>10</h2>
+      <h2>$10</h2>
       <p style="color: #50C878;">Emerald</p>
       </th>
       <th>
-      <h2>100</h2>
+      <h2>$100</h2>
       <p style="color: #0f52ba;">Sapphire</p>
       </th>
       <th>
-      <h2>1,000</h2>
+      <h2>$1,000</h2>
       <p style="color: #b9f2ff;">Diamond</p>
       </th>
     </tr>

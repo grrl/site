@@ -190,6 +190,7 @@ else if ($seed >= 318 &&$seed <= 771){ // 1.05
 else if ($seed >= 772 && $seed <= 999){ //0.3
 
   $win_multiplier = 0.3;
+  $array = array(0, 50, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
   //generate array path to return
 
 }
