@@ -1149,6 +1149,58 @@ let firstx = 250;
 let firsty = 0;
 let x = 0;
 let y = 0;
+
+let timestamp = "";
+
+function addCommas(nStr)
+{
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
+//let jackpot_value;
+function refresh_jackpots() {
+
+$.ajax({
+      type: "get",
+      url: "bonus.php",
+      data: 
+      {  
+        //'username' : $username
+      },
+      cache:false,
+      success: function (data) 
+      {
+         //alert('Data Send');
+         //$('#msg').html(html);
+         //let text = this.data;
+        let text = this.data;
+        console.log("data is " + data);
+        let mydata = JSON.parse(data);
+
+        //console.log("data is " + data[0]);
+         //console.log("typeof" + typeof data);
+         //jackpot_value = data;
+         //console.log("jackpot_value is " + jackpot_value);
+
+         document.getElementById("opal").innerHTML = parseFloat(mydata[0]).toFixed(2);
+         document.getElementById("ruby").innerHTML = parseFloat(mydata[1]).toFixed(2);
+         document.getElementById("emerald").innerHTML = parseFloat(mydata[2]).toFixed(2);
+         document.getElementById("sapphire").innerHTML = parseFloat(mydata[3]).toFixed(2);
+         document.getElementById("diamond").innerHTML = addCommas(mydata[4]);
+
+      }
+      
+  });
+}
+
 //canvas size is
 //add argument to function at the end
 async function move(array){
@@ -1215,45 +1267,7 @@ async function move(array){
   draw_and_clear();
   document.getElementById("play_button").disabled = false;
 
-}
-
-let timestamp = "";
-
-//let jackpot_value;
-function refresh_jackpot() {
-
-$.ajax({
-      type: "get",
-      url: "balance.php",
-      data: 
-      {  
-        //'username' : $username
-      },
-      cache:false,
-      success: function (data) 
-      {
-         //alert('Data Send');
-         //$('#msg').html(html);
-         //let text = this.data;
-        let text = this.data;
-        console.log("data is " + data);
-        let mydata = JSON.parse(data);
-
-        //console.log("data is " + data[0]);
-         //console.log("typeof" + typeof data);
-         //jackpot_value = data;
-         //console.log("jackpot_value is " + jackpot_value);
-
-
-         document.getElementById("jackpot").innerHTML = mydata.id;
-         document.getElementById("balance").innerHTML = mydata.balance;
-         document.getElementById("loyalty").innerHTML = Math.floor(mydata.loyalty);
-         document.getElementById("winloss").innerHTML = mydata.winloss;
-         document.getElementById("coinin").innerHTML = mydata.coinin;
-
-      }
-      
-  });
+  refresh_jackpots();
 }
 
 function change_cash(){
@@ -1639,7 +1653,7 @@ function change_format(){
 
 }
 
-window.onload = refresh_jackpot;
+window.onload = refresh_jackpots;
 //});
 </script>
 <body>
@@ -1673,23 +1687,23 @@ window.onload = refresh_jackpot;
 <table>
     <tr>
       <th>
-      <h2>$2.5</h2>
+      <h2 id="opal">$2.5</h2>
       <p>Opal</p>
       </th>
       <th>
-      <h2>$5</h2>
+      <h2 id="ruby">$5</h2>
       <p style="color: #E0115F;">Ruby</p>
       </th>
       <th>
-      <h2>$10</h2>
+      <h2 id="emerald">$10</h2>
       <p style="color: #50C878;">Emerald</p>
       </th>
       <th>
-      <h2>$100</h2>
+      <h2 id="sapphire">$100</h2>
       <p style="color: #0f52ba;">Sapphire</p>
       </th>
       <th>
-      <h2>$1,000</h2>
+      <h2 id="diamond">$1,000</h2>
       <p style="color: #b9f2ff;">Diamond</p>
       </th>
     </tr>

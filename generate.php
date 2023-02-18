@@ -159,6 +159,8 @@ $time_stamp = date_timestamp_get($date);
 //multiplier
 $win_multiplier = 0;
 
+$bonus = false;
+
 //$array = array(60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
 
 if ($seed == 0 || $seed == 1){ //bonus
@@ -167,6 +169,8 @@ if ($seed == 0 || $seed == 1){ //bonus
 //then send win back to user
   $array = array(80, 0, 0, 49, 205, 270);
   $win_multiplier = "BONUS";
+  $bonus = true;
+
 }
 else if ($seed >= 2 && $seed <= 45){ //2
 
@@ -210,7 +214,6 @@ else if ($seed >= 772 && $seed <= 999){ //0.3
 //echo $win_multiplier;
 //echo " ";
 
-
 if ($win_multiplier == "BONUS"){
 //request choice from player
 //and after clicking return them with
@@ -225,6 +228,17 @@ if ($win_multiplier == "BONUS"){
 //increment cycle
 //plinkosession
 $win_amount = $win_multiplier * $bet_value;
+
+//pick_1, pick_2, pick_3, pick_4, pick_5, pick_6, pick_7, pick_8
+$sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, multiplier, win, balance, complete)
+VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+"','" . $bonus . "','" . $bet_value . "','". $win_multiplier . "','" .  $win_amount . "','". $newbalance . "', 1)";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $results_array = array();
 
@@ -241,17 +255,6 @@ $ruby_multiplier = floatval($bet_value) * 0.01 * 0.1;
 $emerald_multiplier = floatval($bet_value) * 0.01 * 0.2;
 $sapphire_multiplier = floatval($bet_value) * 0.01 * 0.2;
 $diamond_multiplier = floatval($bet_value) * 0.01 * 0.4;
-
-/*
-$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
-", opal=opal +" . $bet_value * 0.01 * 0.1 . ", ruby=ruby +". $bet_value * 0.01 * 0.1 .", emerald=emerald +" .
-$bet_value * 0.01 * 0.2 . ", sapphire=sapphire +" . $bet_value * 0.01 * 0.2 . ", diamond=diamond +" . $bet_value * 0.01 * 0.4;
-*/
-
-//$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value. "coinout=coinout +". $win_amount . ", cycle=cycle +" . 1 .
-//", opal=opal +" . $opal_multiplier . ", ruby=ruby +". $ruby_multiplier .", emerald=emerald +" .
-//$emerald_multiplier . ", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
-
 
 $sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +" . $win_amount . ", cycle=cycle +" . 1 .
 ", opal=opal +" . $opal_multiplier . ", ruby=ruby +" . $ruby_multiplier . ", emerald=emerald +" . $emerald_multiplier .
