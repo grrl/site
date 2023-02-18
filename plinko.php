@@ -470,11 +470,11 @@ window.onload = refresh_jackpot;
       </th>
       <th>
       <h2>10</h2>
-      <p>Sapphire</p>
+      <p>Emerald</p>
       </th>
       <th>
       <h2>100</h2>
-      <p>Emerald</p>
+      <p>Sapphire</p>
       </th>
       <th>
       <h2>1,000</h2>
