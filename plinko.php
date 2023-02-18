@@ -1351,7 +1351,7 @@ function closeForm() {
 
 var bet_level = 8;
 var credit_format = false;
-var start = true;
+
 function play_plinko() {
   /*
   $.ajax({
@@ -1381,37 +1381,22 @@ function play_plinko() {
     }
 });
 */
-
+/*
 if(drawball == true){
-
   if (start == true){
     drawball = true;
     move(path_array);
     drawball = false;
   }
-  
 }
-else{
+else{*/
   document.getElementById("play_button").disabled = true;
 
-  start = false;
 //call draw plinkopath here
   drawball = true;
   move(path_array);
   drawball = false;
-}
-/*
-  c = {  //create an object to draw
-    x:250,  //x value
-    y:0,  //y value
-    r:10 //radius
-  }
-  firstx = 250;
-  firsty = 0;
-  x = 0;
-  y = 0;
-  console.log("we are here");
-*/
+//}
 }
 
 function increase_bet(){
