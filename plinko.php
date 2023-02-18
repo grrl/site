@@ -522,7 +522,7 @@ window.onload = refresh_jackpot;
     <!--<button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
   </form>
 </div>
-<canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue;"></canvas>
+<canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue; margin-left:-27px;"></canvas>
 
 <table>
   <tr>
@@ -547,7 +547,7 @@ window.onload = refresh_jackpot;
       <input type="button" name="button3"
       class="button" id="game_info" onclick="myFunction()" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>
     </th>
-  <th>
+  <th style="padding-left:50px;">
   <span class="dot" style="color:white;padding-left:7px; padding-top:6px;height: 30px;
   width: 30px;
   background-color: #bbb;
