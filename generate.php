@@ -140,7 +140,9 @@ else if ($seed >= 772 || $seed <= 999){ //0.3
 
 if ($win_multiplier == "BONUS"){
 //request choice from player
-//and after clicking return them with 
+//and after clicking return them with
+//max bet text pick a jewel for additional prize
+//and flash winner text in jackpot
 
 } else {
 
