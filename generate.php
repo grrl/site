@@ -227,6 +227,7 @@ $sapphire = "sapphire";
 $diamond = "diamond";
 
 $jackpotwin = 0;
+$jackpotname;
 
 $creditwin = 0;
 
@@ -276,10 +277,11 @@ switch ($bet_value){
   break;  
 }
 
-if ($seed == 0){
+if ($jackpotseed == 0){
 
   //diamond
   $jackpotwin = $diamond;
+  $jackpotname = "diamond";
 
   $deck = array(
   
@@ -418,9 +420,10 @@ if ($seed == 0){
 
 
 }
-else if ($seed >= 1 && $seed <= 624){
+else if ($jackpotseed >= 1 && $jackpotseed <= 624){
   //opal
   $jackpotwin = $opal;
+  $jackpotname = "opal";
 
   //draw credit win for each pick
 
@@ -558,10 +561,10 @@ else if ($seed >= 1 && $seed <= 624){
   }
 
 }
-else if ($seed >= 625 && seed <= 749){
+else if ($jackpotseed >= 625 && $jackpotseed <= 749){
   //ruby
   $jackpotwin = $ruby;
-
+  $jackpotname = "ruby";
   //draw credit win for each pick
 
   $deck = array(
@@ -698,10 +701,10 @@ else if ($seed >= 625 && seed <= 749){
   }
 
 }
-else if ($seed >= 750 && $seed <= 874){
+else if ($jackpotseed >= 750 && $jackpotseed <= 874){
   //emerald
   $jackpotwin = $emerald;
-
+  $jackpotname = "emerald";
   //draw credit win for each pick
 
   $deck = array(
@@ -841,7 +844,7 @@ else if ($seed >= 750 && $seed <= 874){
 else if ($seed >= 875 && $seed <= 999){
   //sapphire
   $jackpotwin = $sapphire;
-
+  $jackpotname = "sapphire";
   //draw credit win for each pick
 
   $deck = array(
@@ -986,7 +989,7 @@ array_push($results_array, $win_multiplier);
 //array_push($results_array, $id);
 array_push($results_array, $array);
 
-array_push($results_array, $jackpotwin);
+array_push($results_array, $jackpotname);
 
 echo json_encode($results_array);
 //echo $win_amount;

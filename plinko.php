@@ -1242,6 +1242,9 @@ var bonuscolor;
 
 function openForm() {
   //change button color according to jackpot
+
+  //document.getElementsByClassName('button5').backgroundColor = "red";
+
   document.getElementById("myForm").style.display = "block";
   document.getElementById("mycanvas").style.display = "none";
 }
@@ -1615,6 +1618,7 @@ else{
 
       winamount = mydata[0];
       my_array = mydata[1];
+      console.log(my_array);
       var bonusname;
       if (winamount == "BONUS"){
 
