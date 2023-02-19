@@ -1287,6 +1287,44 @@ function closeForm(pick) {
       let mydata = JSON.parse(data);
 
       //bonusname = mydata[2];
+      var picknumber = mydata[0];
+      var res_1 = mydata[1];
+      var res_2 = mydata[2];
+      var res_3 = mydata[3];
+      var res_4 = mydata[4];
+      var res_5 = mydata[5];
+      var res_6 = mydata[6];
+      var res_7 = mydata[7];
+      var res_8 = mydata[8];
+      button1
+      switch (picknumber){
+        case 1:
+          document.getElementById("button1").innerHTML = res_1;
+        break;
+        case 2:
+          document.getElementById("button1").innerHTML = res_2;
+        break;
+        case 3:
+          document.getElementById("button1").innerHTML = res_3;
+        break;
+        case 4:
+          document.getElementById("button1").innerHTML = res_4;
+        break;
+        case 5:
+          document.getElementById("button1").innerHTML = res_5;
+        break;
+        case 6:
+          document.getElementById("button1").innerHTML = res_6;
+        break;
+        case 7:
+          document.getElementById("button1").innerHTML = res_7;
+        break;
+        case 8:
+          document.getElementById("button1").innerHTML = res_8;
+        break;
+      }
+
+      setTimeout(closeForm, 3000);
 
       document.getElementById("play_button").disabled = false;
       document.getElementById("gamestate").innerHTML = "GAME OVER!";
