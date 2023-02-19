@@ -291,6 +291,11 @@ if ($seed == 0){
   
   $credit_6 = $deck[0];
 
+  //next draw positions for jackpot based by bet level
+  //if max bet all positions have a jackpot
+
+  
+
 }
 else if ($seed >= 1 && $seed <= 624){
   //opal
@@ -435,12 +440,12 @@ else if ($seed >= 875 && $seed <= 999){
 
   $deck = array(
   
-    20,
-    80, //  [0]
-    20, //  [1]
-    20, //  [2]
-    80, //  [3]
-    20, //  [4]
+    2,
+    8, //  [0]
+    2, //  [1]
+    2, //  [2]
+    8, //  [3]
+    2, //  [4]
   );
 
   //draw credit win for each pick
