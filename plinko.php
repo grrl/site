@@ -1243,7 +1243,8 @@ var bonuscolor;
 function openForm() {
   //change button color according to jackpot
 
-  document.getElementsByClassName('button5').color = "red";
+  //document.getElementsByClassName('form-container').backgroundColor = "red";
+  document.getElementById("testers").style.backgroundColor = "red";
 
   document.getElementById("myForm").style.display = "block";
   document.getElementById("mycanvas").style.display = "none";
@@ -1972,30 +1973,30 @@ window.onload = refresh_jackpots;
     <table>
     <tr>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button1" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button2" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button3" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button4" class="button5" onclick="closeForm()"></button>
       </th>
     </tr>
     <tr>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button5" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button6" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button7" class="button5" onclick="closeForm()"></button>
       </th>
       <th>
-        <button type="button" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button8" class="button5" onclick="closeForm()"></button>
       </th>
     </tr>
     </table>
