@@ -1256,6 +1256,22 @@ function closeForm() {
 
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
+
+  document.getElementById("play_button").disabled = false;
+
+  document.getElementById("gamestate").innerHTML = "GAME OVER!";
+
+  if (winamount > 0){
+
+  if (cash) {
+    document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+  }
+  else{
+    document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
+  }
+  }
+
+  winamount = 0;
 }
 
 //canvas size is
