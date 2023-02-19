@@ -2052,39 +2052,39 @@ window.onload = refresh_jackpots;
         </p>
       </th>
       <th>
-        <p id="res2">
+        <p id="res2" style="text-align: center;">
         <button type="button" id="button2" class="button5" onclick="closeForm(2)"></button>
         </p>
       </th>
       <th>
-        <p id="res3">
+        <p id="res3" style="text-align: center;">
         <button type="button" id="button3" class="button5" onclick="closeForm(3)"></button>
         </p>
       </th>
       <th>
-        <p id="res4">
+        <p id="res4" style="text-align: center;">
         <button type="button" id="button4" class="button5" onclick="closeForm(4)"></button>
         </p>
       </th>
     </tr>
     <tr>
       <th>
-        <p id="res5">
+        <p id="res5" style="text-align: center;">
         <button type="button" id="button5" class="button5" onclick="closeForm(5)"></button>
         </p>
       </th>
       <th>
-        <p id="res6">
+        <p id="res6" style="text-align: center;">
         <button type="button" id="button6" class="button5" onclick="closeForm(6)"></button>
         </p>
       </th>
       <th>
-        <p id="res7">
+        <p id="res7" style="text-align: center;">
         <button type="button" id="button7" class="button5" onclick="closeForm(7)"></button>
         </p>
       </th>
       <th>
-        <p id="res8">
+        <p id="res8" style="text-align: center;">
         <button type="button" id="button8" class="button5" onclick="closeForm(8)"></button>
         </p>
       </th>
