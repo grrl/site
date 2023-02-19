@@ -401,16 +401,15 @@ if ($jackpotseed == 0){
 
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
-  //pick_1, pick_2, pick_3, pick_4, pick_5, pick_6, pick_7, pick_8
-  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
-  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
-  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
-  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
-  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
-  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
-  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
-  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
+  pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_6_credits, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+  "," . $bonus . "," . $bet_value . ",". $jackpotseed . "," . $newbalance . ",".
+  $pick_1 . "," . $credit_1 . ",". $pick_2 . "," . $credit_2 . ",". 
+  $pick_3 . "," . $credit_3 . ",". $pick_4 . "," . $credit_4 . ",". 
+  $pick_5 . "," . $credit_5 . ",". $pick_6 . "," . $credit_6 . ",". 
+  $pick_7 . "," . $credit_7 . ",". $pick_8 . "," . $credit_8 . ", 0)";
 
   if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
@@ -544,15 +543,15 @@ else if ($jackpotseed >= 1 && $jackpotseed <= 624){
 
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
-  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
-  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
-  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
-  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
-  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
-  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
-  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
-  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
+  pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_6_credits, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+  "," . $bonus . "," . $bet_value . ",". $jackpotseed . "," . $newbalance . ",".
+  $pick_1 . "," . $credit_1 . ",". $pick_2 . "," . $credit_2 . ",". 
+  $pick_3 . "," . $credit_3 . ",". $pick_4 . "," . $credit_4 . ",". 
+  $pick_5 . "," . $credit_5 . ",". $pick_6 . "," . $credit_6 . ",". 
+  $pick_7 . "," . $credit_7 . ",". $pick_8 . "," . $credit_8 . ", 0)";
 
   if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
@@ -684,15 +683,15 @@ else if ($jackpotseed >= 625 && $jackpotseed <= 749){
 
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
-  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
-  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
-  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
-  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
-  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
-  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
-  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
-  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
+  pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_6_credits, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+  "," . $bonus . "," . $bet_value . ",". $jackpotseed . "," . $newbalance . ",".
+  $pick_1 . "," . $credit_1 . ",". $pick_2 . "," . $credit_2 . ",". 
+  $pick_3 . "," . $credit_3 . ",". $pick_4 . "," . $credit_4 . ",". 
+  $pick_5 . "," . $credit_5 . ",". $pick_6 . "," . $credit_6 . ",". 
+  $pick_7 . "," . $credit_7 . ",". $pick_8 . "," . $credit_8 . ", 0)";
 
   if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
@@ -824,15 +823,15 @@ else if ($jackpotseed >= 750 && $jackpotseed <= 874){
 
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
-  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
-  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
-  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
-  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
-  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
-  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
-  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
-  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
+  pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_6_credits, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+  "," . $bonus . "," . $bet_value . ",". $jackpotseed . "," . $newbalance . ",".
+  $pick_1 . "," . $credit_1 . ",". $pick_2 . "," . $credit_2 . ",". 
+  $pick_3 . "," . $credit_3 . ",". $pick_4 . "," . $credit_4 . ",". 
+  $pick_5 . "," . $credit_5 . ",". $pick_6 . "," . $credit_6 . ",". 
+  $pick_7 . "," . $credit_7 . ",". $pick_8 . "," . $credit_8 . ", 0)";
 
   if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
@@ -965,14 +964,14 @@ else if ($jackpotseed >= 875 && $jackpotseed <= 999){
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
   $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
-  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
-  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
-  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-  "','" . $bonus . "','" . $bet_value . "','". $jackpotseed . "','" . $newbalance .
-  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
-  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
-  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
-  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+  pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_6_credits, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+  "," . $bonus . "," . $bet_value . ",". $jackpotseed . "," . $newbalance . ",".
+  $pick_1 . "," . $credit_1 . ",". $pick_2 . "," . $credit_2 . ",". 
+  $pick_3 . "," . $credit_3 . ",". $pick_4 . "," . $credit_4 . ",". 
+  $pick_5 . "," . $credit_5 . ",". $pick_6 . "," . $credit_6 . ",". 
+  $pick_7 . "," . $credit_7 . ",". $pick_8 . "," . $credit_8 . ", 0)";
 
   if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
@@ -1006,9 +1005,9 @@ echo " ";
 $win_amount = $win_multiplier * $bet_value;
 
 //pick_1, pick_2, pick_3, pick_4, pick_5, pick_6, pick_7, pick_8
-$sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, multiplier, win, balance, complete)
-VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
-"','" . $bonus . "','" . $bet_value . "','". $win_multiplier . "','" .  $win_amount . "','". $newbalance . "', 1)";
+$sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, multiplier, win, balance, complete) 
+VALUES (default," . $time_stamp . "," . $user . "," . $seed .
+"," . $bonus . "," . $bet_value . ",". $win_multiplier . "," .  $win_amount . ",". $newbalance . ", 1)";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
