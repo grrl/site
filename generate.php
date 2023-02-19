@@ -398,7 +398,6 @@ if ($jackpotseed == 0){
     }
   }
 
-
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
   $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
