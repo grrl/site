@@ -220,7 +220,7 @@ array_push($results_array, $under_7);
 array_push($results_array, $under_8);
 
 $sql = "UPDATE plinkosession SET win='" . $win.
-"', complete=". 1 . ", pick=". $pick . ", complete=". 1 . " WHERE id=" . $my_id;
+"', complete='". 1 . "', pick=". $pick . " WHERE id=" . $my_id;
 
 //$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 

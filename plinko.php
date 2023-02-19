@@ -1406,37 +1406,37 @@ async function closeForm(pick) {
     await sleep(500);
     document.getElementById("button2").style.display = "none";
     document.getElementById("res2").innerHTML = res_2;
-}
-if (picknumber != "3") {
+  }
+  if (picknumber != "3") {
     await sleep(500);
     document.getElementById("button3").style.display = "none";
     document.getElementById("res3").innerHTML = res_3;
-}
-if (picknumber != "4") {
+  }
+  if (picknumber != "4") {
     await sleep(500);
     document.getElementById("button4").style.display = "none";
     document.getElementById("res4").innerHTML = res_4;
-}
-if (picknumber != "5") {
+  }
+  if (picknumber != "5") {
     await sleep(500);
     document.getElementById("button5").style.display = "none";
     document.getElementById("res5").innerHTML = res_5;
-}
-if (picknumber != "6") {
+  }
+  if (picknumber != "6") {
     await sleep(500);
     document.getElementById("button6").style.display = "none";
     document.getElementById("res6").innerHTML = res_6;
-}
-if (picknumber != "7") {
+  }
+  if (picknumber != "7") {
     await sleep(500);
     document.getElementById("button7").style.display = "none";
     document.getElementById("res7").innerHTML = res_7;
-}
-if (picknumber != "8") {
+  }
+  if (picknumber != "8") {
     await sleep(500);
     document.getElementById("button8").style.display = "none";
     document.getElementById("res8").innerHTML = res_8;
-}
+  }
 
   await sleep(3000);
 
