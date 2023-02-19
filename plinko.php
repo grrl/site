@@ -1396,6 +1396,7 @@ async function closeForm(pick) {
     }
   });
 
+  await sleep(500);
 
   if (picknumber != "1") {
     await sleep(500);
@@ -1438,7 +1439,7 @@ async function closeForm(pick) {
     document.getElementById("res8").innerHTML = res_8;
   }
 
-  await sleep(3000);
+  await sleep(2500);
 
   document.getElementById("button1").style.display = "block";
   document.getElementById("button2").style.display = "block";
