@@ -1243,7 +1243,7 @@ var bonuscolor;
 function openForm() {
   //change button color according to jackpot
 
-  //document.getElementsByClassName('button5').backgroundColor = "red";
+  document.getElementsByClassName('button5').backgroundColor = "red";
 
   document.getElementById("myForm").style.display = "block";
   document.getElementById("mycanvas").style.display = "none";

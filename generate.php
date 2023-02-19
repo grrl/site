@@ -841,7 +841,7 @@ else if ($jackpotseed >= 750 && $jackpotseed <= 874){
   }
 
 }
-else if ($seed >= 875 && $seed <= 999){
+else if ($jackpotseed >= 875 && $jackpotseed <= 999){
   //sapphire
   $jackpotwin = $sapphire;
   $jackpotname = "sapphire";
