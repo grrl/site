@@ -149,7 +149,7 @@ if ($conn->query($sql) === TRUE) {
 
 //$conn->close();
 
-$seed = (random_int(0, 999));
+$seed = (random_int(0, 1)); //999
 
 //echo $seed;
 //echo " ";
@@ -399,7 +399,22 @@ if ($seed == 0){
 
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
+  //pick_1, pick_2, pick_3, pick_4, pick_5, pick_6, pick_7, pick_8
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
+  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
+  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
+  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
+  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
+  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
 
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
 
 }
@@ -459,6 +474,89 @@ else if ($seed >= 1 && $seed <= 624){
   
   $credit_8 = $deck[0];
 
+  $pick_1 = 0;
+  $pick_2 = 0;
+  $pick_3 = 0;
+  $pick_4 = 0;
+  $pick_5 = 0;
+  $pick_6 = 0;
+  $pick_7 = 0;
+  $pick_8 = 0;
+
+  $deck = array(
+  
+    1,
+    2, 
+    3,
+    4, 
+    5, 
+    6,
+    7,
+    8
+  );
+
+  if ($progressives == 8){
+
+    $pick_1 = $opal;
+    $pick_2 = $opal;
+    $pick_3 = $opal;
+    $pick_4 = $opal;
+    $pick_5 = $opal;
+    $pick_6 = $opal;
+    $pick_7 = $opal;
+    $pick_8 = $opal;
+  }
+  else {
+
+    $i = 7;
+    $j = 0;
+    while ($j < $progressives){
+
+      $progressiveseed = (random_int(0, $i));
+      $progressivenumber = $deck[$progressiveseed];
+      unset($deck[$progressiveseed]);
+      array_unshift($deck);
+
+      if ($progressivenumber == 1)
+        $pick_1 = $opal;
+      else if ($progressivenumber == 2)
+        $pick_2 = $opal;
+      else if ($progressivenumber == 3)
+        $pick_3 = $opal;
+      else if ($progressivenumber == 4)
+        $pick_4 = $opal;
+      else if ($progressivenumber == 5)
+        $pick_5 = $opal;
+      else if ($progressivenumber == 6)
+        $pick_6 = $opal;
+      else if ($progressivenumber == 7)
+        $pick_7 = $opal;
+      else if ($progressivenumber == 8)
+        $pick_8 = $opal;
+
+      $i--;
+      $j++;
+    }
+  }
+
+  //next draw positions for jackpot based by bet level
+  //if max bet all positions have a jackpot
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
+  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
+  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
+  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
+  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
+  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 }
 else if ($seed >= 625 && seed <= 749){
   //ruby
@@ -515,6 +613,89 @@ else if ($seed >= 625 && seed <= 749){
   array_unshift($deck);
   
   $credit_8 = $deck[0];
+
+  $pick_1 = 0;
+  $pick_2 = 0;
+  $pick_3 = 0;
+  $pick_4 = 0;
+  $pick_5 = 0;
+  $pick_6 = 0;
+  $pick_7 = 0;
+  $pick_8 = 0;
+
+  $deck = array(
+  
+    1,
+    2, 
+    3,
+    4, 
+    5, 
+    6,
+    7,
+    8
+  );
+
+  if ($progressives == 8){
+
+    $pick_1 = $ruby;
+    $pick_2 = $ruby;
+    $pick_3 = $ruby;
+    $pick_4 = $ruby;
+    $pick_5 = $ruby;
+    $pick_6 = $ruby;
+    $pick_7 = $ruby;
+    $pick_8 = $ruby;
+  }
+  else {
+
+    $i = 7;
+    $j = 0;
+    while ($j < $progressives){
+
+      $progressiveseed = (random_int(0, $i));
+      $progressivenumber = $deck[$progressiveseed];
+      unset($deck[$progressiveseed]);
+      array_unshift($deck);
+
+      if ($progressivenumber == 1)
+        $pick_1 = $ruby;
+      else if ($progressivenumber == 2)
+        $pick_2 = $ruby;
+      else if ($progressivenumber == 3)
+        $pick_3 = $ruby;
+      else if ($progressivenumber == 4)
+        $pick_4 = $ruby;
+      else if ($progressivenumber == 5)
+        $pick_5 = $ruby;
+      else if ($progressivenumber == 6)
+        $pick_6 = $ruby;
+      else if ($progressivenumber == 7)
+        $pick_7 = $ruby;
+      else if ($progressivenumber == 8)
+        $pick_8 = $ruby;
+
+      $i--;
+      $j++;
+    }
+  }
+
+  //next draw positions for jackpot based by bet level
+  //if max bet all positions have a jackpot
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
+  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
+  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
+  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
+  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
+  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
 }
 else if ($seed >= 750 && $seed <= 874){
@@ -573,6 +754,89 @@ else if ($seed >= 750 && $seed <= 874){
   
   $credit_8 = $deck[0];
 
+  $pick_1 = 0;
+  $pick_2 = 0;
+  $pick_3 = 0;
+  $pick_4 = 0;
+  $pick_5 = 0;
+  $pick_6 = 0;
+  $pick_7 = 0;
+  $pick_8 = 0;
+
+  $deck = array(
+  
+    1,
+    2, 
+    3,
+    4, 
+    5, 
+    6,
+    7,
+    8
+  );
+
+  if ($progressives == 8){
+
+    $pick_1 = $emerald;
+    $pick_2 = $emerald;
+    $pick_3 = $emerald;
+    $pick_4 = $emerald;
+    $pick_5 = $emerald;
+    $pick_6 = $emerald;
+    $pick_7 = $emerald;
+    $pick_8 = $emerald;
+  }
+  else {
+
+    $i = 7;
+    $j = 0;
+    while ($j < $progressives){
+
+      $progressiveseed = (random_int(0, $i));
+      $progressivenumber = $deck[$progressiveseed];
+      unset($deck[$progressiveseed]);
+      array_unshift($deck);
+
+      if ($progressivenumber == 1)
+        $pick_1 = $emerald;
+      else if ($progressivenumber == 2)
+        $pick_2 = $emerald;
+      else if ($progressivenumber == 3)
+        $pick_3 = $emerald;
+      else if ($progressivenumber == 4)
+        $pick_4 = $emerald;
+      else if ($progressivenumber == 5)
+        $pick_5 = $emerald;
+      else if ($progressivenumber == 6)
+        $pick_6 = $emerald;
+      else if ($progressivenumber == 7)
+        $pick_7 = $emerald;
+      else if ($progressivenumber == 8)
+        $pick_8 = $emerald;
+
+      $i--;
+      $j++;
+    }
+  }
+
+  //next draw positions for jackpot based by bet level
+  //if max bet all positions have a jackpot
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, balance,
+  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+  "','" . $bonus . "','" . $bet_value . "','". $newbalance .
+  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
+  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
+  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
+  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 }
 else if ($seed >= 875 && $seed <= 999){
   //sapphire
@@ -630,13 +894,103 @@ else if ($seed >= 875 && $seed <= 999){
   
   $credit_8 = $deck[0];
 
+  $pick_1 = 0;
+  $pick_2 = 0;
+  $pick_3 = 0;
+  $pick_4 = 0;
+  $pick_5 = 0;
+  $pick_6 = 0;
+  $pick_7 = 0;
+  $pick_8 = 0;
+
+  $deck = array(
+  
+    1,
+    2, 
+    3,
+    4, 
+    5, 
+    6,
+    7,
+    8
+  );
+
+  if ($progressives == 8){
+
+    $pick_1 = $sapphire;
+    $pick_2 = $sapphire;
+    $pick_3 = $sapphire;
+    $pick_4 = $sapphire;
+    $pick_5 = $sapphire;
+    $pick_6 = $sapphire;
+    $pick_7 = $sapphire;
+    $pick_8 = $sapphire;
+  }
+  else {
+
+    $i = 7;
+    $j = 0;
+    while ($j < $progressives){
+
+      $progressiveseed = (random_int(0, $i));
+      $progressivenumber = $deck[$progressiveseed];
+      unset($deck[$progressiveseed]);
+      array_unshift($deck);
+
+      if ($progressivenumber == 1)
+        $pick_1 = $sapphire;
+      else if ($progressivenumber == 2)
+        $pick_2 = $sapphire;
+      else if ($progressivenumber == 3)
+        $pick_3 = $sapphire;
+      else if ($progressivenumber == 4)
+        $pick_4 = $sapphire;
+      else if ($progressivenumber == 5)
+        $pick_5 = $sapphire;
+      else if ($progressivenumber == 6)
+        $pick_6 = $sapphire;
+      else if ($progressivenumber == 7)
+        $pick_7 = $sapphire;
+      else if ($progressivenumber == 8)
+        $pick_8 = $sapphire;
+
+      $i--;
+      $j++;
+    }
+  }
+
+  //next draw positions for jackpot based by bet level
+  //if max bet all positions have a jackpot
+  $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, jackpotseed, balance,
+  jackpotseed, pick_1, pick_1_credits, pick_2, pick_2_credits, pick_3, pick_3_credits, pick_4,
+  pick_4_credits, pick_5, pick_5_credits, pick_6, pick_7, pick_7_credits, pick_8, pick_8_credits, complete)
+  VALUES (default,'" . $time_stamp . "','" . $user . "','" . $seed .
+  "','" . $bonus . "','" . $bet_value . "','". $jackpotseed . "','" . $newbalance .
+  $pick_1 . "','" . $credit_1 . $pick_2 . "','" . $credit_2 . 
+  $pick_3 . "','" . $credit_3 . $pick_4 . "','" . $credit_4 . 
+  $pick_5 . "','" . $credit_5 . $pick_6 . "','" . $credit_6 . 
+  $pick_7 . "','" . $credit_7 . $pick_8 . "','" . $credit_8 . "', 0)";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 }
 
-//request choice from player
-//and after clicking return them with
-//max bet text pick a jewel for additional prize
-//and flash winner text in jackpot
 
+$results_array = array();
+
+array_push($results_array, $win_multiplier);
+//array_push($results_array, $id);
+array_push($results_array, $array);
+
+array_push($results_array, $jackpotwin);
+
+echo json_encode($results_array);
+//echo $win_amount;
+echo " ";
 
 
 } else {

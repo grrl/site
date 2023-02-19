@@ -1237,6 +1237,27 @@ $.ajax({
 
 var winamount = 0;
 
+var bonustime = false;
+var bonuscolor;
+
+function openForm() {
+  //change button color according to jackpot
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("mycanvas").style.display = "none";
+}
+
+function closeForm() {
+  //get number from button send to server and update win to user
+  //end game
+  //send all button values back
+  //replace chosen button with award
+  //then 1 by one show rest awards
+  //increase credits counter then go back to base game
+
+  document.getElementById("myForm").style.display = "none";
+  document.getElementById("mycanvas").style.display = "block";
+}
+
 //canvas size is
 //add argument to function at the end
 async function move(array){
@@ -1301,6 +1322,13 @@ async function move(array){
   //ctx.fillRect(0,0,canvas.width, canvas.height);
   console.log("we are here");
   draw_and_clear();
+
+  if (bonustime == true){
+
+    openForm();
+    bonustime = false;
+  }
+  else {
   document.getElementById("play_button").disabled = false;
 
   document.getElementById("gamestate").innerHTML = "GAME OVER!";
@@ -1318,6 +1346,7 @@ async function move(array){
   winamount = 0;
 
   refresh_jackpots();
+  }
 
   //winlabel
 
@@ -1459,23 +1488,6 @@ function generate(){
 
 }
 
-function openForm() {
-  //change button color according to jackpot
-  document.getElementById("myForm").style.display = "block";
-  document.getElementById("mycanvas").style.display = "none";
-}
-
-function closeForm() {
-  //get number from button send to server and update win to user
-  //end game
-  //send all button values back
-  //replace chosen button with award
-  //then 1 by one show rest awards
-  //increase credits counter then go back to base game
-
-  document.getElementById("myForm").style.display = "none";
-  document.getElementById("mycanvas").style.display = "block";
-}
 
 //let move_array = [80, 0, 0, 49, 205, 270];
 //let move_array = [80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80];
@@ -1587,9 +1599,31 @@ else{
 
       winamount = mydata[0];
       my_array = mydata[1];
-      //win = mydata.win_amount;
+      var bonusname;
+      if (winamount == "BONUS"){
 
-      //refresh_jackpots();
+        bonustime = true;
+        bonusname = mydata[2];
+
+        switch (bonusname){
+
+        case "opal":
+
+        break;
+        case "ruby":
+
+        break;
+        case "emerald":
+
+        break;
+        case "sapphire":
+
+        break;
+        case "diamond":
+
+        break;
+        }
+      }
 
       document.getElementById("winlabel").innerHTML = "";
       document.getElementById("gamestate").innerHTML = "GOOD LUCK!";
