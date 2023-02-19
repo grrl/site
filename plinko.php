@@ -1308,16 +1308,6 @@ function openForm() {
   document.getElementById("jackpotname").innerHTML = bonusname.toString().toUpperCase() + " JACKPOT";
   document.getElementById("awardshidden").innerHTML = "TOTAL BET: " + bet_in_credits + " = " + progressives_hidden + " PROGRESSIVE AWARD(S) HIDDEN";
 
-  /*
-  document.getElementById("res1").style.display = "block";
-  document.getElementById("res2").style.display = "block";
-  document.getElementById("res3").style.display = "block";
-  document.getElementById("res4").style.display = "block";
-  document.getElementById("res5").style.display = "block";
-  document.getElementById("res6").style.display = "block";
-  document.getElementById("res7").style.display = "block";
-  document.getElementById("res8").style.display = "block";
-  */
 }
 var picknumber;
 var res_1;
@@ -1408,7 +1398,7 @@ async function closeForm(pick) {
     }
   });
 
-  
+
   if (picknumber != "1") {
     await sleep(500);
     document.getElementById("button1").style.display = "none";
@@ -2174,7 +2164,7 @@ window.onload = refresh_jackpots;
     <h1 style="color:white;" id="jackpotname">Jackpot name: Make a pick</h1>
     <h4 style="color:white;" id="awardshidden">Total BET: XXX = Y Progressive Award(s) hidden</h4>
     <h6 style="color:white;">THE HIGHER THE BET THE MORE PROGRESSIVES AVAILABLE IN SELECTION</h5>
-    <table>
+    <table style="height:250px;">
     <tr>
       <th>
         <p id="res1" style="text-align: center;"></p>
