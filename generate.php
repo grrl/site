@@ -321,14 +321,14 @@ if ($jackpotseed == 0){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_6 = (random_int(0, 1));
-  $credit_6 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $seed_6 = (random_int(0, 2));
+  $credit_6 = $deck[$seed_6];
+  unset($deck[$seed_6]);
   array_unshift($deck);
   
   $seed_7 = (random_int(0, 1));
-  $credit_7 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $credit_7 = $deck[$seed_7];
+  unset($deck[$seed_7]);
   array_unshift($deck);
   
   $credit_8 = $deck[0];
@@ -465,14 +465,14 @@ else if ($jackpotseed >= 1 && $jackpotseed <= 624){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_6 = (random_int(0, 1));
-  $credit_6 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $seed_6 = (random_int(0, 2));
+  $credit_6 = $deck[$seed_6];
+  unset($deck[$seed_6]);
   array_unshift($deck);
   
   $seed_7 = (random_int(0, 1));
-  $credit_7 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $credit_7 = $deck[$seed_7];
+  unset($deck[$seed_7]);
   array_unshift($deck);
   
   $credit_8 = $deck[0];
@@ -605,14 +605,14 @@ else if ($jackpotseed >= 625 && $jackpotseed <= 749){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_6 = (random_int(0, 1));
-  $credit_6 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $seed_6 = (random_int(0, 2));
+  $credit_6 = $deck[$seed_6];
+  unset($deck[$seed_6]);
   array_unshift($deck);
   
   $seed_7 = (random_int(0, 1));
-  $credit_7 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $credit_7 = $deck[$seed_7];
+  unset($deck[$seed_7]);
   array_unshift($deck);
   
   $credit_8 = $deck[0];
@@ -745,14 +745,14 @@ else if ($jackpotseed >= 750 && $jackpotseed <= 874){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_6 = (random_int(0, 1));
-  $credit_6 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $seed_6 = (random_int(0, 2));
+  $credit_6 = $deck[$seed_6];
+  unset($deck[$seed_6]);
   array_unshift($deck);
   
   $seed_7 = (random_int(0, 1));
-  $credit_7 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $credit_7 = $deck[$seed_7];
+  unset($deck[$seed_7]);
   array_unshift($deck);
   
   $credit_8 = $deck[0];
@@ -885,14 +885,14 @@ else if ($jackpotseed >= 875 && $jackpotseed <= 999){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_6 = (random_int(0, 1));
-  $credit_6 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $seed_6 = (random_int(0, 2));
+  $credit_6 = $deck[$seed_6];
+  unset($deck[$seed_6]);
   array_unshift($deck);
   
   $seed_7 = (random_int(0, 1));
-  $credit_7 = $deck[$seed_5];
-  unset($deck[$seed_5]);
+  $credit_7 = $deck[$seed_7];
+  unset($deck[$seed_7]);
   array_unshift($deck);
   
   $credit_8 = $deck[0];
