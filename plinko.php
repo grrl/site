@@ -1258,7 +1258,7 @@ function openForm() {
   document.getElementById("mycanvas").style.display = "none";
 }
 
-function closeForm(pick) {
+async function closeForm(pick) {
   //get number from button send to server and update win to user
   //end game
   //send all button values back
@@ -1266,8 +1266,6 @@ function closeForm(pick) {
   //then 1 by one show rest awards
   //increase credits counter then go back to base game
 
-  document.getElementById("myForm").style.display = "none";
-  document.getElementById("mycanvas").style.display = "block";
 
   //here post value from button
 
@@ -1324,10 +1322,18 @@ function closeForm(pick) {
         break;
       }
 
-      setTimeout(closeForm, 3000);
 
-      document.getElementById("play_button").disabled = false;
-      document.getElementById("gamestate").innerHTML = "GAME OVER!";
+    }
+  });
+
+  await sleep(5000);
+
+  document.getElementById("myForm").style.display = "none";
+  document.getElementById("mycanvas").style.display = "block";
+
+  console.log("hereherehere");
+  document.getElementById("play_button").disabled = false;
+  document.getElementById("gamestate").innerHTML = "GAME OVER!";
 
       if (winamount > 0){
 
@@ -1340,10 +1346,7 @@ function closeForm(pick) {
       }
 
       winamount = 0;
-
-    }
-  });
-
+    
 }
 
 //canvas size is
