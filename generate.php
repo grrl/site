@@ -303,6 +303,29 @@ if ($seed == 0){
   
   $credit_8 = $deck[0];
 
+  $pick_1 = 0;
+  $pick_2 = 0;
+  $pick_3 = 0;
+  $pick_4 = 0;
+  $pick_5 = 0;
+  $pick_6 = 0;
+  $pick_7 = 0;
+  $pick_8 = 0;
+
+  $deck = array(
+  
+    1,
+    2, 
+    3,
+    4, 
+    5, 
+    6,
+    7,
+    8
+  );
+
+
+
   //next draw positions for jackpot based by bet level
   //if max bet all positions have a jackpot
 
