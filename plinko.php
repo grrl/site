@@ -1239,11 +1239,53 @@ var winamount = 0;
 
 var bonustime = false;
 var bonuscolor;
+var bonusname;
+var progressives_hidden;
 
 function openForm() {
   //change button color according to jackpot
 
   //document.getElementsByClassName('form-container').backgroundColor = "red";
+
+  var bet_in_credits;
+  switch  (bet_level){
+
+    case 1:
+      bet_in_credits = 40;
+      progressives_hidden = 1;
+    break;
+    case 2:
+      bet_in_credits = 80;
+      progressives_hidden = 2;
+    break;
+    case 3:
+      bet_in_credits = 120;
+      progressives_hidden = 3;
+    break;
+    case 4:
+      bet_in_credits = 160;
+      progressives_hidden = 4;
+    break;
+    case 5:
+      bet_in_credits = 200;
+      progressives_hidden = 5;
+    break;
+    case 6:
+      bet_in_credits = 240;
+      progressives_hidden = 6;
+    break;
+    case 7:
+      bet_in_credits = 280;
+      progressives_hidden = 7;
+    break;
+    case 8:
+      bet_in_credits = 320;
+      progressives_hidden = 8;
+    break;  
+  }
+
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("mycanvas").style.display = "none";
 
   document.getElementById("button1").style.backgroundColor = bonuscolor;
   document.getElementById("button2").style.backgroundColor = bonuscolor;
@@ -1254,9 +1296,38 @@ function openForm() {
   document.getElementById("button7").style.backgroundColor = bonuscolor;
   document.getElementById("button8").style.backgroundColor = bonuscolor;
 
-  document.getElementById("myForm").style.display = "block";
-  document.getElementById("mycanvas").style.display = "none";
+  document.getElementById("res1").innerHTML = "";
+  document.getElementById("res2").innerHTML = "";
+  document.getElementById("res3").innerHTML = "";
+  document.getElementById("res4").innerHTML = "";
+  document.getElementById("res5").innerHTML = "";
+  document.getElementById("res6").innerHTML = "";
+  document.getElementById("res7").innerHTML = "";
+  document.getElementById("res8").innerHTML = "";
+
+  document.getElementById("jackpotname").innerHTML = bonusname.toString().toUpperCase() + " JACKPOT";
+  document.getElementById("awardshidden").innerHTML = "TOTAL BET: " + bet_in_credits + " = " + progressives_hidden + " PROGRESSIVE AWARD(S) HIDDEN";
+
+  /*
+  document.getElementById("res1").style.display = "block";
+  document.getElementById("res2").style.display = "block";
+  document.getElementById("res3").style.display = "block";
+  document.getElementById("res4").style.display = "block";
+  document.getElementById("res5").style.display = "block";
+  document.getElementById("res6").style.display = "block";
+  document.getElementById("res7").style.display = "block";
+  document.getElementById("res8").style.display = "block";
+  */
 }
+var picknumber;
+var res_1;
+var res_2;
+var res_3;
+var res_4;
+var res_5;
+var res_6;
+var res_7;
+var res_8;
 
 async function closeForm(pick) {
   //get number from button send to server and update win to user
@@ -1285,42 +1356,51 @@ async function closeForm(pick) {
       let mydata = JSON.parse(data);
 
       //bonusname = mydata[2];
-      var picknumber = mydata[0];
-      var res_1 = mydata[1];
-      var res_2 = mydata[2];
-      var res_3 = mydata[3];
-      var res_4 = mydata[4];
-      var res_5 = mydata[5];
-      var res_6 = mydata[6];
-      var res_7 = mydata[7];
-      var res_8 = mydata[8];
-      button1
+      picknumber = mydata[0];
+      res_1 = mydata[1];
+      res_2 = mydata[2];
+      res_3 = mydata[3];
+      res_4 = mydata[4];
+      res_5 = mydata[5];
+      res_6 = mydata[6];
+      res_7 = mydata[7];
+      res_8 = mydata[8];
+      
       console.log("pic " + picknumber);
       switch (picknumber){
         case "1":
           console.log("result is " + res_1);
+
+          document.getElementById("button1").style.display = "none";
           document.getElementById("res1").innerHTML = res_1;
         break;
         case "2":
-          document.getElementById("res2").innerHTML = res_1;
+          document.getElementById("button2").style.display = "none";
+          document.getElementById("res2").innerHTML = res_2;
         break;
         case "3":
-          document.getElementById("res3").innerHTML = res_1;
+          document.getElementById("button3").style.display = "none";
+          document.getElementById("res3").innerHTML = res_3;
         break;
         case "4":
-          document.getElementById("res4").innerHTML = res_1;
+          document.getElementById("button4").style.display = "none";
+          document.getElementById("res4").innerHTML = res_4;
         break;
         case "5":
-          document.getElementById("res5").innerHTML = res_1;
+          document.getElementById("button5").style.display = "none";
+          document.getElementById("res5").innerHTML = res_5;
         break;
         case "6":
-          document.getElementById("res6").innerHTML = res_1;
+          document.getElementById("button6").style.display = "none";
+          document.getElementById("res6").innerHTML = res_6;
         break;
         case "7":
-          document.getElementById("res7").innerHTML = res_1;
+          document.getElementById("button7").style.display = "none";
+          document.getElementById("res7").innerHTML = res_7;
         break;
         case "8":
-          document.getElementById("res8").innerHTML = res_1;
+          document.getElementById("button8").style.display = "none";
+          document.getElementById("res8").innerHTML = res_8;
         break;
       }
 
@@ -1328,7 +1408,58 @@ async function closeForm(pick) {
     }
   });
 
-  await sleep(5000);
+  
+  if (picknumber != "1") {
+    await sleep(500);
+    document.getElementById("button1").style.display = "none";
+    document.getElementById("res1").innerHTML = res_1;
+  }
+  if (picknumber != "2") {
+    await sleep(500);
+    document.getElementById("button2").style.display = "none";
+    document.getElementById("res2").innerHTML = res_2;
+}
+if (picknumber != "3") {
+    await sleep(500);
+    document.getElementById("button3").style.display = "none";
+    document.getElementById("res3").innerHTML = res_3;
+}
+if (picknumber != "4") {
+    await sleep(500);
+    document.getElementById("button4").style.display = "none";
+    document.getElementById("res4").innerHTML = res_4;
+}
+if (picknumber != "5") {
+    await sleep(500);
+    document.getElementById("button5").style.display = "none";
+    document.getElementById("res5").innerHTML = res_5;
+}
+if (picknumber != "6") {
+    await sleep(500);
+    document.getElementById("button6").style.display = "none";
+    document.getElementById("res6").innerHTML = res_6;
+}
+if (picknumber != "7") {
+    await sleep(500);
+    document.getElementById("button7").style.display = "none";
+    document.getElementById("res7").innerHTML = res_7;
+}
+if (picknumber != "8") {
+    await sleep(500);
+    document.getElementById("button8").style.display = "none";
+    document.getElementById("res8").innerHTML = res_8;
+}
+
+  await sleep(3000);
+
+  document.getElementById("button1").style.display = "block";
+  document.getElementById("button2").style.display = "block";
+  document.getElementById("button3").style.display = "block";
+  document.getElementById("button4").style.display = "block";
+  document.getElementById("button5").style.display = "block";
+  document.getElementById("button6").style.display = "block";
+  document.getElementById("button7").style.display = "block";
+  document.getElementById("button8").style.display = "block";
 
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
@@ -1696,7 +1827,6 @@ else{
       //bonusname = mydata[2];
 
       console.log(my_array);
-      var bonusname;
       if (winamount == "BONUS"){
 
         bonustime = true;
@@ -2047,46 +2177,39 @@ window.onload = refresh_jackpots;
     <table>
     <tr>
       <th>
-        <p id="res1" style="text-align: center;">
+        <p id="res1" style="text-align: center;"></p>
         <button type="button" id="button1" class="button5" onclick="closeForm(1)"></button>
-        </p>
+        
       </th>
       <th>
-        <p id="res2" style="text-align: center;">
+        <p id="res2" style="text-align: center;"></p>
         <button type="button" id="button2" class="button5" onclick="closeForm(2)"></button>
-        </p>
       </th>
       <th>
-        <p id="res3" style="text-align: center;">
+        <p id="res3" style="text-align: center;"></p>
         <button type="button" id="button3" class="button5" onclick="closeForm(3)"></button>
-        </p>
       </th>
       <th>
-        <p id="res4" style="text-align: center;">
+        <p id="res4" style="text-align: center;"></p>
         <button type="button" id="button4" class="button5" onclick="closeForm(4)"></button>
-        </p>
       </th>
     </tr>
     <tr>
       <th>
-        <p id="res5" style="text-align: center;">
+        <p id="res5" style="text-align: center;"></p>
         <button type="button" id="button5" class="button5" onclick="closeForm(5)"></button>
-        </p>
       </th>
       <th>
-        <p id="res6" style="text-align: center;">
+        <p id="res6" style="text-align: center;"></p>
         <button type="button" id="button6" class="button5" onclick="closeForm(6)"></button>
-        </p>
       </th>
       <th>
-        <p id="res7" style="text-align: center;">
+        <p id="res7" style="text-align: center;"> </p>
         <button type="button" id="button7" class="button5" onclick="closeForm(7)"></button>
-        </p>
       </th>
       <th>
-        <p id="res8" style="text-align: center;">
+        <p id="res8" style="text-align: center;"></p>
         <button type="button" id="button8" class="button5" onclick="closeForm(8)"></button>
-        </p>
       </th>
     </tr>
     </table>
