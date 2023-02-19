@@ -1244,7 +1244,15 @@ function openForm() {
   //change button color according to jackpot
 
   //document.getElementsByClassName('form-container').backgroundColor = "red";
-  document.getElementById("testers").style.backgroundColor = "red";
+
+  document.getElementById("button1").style.backgroundColor = bonuscolor;
+  document.getElementById("button2").style.backgroundColor = bonuscolor;
+  document.getElementById("button3").style.backgroundColor = bonuscolor;
+  document.getElementById("button4").style.backgroundColor = bonuscolor;
+  document.getElementById("button5").style.backgroundColor = bonuscolor;
+  document.getElementById("button6").style.backgroundColor = bonuscolor;
+  document.getElementById("button7").style.backgroundColor = bonuscolor;
+  document.getElementById("button8").style.backgroundColor = bonuscolor;
 
   document.getElementById("myForm").style.display = "block";
   document.getElementById("mycanvas").style.display = "none";
@@ -1631,19 +1639,19 @@ else{
         switch (bonusname){
 
         case "opal":
-
+          bonuscolor = "white";
         break;
         case "ruby":
-
+          bonuscolor = "#E0115F";
         break;
         case "emerald":
-
+          bonuscolor = "#50C878";
         break;
         case "sapphire":
-
+          bonuscolor = "#0f52ba";
         break;
         case "diamond":
-
+          bonuscolor = "#b9f2ff";
         break;
         }
       }
@@ -1967,9 +1975,9 @@ window.onload = refresh_jackpots;
 
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    <h1>Jackpot name: Make a pick</h1>
-    <h4>Total BET: XXX = Y Progressive Award(s) hidden</h4>
-    <h6>THE HIGHER THE BET THE MORE PROGRESSIVES AVAILABLE IN SELECTION</h5>
+    <h1 style="color:white;">Jackpot name: Make a pick</h1>
+    <h4 style="color:white;">Total BET: XXX = Y Progressive Award(s) hidden</h4>
+    <h6 style="color:white;">THE HIGHER THE BET THE MORE PROGRESSIVES AVAILABLE IN SELECTION</h5>
     <table>
     <tr>
       <th>
