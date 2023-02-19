@@ -84,9 +84,34 @@ $pick_4 . ", " . $pick_4_credits . ", " .
 $pick_5 . ", " . $pick_5_credits . ", " .
 $pick_6 . ", " . $pick_6_credits . ", " .
 $pick_7 . ", " . $pick_7_credits . ", " .
-$pick_8 . ", " . $pick_8_credits . " FROM session WHERE id=" . $my_id;
+$pick_8 . ", " . $pick_8_credits . " FROM plinkosession WHERE id=" . $my_id;
 
+$win = 0;
 
+if ($pick == 1){
+    $win = $pick_1 + $pick_1_credits;
+}
+else if ($pick == 2){
+    $win = $pick_2 + $pick_2_credits;
+}
+else if ($pick == 3){
+    $win = $pick_3 + $pick_3_credits;
+}
+else if ($pick == 4){
+    $win = $pick_4 + $pick_4_credits;
+}
+else if ($pick == 5){
+    $win = $pick_5 + $pick_5_credits;
+}
+else if ($pick == 6){
+    $win = $pick_6 + $pick_6_credits;
+}
+else if ($pick == 7){
+    $win = $pick_7 + $pick_7_credits;
+}
+else if ($pick == 8){
+    $win = $pick_8 + $pick_8_credits;
+}
 
 $sql = "UPDATE plinkosession SET win='" . $win.
 "', complete=". 1 . ", pick=". $pick . " WHERE id=" . $my_id;
