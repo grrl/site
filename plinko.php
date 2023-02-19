@@ -1295,30 +1295,34 @@ async function closeForm(pick) {
       var res_7 = mydata[7];
       var res_8 = mydata[8];
       button1
+      console.log("pic " + picknumber);
       switch (picknumber){
-        case 1:
-          document.getElementById("button1").innerHTML = res_1;
+        case "1":
+          console.log("result is " + res_1);
+
+          document.getElementById("mytext").innerHTML = res_1;
+
         break;
-        case 2:
-          document.getElementById("button2").innerHTML = res_2;
+        case "2":
+          document.getElementById("button2").value = res_2;
         break;
-        case 3:
-          document.getElementById("button3").innerHTML = res_3;
+        case "3":
+          document.getElementById("button3").value = res_3;
         break;
-        case 4:
-          document.getElementById("button4").innerHTML = res_4;
+        case "4":
+          document.getElementById("button4").value = res_4;
         break;
-        case 5:
-          document.getElementById("button5").innerHTML = res_5;
+        case "5":
+          document.getElementById("button5").value = res_5;
         break;
-        case 6:
-          document.getElementById("button6").innerHTML = res_6;
+        case "6":
+          document.getElementById("button6").value = res_6;
         break;
-        case 7:
-          document.getElementById("button7").innerHTML = res_7;
+        case "7":
+          document.getElementById("button7").value = res_7;
         break;
-        case 8:
-          document.getElementById("button8").innerHTML = res_8;
+        case "8":
+          document.getElementById("button8").value = res_8;
         break;
       }
 
@@ -2045,30 +2049,46 @@ window.onload = refresh_jackpots;
     <table>
     <tr>
       <th>
+        <p id="res1">
         <button type="button" id="button1" class="button5" onclick="closeForm(1)"></button>
+        </p>
       </th>
       <th>
+        <p id="res2">
         <button type="button" id="button2" class="button5" onclick="closeForm(2)"></button>
+        </p>
       </th>
       <th>
+        <p id="res3">
         <button type="button" id="button3" class="button5" onclick="closeForm(3)"></button>
+        </p>
       </th>
       <th>
+        <p id="res4">
         <button type="button" id="button4" class="button5" onclick="closeForm(4)"></button>
+        </p>
       </th>
     </tr>
     <tr>
       <th>
+        <p id="res5">
         <button type="button" id="button5" class="button5" onclick="closeForm(5)"></button>
+        </p>
       </th>
       <th>
+        <p id="res6">
         <button type="button" id="button6" class="button5" onclick="closeForm(6)"></button>
+        </p>
       </th>
       <th>
+        <p id="res7">
         <button type="button" id="button7" class="button5" onclick="closeForm(7)"></button>
+        </p>
       </th>
       <th>
+        <p id="res8">
         <button type="button" id="button8" class="button5" onclick="closeForm(8)"></button>
+        </p>
       </th>
     </tr>
     </table>
