@@ -2041,8 +2041,8 @@ window.onload = refresh_jackpots;
 
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    <h1 style="color:white;">Jackpot name: Make a pick</h1>
-    <h4 style="color:white;">Total BET: XXX = Y Progressive Award(s) hidden</h4>
+    <h1 style="color:white;" id="jackpotname">Jackpot name: Make a pick</h1>
+    <h4 style="color:white;" id="awardshidden">Total BET: XXX = Y Progressive Award(s) hidden</h4>
     <h6 style="color:white;">THE HIGHER THE BET THE MORE PROGRESSIVES AVAILABLE IN SELECTION</h5>
     <table>
     <tr>
