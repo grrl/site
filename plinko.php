@@ -1299,30 +1299,28 @@ async function closeForm(pick) {
       switch (picknumber){
         case "1":
           console.log("result is " + res_1);
-
-          document.getElementById("mytext").innerHTML = res_1;
-
+          document.getElementById("res1").innerHTML = res_1;
         break;
         case "2":
-          document.getElementById("button2").value = res_2;
+          document.getElementById("res2").innerHTML = res_1;
         break;
         case "3":
-          document.getElementById("button3").value = res_3;
+          document.getElementById("res3").innerHTML = res_1;
         break;
         case "4":
-          document.getElementById("button4").value = res_4;
+          document.getElementById("res4").innerHTML = res_1;
         break;
         case "5":
-          document.getElementById("button5").value = res_5;
+          document.getElementById("res5").innerHTML = res_1;
         break;
         case "6":
-          document.getElementById("button6").value = res_6;
+          document.getElementById("res6").innerHTML = res_1;
         break;
         case "7":
-          document.getElementById("button7").value = res_7;
+          document.getElementById("res7").innerHTML = res_1;
         break;
         case "8":
-          document.getElementById("button8").value = res_8;
+          document.getElementById("res8").innerHTML = res_1;
         break;
       }
 
@@ -2049,7 +2047,7 @@ window.onload = refresh_jackpots;
     <table>
     <tr>
       <th>
-        <p id="res1">
+        <p id="res1" style="text-align: center;">
         <button type="button" id="button1" class="button5" onclick="closeForm(1)"></button>
         </p>
       </th>
