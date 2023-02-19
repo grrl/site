@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2023 at 01:26 PM
+-- Generation Time: Feb 19, 2023 at 12:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -39,7 +39,7 @@ CREATE TABLE `coin` (
 --
 
 INSERT INTO `coin` (`coinin`, `coinout`, `payback`, `cycle`) VALUES
-(1566.25, 1267.5, 0.809258, 879);
+(1580, 1281.25, 0.810918, 890);
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `jackpot` (
 --
 
 INSERT INTO `jackpot` (`progressive`) VALUES
-(1024.45);
+(1024.59);
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `plinko` (
 --
 
 INSERT INTO `plinko` (`coinin`, `coinout`, `payback`, `cycle`, `opal`, `ruby`, `emerald`, `sapphire`, `diamond`) VALUES
-(0, 0, 0, 0, 2.5, 5, 10, 100, 1000);
+(1122.8, 1038.8, 0.925185, 426, 3.62601, 6.12282, 12.2392, 102.233, 1004.46);
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,33 @@ INSERT INTO `plinko` (`coinin`, `coinout`, `payback`, `cycle`, `opal`, `ruby`, `
 --
 
 CREATE TABLE `plinkosession` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `seed` int(11) NOT NULL,
+  `bonus` tinyint(1) NOT NULL,
+  `jackpotseed` int(11) NOT NULL,
+  `pick_1` float NOT NULL,
+  `pick_1_credits` float NOT NULL,
+  `pick_2` float NOT NULL,
+  `pick_2_credits` float NOT NULL,
+  `pick_3` float NOT NULL,
+  `pick_3_credits` float NOT NULL,
+  `pick_4` float NOT NULL,
+  `pick_4_credits` float NOT NULL,
+  `pick_5` float NOT NULL,
+  `pick_5_credits` float NOT NULL,
+  `pick_6` int(11) NOT NULL,
+  `pick_7` float NOT NULL,
+  `pick_7_credits` float NOT NULL,
+  `pick_8` float NOT NULL,
+  `pick_8_credits` float NOT NULL,
+  `pick` int(11) NOT NULL,
+  `bet` float NOT NULL,
+  `multiplier` float NOT NULL,
+  `win` float NOT NULL,
+  `balance` float NOT NULL,
+  `complete` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -166,7 +192,18 @@ INSERT INTO `session` (`id`, `time`, `username`, `card_1`, `card_2`, `card_3`, `
 (2252, 1676669072, 'test', 9, 24, 51, 43, 36, 32, 50, 47, 44, 37, 9, 24, 51, 44, 36, '', 40, 1),
 (2253, 1676669077, 'test', 34, 35, 19, 4, 46, 49, 47, 17, 11, 6, 34, 35, 19, 11, 46, '', 38.75, 1),
 (2254, 1676669084, 'test', 11, 36, 27, 17, 0, 14, 9, 26, 48, 16, 11, 36, 26, 48, 0, 'JACKS OR BETTER', 37.5, 1),
-(2255, 1676670368, 'test', 18, 37, 43, 48, 30, 36, 17, 50, 25, 7, 36, 17, 43, 25, 30, 'THREE OF KIND', 37.5, 1);
+(2255, 1676670368, 'test', 18, 37, 43, 48, 30, 36, 17, 50, 25, 7, 36, 17, 43, 25, 30, 'THREE OF KIND', 37.5, 1),
+(2256, 1676751247, 'test', 0, 23, 9, 10, 1, 22, 42, 14, 29, 48, 22, 23, 14, 10, 48, 'TWO PAIR', 18.75, 1),
+(2257, 1676751391, 'test', 38, 16, 14, 5, 8, 13, 51, 6, 34, 36, 38, 51, 6, 34, 36, 'JACKS OR BETTER', 20, 1),
+(2258, 1676751401, 'test', 6, 5, 27, 21, 40, 4, 36, 32, 31, 29, 4, 36, 27, 31, 40, '', 20, 1),
+(2259, 1676751609, 'test', 49, 7, 33, 46, 37, 2, 45, 48, 6, 44, 2, 7, 33, 46, 44, 'THREE OF KIND', 198.75, 1),
+(2260, 1676751903, 'test', 7, 19, 30, 3, 13, 40, 49, 45, 34, 20, 7, 19, 45, 34, 20, 'TWO PAIR', 191.65, 1),
+(2261, 1676751908, 'test', 2, 25, 50, 46, 22, 20, 19, 12, 4, 1, 20, 25, 50, 4, 1, '', 192.9, 1),
+(2262, 1676751911, 'test', 50, 16, 18, 25, 36, 2, 41, 13, 39, 33, 50, 41, 13, 25, 36, '', 191.65, 1),
+(2263, 1676751915, 'test', 38, 23, 22, 34, 43, 2, 40, 37, 51, 8, 38, 23, 37, 51, 8, 'JACKS OR BETTER', 190.4, 1),
+(2264, 1676752074, 'test', 18, 4, 16, 43, 25, 26, 0, 23, 44, 47, 26, 4, 23, 43, 47, '', 174.4, 1),
+(2265, 1676752080, 'test', 33, 8, 29, 48, 22, 28, 51, 2, 4, 35, 28, 51, 2, 48, 22, 'TWO PAIR', 173.15, 1),
+(2266, 1676752087, 'test', 21, 1, 37, 18, 15, 36, 45, 30, 12, 27, 36, 45, 37, 12, 27, '', 174.4, 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +228,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `loyalty`, `points`, `balance`, `winloss`, `coinin`) VALUES
-(1, 'test', '81dc9bdb52d04dc20036dbd8313ed055', 'tester@test.com', 34.6875, 0, 41.25, -33.75, 127.5);
+(1, 'test', '81dc9bdb52d04dc20036dbd8313ed055', 'tester@test.com', 402.924, 368.237, 46.8, -1240.41, 1600.45);
 
 --
 -- Indexes for dumped tables
@@ -223,13 +260,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `plinkosession`
 --
 ALTER TABLE `plinkosession`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=350;
 
 --
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2256;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2267;
 
 --
 -- AUTO_INCREMENT for table `users`

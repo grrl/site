@@ -1618,13 +1618,14 @@ else{
 
       winamount = mydata[0];
       my_array = mydata[1];
+      bonusname = mydata[2];
 
       console.log(my_array);
       var bonusname;
       if (winamount == "BONUS"){
 
         bonustime = true;
-        bonusname = mydata[2];
+        //bonusname = mydata[2];
 
         switch (bonusname){
 
