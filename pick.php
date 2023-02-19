@@ -55,21 +55,21 @@ $row = $result->fetch_row();
 $statusresult = $row[0];
 
 $pick_1 = "pick_1";
-$pick_1_credits = "pick_1_credits";;
+$pick_1_credits = "pick_1_credits";
 $pick_2 = "pick_2";
-$pick_2_credits = "pick_2_credits";;
+$pick_2_credits = "pick_2_credits";
 $pick_3 = "pick_3";
-$pick_3_credits = "pick_3_credits";;
+$pick_3_credits = "pick_3_credits";
 $pick_4 = "pick_4";
-$pick_4_credits = "pick_4_credits";;
+$pick_4_credits = "pick_4_credits";
 $pick_5 = "pick_5";
-$pick_5_credits = "pick_5_credits";;
+$pick_5_credits = "pick_5_credits";
 $pick_6 = "pick_6";
-$pick_6_credits = "pick_6_credits";;
+$pick_6_credits = "pick_6_credits";
 $pick_7 = "pick_7";
-$pick_7_credits = "pick_7_credits";;
+$pick_7_credits = "pick_7_credits";
 $pick_8 = "pick_8";
-$pick_8_credits = "pick_8_credits";;
+$pick_8_credits = "pick_8_credits";
 $jackpot = "jackpot";
 
 if ($statusresult == "0"){
@@ -86,6 +86,7 @@ $pick_6 . ", " . $pick_6_credits . ", " .
 $pick_7 . ", " . $pick_7_credits . ", " .
 $pick_8 . ", " . $pick_8_credits . " FROM plinkosession WHERE id=" . $my_id;
 
+$result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -131,56 +132,56 @@ if ($pick_1 == "0"){
     $under_1 = $pick_1_credits;
 }
 else{
-    $under_1 = $jackpot . " progessive \n+" . $pick_1_credits;
+    $under_1 = $jackpot . " progessive " . $pick_1_credits;
 }
 
 if ($pick_2 == "0"){
     $under_2 = $pick_2_credits;
 }
 else{
-    $under_2 = $jackpot . " progessive \n+" . $pick_2_credits;
+    $under_2 = $jackpot . " progessive " . $pick_2_credits;
 }
 
 if ($pick_3 == "0"){
     $under_3 = $pick_3_credits;
 }
 else{
-    $under_3 = $jackpot . " progessive \n+" . $pick_3_credits;
+    $under_3 = $jackpot . " progessive " . $pick_3_credits;
 }
 
 if ($pick_4 == "0"){
     $under_4 = $pick_4_credits;
 }
 else{
-    $under_4 = $jackpot . " progessive \n+" . $pick_4_credits;
+    $under_4 = $jackpot . " progessive " . $pick_4_credits;
 }
 
 if ($pick_5 == "0"){
     $under_5 = $pick_5_credits;
 }
 else{
-    $under_5 = $jackpot . " progessive \n+" . $pick_5_credits;
+    $under_5 = $jackpot . " progessive " . $pick_5_credits;
 }
 
 if ($pick_6 == "0"){
     $under_6 = $pick_6_credits;
 }
 else{
-    $under_6 = $jackpot . " progessive \n+" . $pick_6_credits;
+    $under_6 = $jackpot . " progessive " . $pick_6_credits;
 }
 
 if ($pick_7 == "0"){
     $under_7 = $pick_7_credits;
 }
 else{
-    $under_7 = $jackpot . " progessive \n+" . $pick_7_credits;
+    $under_7 = $jackpot . " progessive " . $pick_7_credits;
 }
 
 if ($pick_8 == "0"){
     $under_8 = $pick_8_credits;
 }
 else{
-    $under_8 = $jackpot . " progessive \n+" . $pick_8_credits;
+    $under_8 = $jackpot . " progessive " . $pick_8_credits;
 }
 
 if ($pick == "1"){
