@@ -1359,8 +1359,6 @@ async function closeForm(pick) {
       console.log("pic " + picknumber);
       switch (picknumber){
         case "1":
-          console.log("result is " + res_1);
-
           document.getElementById("button1").style.display = "none";
           document.getElementById("res1").innerHTML = res_1;
         break;
@@ -2169,7 +2167,6 @@ window.onload = refresh_jackpots;
       <th>
         <p id="res1" style="text-align: center;"></p>
         <button type="button" id="button1" class="button5" onclick="closeForm(1)"></button>
-        
       </th>
       <th>
         <p id="res2" style="text-align: center;"></p>

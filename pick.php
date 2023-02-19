@@ -211,7 +211,6 @@ else if ($pick == "8"){
 
 array_push($results_array, $pick);
 array_push($results_array, $under_1);
-array_push($results_array, $under_1);
 array_push($results_array, $under_2);
 array_push($results_array, $under_3);
 array_push($results_array, $under_4);
