@@ -256,11 +256,13 @@ if ($seed == 0){
   $deck = array(
   
     20,
-    80, //  [0]
-    20, //  [1]
-    20, //  [2]
-    80, //  [3]
-    20 //  [4]
+    80, 
+    20,
+    40, 
+    20, 
+    80,
+    20,
+    40
   );
 
   //draw credit win for each pick
@@ -289,12 +291,12 @@ if ($seed == 0){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_5 = (random_int(0, 1));
+  $seed_6 = (random_int(0, 1));
   $credit_6 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
   
-  $seed_5 = (random_int(0, 1));
+  $seed_7 = (random_int(0, 1));
   $credit_7 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
@@ -316,10 +318,12 @@ else if ($seed >= 1 && $seed <= 624){
   $deck = array(
   
     0.05,
-    0.2, //  [0]
+    0.2,
+    0.1, //  [0]
     0.05, //  [1]
     0.05, //  [2]
     0.2, //  [3]
+    0.1,
     0.05 //  [4]
   );
 
@@ -349,12 +353,12 @@ else if ($seed >= 1 && $seed <= 624){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_5 = (random_int(0, 1));
+  $seed_6 = (random_int(0, 1));
   $credit_6 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
   
-  $seed_5 = (random_int(0, 1));
+  $seed_7 = (random_int(0, 1));
   $credit_7 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
@@ -372,7 +376,9 @@ else if ($seed >= 625 && seed <= 749){
   
     0.1,
     0.1, //  [0]
+    0.2,
     0.4, //  [1]
+    0.2,
     0.1, //  [2]
     0.1, //  [3]
     0.4 //  [4]
@@ -404,12 +410,12 @@ else if ($seed >= 625 && seed <= 749){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_5 = (random_int(0, 1));
+  $seed_6 = (random_int(0, 1));
   $credit_6 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
   
-  $seed_5 = (random_int(0, 1));
+  $seed_7 = (random_int(0, 1));
   $credit_7 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
@@ -426,9 +432,11 @@ else if ($seed >= 750 && $seed <= 874){
   $deck = array(
   
     0.2,
-    0.2, //  [0]
+    0.2,
+    0.4, //  [0]
     0.8, //  [1]
     0.2, //  [2]
+    0.4,
     0.2, //  [3]
     0.8 //  [4]
   );
@@ -459,12 +467,12 @@ else if ($seed >= 750 && $seed <= 874){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_5 = (random_int(0, 1));
+  $seed_6 = (random_int(0, 1));
   $credit_6 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
   
-  $seed_5 = (random_int(0, 1));
+  $seed_7 = (random_int(0, 1));
   $credit_7 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
@@ -482,10 +490,12 @@ else if ($seed >= 875 && $seed <= 999){
   
     2,
     8, //  [0]
-    2, //  [1]
+    2,
+    4, //  [1]
     2, //  [2]
-    8, //  [3]
-    2, //  [4]
+    8,
+    4, //  [3]
+    2 //  [4]
   );
 
   //draw credit win for each pick
@@ -514,12 +524,12 @@ else if ($seed >= 875 && $seed <= 999){
   unset($deck[$seed_5]);
   array_unshift($deck);
 
-  $seed_5 = (random_int(0, 1));
+  $seed_6 = (random_int(0, 1));
   $credit_6 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
   
-  $seed_5 = (random_int(0, 1));
+  $seed_7 = (random_int(0, 1));
   $credit_7 = $deck[$seed_5];
   unset($deck[$seed_5]);
   array_unshift($deck);
