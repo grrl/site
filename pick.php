@@ -14,11 +14,11 @@ foreach ($_POST as $param_name => $param_val) {
 
     switch ($param_name){
 
-        case "id":
-        $my_id = $param_val;
-        break;
         case "pick":
         $pick = $param_val;
+        break;
+        case "id":
+        $my_id = $param_val;
         break;
     }
 }
@@ -85,6 +85,34 @@ $pick_5 . ", " . $pick_5_credits . ", " .
 $pick_6 . ", " . $pick_6_credits . ", " .
 $pick_7 . ", " . $pick_7_credits . ", " .
 $pick_8 . ", " . $pick_8_credits . " FROM plinkosession WHERE id=" . $my_id;
+
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+
+    $jackpot = $row[$jackpot];
+    $pick_1 = $row[$pick_1];
+    $pick_1_credits = $row[$pick_1_credits];
+    $pick_2 = $row[$pick_2];
+    $pick_2_credits = $row[$pick_2_credits];
+    $pick_3 = $row[$pick_3];
+    $pick_3_credits = $row[$pick_3_credits];
+    $pick_4 = $row[$pick_4];
+    $pick_4_credits = $row[$pick_4_credits];
+    $pick_5 = $row[$pick_5];
+    $pick_5_credits = $row[$pick_5_credits];
+    $pick_6 = $row[$pick_6];
+    $pick_6_credits = $row[$pick_6_credits];
+    $pick_7 = $row[$pick_7];
+    $pick_7_credits = $row[$pick_7_credits];
+    $pick_8 = $row[$pick_8];
+    $pick_8_credits = $row[$pick_8_credits];
+
+    }
+} else {
+    //echo "0 results";
+}
 
 $win = 0;
 
@@ -155,29 +183,29 @@ else{
     $under_8 = $jackpot . " progessive \n+" . $pick_8_credits;
 }
 
-if ($pick == 1){
-    $win = $pick_1 + $pick_1_credits;
+if ($pick == "1"){
+    $win = $pick_1; //+ $pick_1_credits;
 }
-else if ($pick == 2){
-    $win = $pick_2 + $pick_2_credits;
+else if ($pick == "2"){
+    $win = $pick_2; //+ $pick_2_credits;
 }
-else if ($pick == 3){
-    $win = $pick_3 + $pick_3_credits;
+else if ($pick == "3"){
+    $win = $pick_3; // + $pick_3_credits;
 }
-else if ($pick == 4){
-    $win = $pick_4 + $pick_4_credits;
+else if ($pick == "4"){
+    $win = $pick_4; //+ $pick_4_credits;
 }
-else if ($pick == 5){
-    $win = $pick_5 + $pick_5_credits;
+else if ($pick == "5"){
+    $win = $pick_5; //+ $pick_5_credits;
 }
-else if ($pick == 6){
-    $win = $pick_6 + $pick_6_credits;
+else if ($pick == "6"){
+    $win = $pick_6; //+ $pick_6_credits;
 }
-else if ($pick == 7){
-    $win = $pick_7 + $pick_7_credits;
+else if ($pick == "7"){
+    $win = $pick_7; //+ $pick_7_credits;
 }
-else if ($pick == 8){
-    $win = $pick_8 + $pick_8_credits;
+else if ($pick == "8"){
+    $win = $pick_8; //+ $pick_8_credits;
 }
 
 array_push($results_array, $pick);

@@ -1302,25 +1302,25 @@ function closeForm(pick) {
           document.getElementById("button1").innerHTML = res_1;
         break;
         case 2:
-          document.getElementById("button1").innerHTML = res_2;
+          document.getElementById("button2").innerHTML = res_2;
         break;
         case 3:
-          document.getElementById("button1").innerHTML = res_3;
+          document.getElementById("button3").innerHTML = res_3;
         break;
         case 4:
-          document.getElementById("button1").innerHTML = res_4;
+          document.getElementById("button4").innerHTML = res_4;
         break;
         case 5:
-          document.getElementById("button1").innerHTML = res_5;
+          document.getElementById("button5").innerHTML = res_5;
         break;
         case 6:
-          document.getElementById("button1").innerHTML = res_6;
+          document.getElementById("button6").innerHTML = res_6;
         break;
         case 7:
-          document.getElementById("button1").innerHTML = res_7;
+          document.getElementById("button7").innerHTML = res_7;
         break;
         case 8:
-          document.getElementById("button1").innerHTML = res_8;
+          document.getElementById("button8").innerHTML = res_8;
         break;
       }
 
