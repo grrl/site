@@ -216,10 +216,62 @@ else if ($seed >= 772 && $seed <= 999){ //0.3
 //echo " ";
 
 if ($win_multiplier == "BONUS"){
+//draw jackpot seed
+
+$jackpotseed = (random_int(0, 999));
+
+$opal = "opal";
+$ruby = "ruby";
+$emerald = "emerald";
+$sapphire = "sapphire";
+$diamond = "diamond";
+
+$jackpotwin = 0;
+
+$sql = "SELECT " . $opal . "," . $ruby. "," . $emerald . "," . $sapphire . "," . $diamond . " FROM plinko";
+//echo $sql;
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+
+    $opal = $row[$opal];
+    $ruby = $row[$ruby];
+    $emerald = $row[$emerald];
+    $sapphire = $row[$sapphire];
+    $diamond = $row[$diamond];
+    }
+} else {
+    //echo "0 results";
+}
+
+if ($seed == 0){
+  //diamond
+  $jackpotwin = $diamond;
+}
+else if ($seed >= 1 && $seed <= 624){
+  //opal
+  $jackpotwin = $opal;
+}
+else if ($seed >= 625 && seed <= 749){
+  //ruby
+  $jackpotwin = $ruby;
+}
+else if ($seed >= 750 && $seed <= 874){
+  //emerald
+  $jackpotwin = $emerald;
+}
+else if ($seed >= 875 && $seed <= 999){
+  //sapphire
+  $jackpotwin = $sapphire;
+}
 //request choice from player
 //and after clicking return them with
 //max bet text pick a jewel for additional prize
 //and flash winner text in jackpot
+
+
 
 } else {
 

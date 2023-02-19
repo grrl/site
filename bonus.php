@@ -23,12 +23,6 @@ $emerald = "emerald";
 $sapphire = "sapphire";
 $diamond = "diamond";
 
-$opal_progressive;
-$ruby_progressive;
-$emerald_progressive;
-$sapphire_progressive;
-$diamond_progressive;
-
 $sql = "SELECT " . $opal . "," . $ruby. "," . $emerald . "," . $sapphire . "," . $diamond . " FROM plinko";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
