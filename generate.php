@@ -992,6 +992,10 @@ array_push($results_array, $win_multiplier);
 //array_push($results_array, $id);
 array_push($results_array, $array);
 
+$id = mysqli_insert_id($conn);
+
+array_push($results_array, $id);
+
 array_push($results_array, $jackpotname);
 
 echo json_encode($results_array);

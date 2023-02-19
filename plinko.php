@@ -1258,7 +1258,7 @@ function openForm() {
   document.getElementById("mycanvas").style.display = "none";
 }
 
-function closeForm() {
+function closeForm(pick) {
   //get number from button send to server and update win to user
   //end game
   //send all button values back
@@ -1269,21 +1269,43 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("mycanvas").style.display = "block";
 
-  document.getElementById("play_button").disabled = false;
+  //here post value from button
 
-  document.getElementById("gamestate").innerHTML = "GAME OVER!";
+  $.ajax({
+    type: "post",
+    url: "pick.php",
+    data: 
+    {  
+      'pick' : pick,
+      'id' : timestamp
+    },
+    cache:false,
+    success: function (data) 
+    {
+      let text = this.data;
+      console.log("data is " + data);
+      let mydata = JSON.parse(data);
 
-  if (winamount > 0){
+      //bonusname = mydata[2];
 
-  if (cash) {
-    document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
-  }
-  else{
-    document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
-  }
-  }
+      document.getElementById("play_button").disabled = false;
+      document.getElementById("gamestate").innerHTML = "GAME OVER!";
 
-  winamount = 0;
+      if (winamount > 0){
+
+        if (cash) {
+          document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+        }
+        else{
+          document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
+        }
+      }
+
+      winamount = 0;
+
+    }
+  });
+
 }
 
 //canvas size is
@@ -1627,6 +1649,7 @@ else{
 
       winamount = mydata[0];
       my_array = mydata[1];
+      timestamp = mydata[2];
       //bonusname = mydata[2];
 
       console.log(my_array);
@@ -1634,7 +1657,7 @@ else{
       if (winamount == "BONUS"){
 
         bonustime = true;
-        bonusname = mydata[2];
+        bonusname = mydata[3];
 
         switch (bonusname){
 
@@ -1981,30 +2004,30 @@ window.onload = refresh_jackpots;
     <table>
     <tr>
       <th>
-        <button type="button" id="button1" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button1" class="button5" onclick="closeForm(1)"></button>
       </th>
       <th>
-        <button type="button" id="button2" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button2" class="button5" onclick="closeForm(2)"></button>
       </th>
       <th>
-        <button type="button" id="button3" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button3" class="button5" onclick="closeForm(3)"></button>
       </th>
       <th>
-        <button type="button" id="button4" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button4" class="button5" onclick="closeForm(4)"></button>
       </th>
     </tr>
     <tr>
       <th>
-        <button type="button" id="button5" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button5" class="button5" onclick="closeForm(5)"></button>
       </th>
       <th>
-        <button type="button" id="button6" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button6" class="button5" onclick="closeForm(6)"></button>
       </th>
       <th>
-        <button type="button" id="button7" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button7" class="button5" onclick="closeForm(7)"></button>
       </th>
       <th>
-        <button type="button" id="button8" class="button5" onclick="closeForm()"></button>
+        <button type="button" id="button8" class="button5" onclick="closeForm(8)"></button>
       </th>
     </tr>
     </table>
