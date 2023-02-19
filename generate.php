@@ -248,6 +248,34 @@ if (mysqli_num_rows($result) > 0) {
     //echo "0 results";
 }
 
+$progressives = 1;
+switch ($bet_value){
+  case 0.4:
+  $progressives = 1;
+  break; 
+  case 0.8:
+  $progressives = 2;
+  break; 
+  case 1.2:
+  $progressives = 3;
+  break;     
+  case 1.6:
+  $progressives = 4;
+  break;  
+  case 2.0:
+  $progressives = 5;
+  break;
+  case 2.4:
+  $progressives = 6;
+  break;
+  case 2.8:
+  $progressives = 7;
+  break;
+  case 3.2:
+  $progressives = 8;
+  break;  
+}
+
 if ($seed == 0){
 
   //diamond
@@ -324,6 +352,49 @@ if ($seed == 0){
     8
   );
 
+  if ($progressives == 8){
+
+    $pick_1 = $diamond;
+    $pick_2 = $diamond;
+    $pick_3 = $diamond;
+    $pick_4 = $diamond;
+    $pick_5 = $diamond;
+    $pick_6 = $diamond;
+    $pick_7 = $diamond;
+    $pick_8 = $diamond;
+  }
+  else {
+
+    $i = 7;
+    $j = 0;
+    while ($j < $progressives){
+
+      $progressiveseed = (random_int(0, $i));
+      $progressivenumber = $deck[$progressiveseed];
+      unset($deck[$progressiveseed]);
+      array_unshift($deck);
+
+      if ($progressivenumber == 1)
+        $pick_1 = $diamond;
+      else if ($progressivenumber == 2)
+        $pick_2 = $diamond;
+      else if ($progressivenumber == 3)
+        $pick_3 = $diamond;
+      else if ($progressivenumber == 4)
+        $pick_4 = $diamond;
+      else if ($progressivenumber == 5)
+        $pick_5 = $diamond;
+      else if ($progressivenumber == 6)
+        $pick_6 = $diamond;
+      else if ($progressivenumber == 7)
+        $pick_7 = $diamond;
+      else if ($progressivenumber == 8)
+        $pick_8 = $diamond;
+
+      $i--;
+      $j++;
+    }
+  }
 
 
   //next draw positions for jackpot based by bet level
