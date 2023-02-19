@@ -228,6 +228,8 @@ $diamond = "diamond";
 
 $jackpotwin = 0;
 
+$creditwin = 0;
+
 $sql = "SELECT " . $opal . "," . $ruby. "," . $emerald . "," . $sapphire . "," . $diamond . " FROM plinko";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
@@ -247,25 +249,230 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 if ($seed == 0){
+
   //diamond
   $jackpotwin = $diamond;
+
+  $deck = array(
+  
+    20,
+    80, //  [0]
+    20, //  [1]
+    20, //  [2]
+    80, //  [3]
+    20 //  [4]
+  );
+
+  //draw credit win for each pick
+  $seed_1 = (random_int(0, 5));
+  $credit_1 = $deck[$seed_1];
+  unset($deck[$seed_1]);
+  array_unshift($deck);
+  
+  $seed_2 = (random_int(0, 4));
+  $credit_2 = $deck[$seed_2];
+  unset($deck[$seed_2]);
+  array_unshift($deck);
+  
+  $seed_3 = (random_int(0, 3));
+  $credit_3 = $deck[$seed_3];
+  unset($deck[$seed_3]);
+  array_unshift($deck);
+  
+  $seed_4 = (random_int(0, 2));
+  $credit_4 = $deck[$seed_4];
+  unset($deck[$seed_4]);
+  array_unshift($deck);
+  
+  $seed_5 = (random_int(0, 1));
+  $credit_5 = $deck[$seed_5];
+  unset($deck[$seed_5]);
+  array_unshift($deck);
+  
+  $credit_6 = $deck[0];
+
 }
 else if ($seed >= 1 && $seed <= 624){
   //opal
   $jackpotwin = $opal;
+
+  //draw credit win for each pick
+
+  $deck = array(
+  
+    0.05,
+    0.2, //  [0]
+    0.05, //  [1]
+    0.05, //  [2]
+    0.2, //  [3]
+    0.05 //  [4]
+  );
+
+  //draw credit win for each pick
+  $seed_1 = (random_int(0, 5));
+  $credit_1 = $deck[$seed_1];
+  unset($deck[$seed_1]);
+  array_unshift($deck);
+  
+  $seed_2 = (random_int(0, 4));
+  $credit_2 = $deck[$seed_2];
+  unset($deck[$seed_2]);
+  array_unshift($deck);
+  
+  $seed_3 = (random_int(0, 3));
+  $credit_3 = $deck[$seed_3];
+  unset($deck[$seed_3]);
+  array_unshift($deck);
+  
+  $seed_4 = (random_int(0, 2));
+  $credit_4 = $deck[$seed_4];
+  unset($deck[$seed_4]);
+  array_unshift($deck);
+  
+  $seed_5 = (random_int(0, 1));
+  $credit_5 = $deck[$seed_5];
+  unset($deck[$seed_5]);
+  array_unshift($deck);
+  
+  $credit_6 = $deck[0];
+
 }
 else if ($seed >= 625 && seed <= 749){
   //ruby
   $jackpotwin = $ruby;
+
+  //draw credit win for each pick
+
+  $deck = array(
+  
+    0.1,
+    0.1, //  [0]
+    0.4, //  [1]
+    0.1, //  [2]
+    0.1, //  [3]
+    0.4 //  [4]
+  );
+
+  //draw credit win for each pick
+  $seed_1 = (random_int(0, 5));
+  $credit_1 = $deck[$seed_1];
+  unset($deck[$seed_1]);
+  array_unshift($deck);
+  
+  $seed_2 = (random_int(0, 4));
+  $credit_2 = $deck[$seed_2];
+  unset($deck[$seed_2]);
+  array_unshift($deck);
+  
+  $seed_3 = (random_int(0, 3));
+  $credit_3 = $deck[$seed_3];
+  unset($deck[$seed_3]);
+  array_unshift($deck);
+  
+  $seed_4 = (random_int(0, 2));
+  $credit_4 = $deck[$seed_4];
+  unset($deck[$seed_4]);
+  array_unshift($deck);
+  
+  $seed_5 = (random_int(0, 1));
+  $credit_5 = $deck[$seed_5];
+  unset($deck[$seed_5]);
+  array_unshift($deck);
+  
+  $credit_6 = $deck[0];
+
 }
 else if ($seed >= 750 && $seed <= 874){
   //emerald
   $jackpotwin = $emerald;
+
+  //draw credit win for each pick
+
+  $deck = array(
+  
+    0.2,
+    0.2, //  [0]
+    0.8, //  [1]
+    0.2, //  [2]
+    0.2, //  [3]
+    0.8 //  [4]
+  );
+
+  //draw credit win for each pick
+  $seed_1 = (random_int(0, 5));
+  $credit_1 = $deck[$seed_1];
+  unset($deck[$seed_1]);
+  array_unshift($deck);
+  
+  $seed_2 = (random_int(0, 4));
+  $credit_2 = $deck[$seed_2];
+  unset($deck[$seed_2]);
+  array_unshift($deck);
+  
+  $seed_3 = (random_int(0, 3));
+  $credit_3 = $deck[$seed_3];
+  unset($deck[$seed_3]);
+  array_unshift($deck);
+  
+  $seed_4 = (random_int(0, 2));
+  $credit_4 = $deck[$seed_4];
+  unset($deck[$seed_4]);
+  array_unshift($deck);
+  
+  $seed_5 = (random_int(0, 1));
+  $credit_5 = $deck[$seed_5];
+  unset($deck[$seed_5]);
+  array_unshift($deck);
+  
+  $credit_6 = $deck[0];
+
 }
 else if ($seed >= 875 && $seed <= 999){
   //sapphire
   $jackpotwin = $sapphire;
+
+  //draw credit win for each pick
+
+  $deck = array(
+  
+    20,
+    80, //  [0]
+    20, //  [1]
+    20, //  [2]
+    80, //  [3]
+    20, //  [4]
+  );
+
+  //draw credit win for each pick
+  $seed_1 = (random_int(0, 5));
+  $credit_1 = $deck[$seed_1];
+  unset($deck[$seed_1]);
+  array_unshift($deck);
+  
+  $seed_2 = (random_int(0, 4));
+  $credit_2 = $deck[$seed_2];
+  unset($deck[$seed_2]);
+  array_unshift($deck);
+  
+  $seed_3 = (random_int(0, 3));
+  $credit_3 = $deck[$seed_3];
+  unset($deck[$seed_3]);
+  array_unshift($deck);
+  
+  $seed_4 = (random_int(0, 2));
+  $credit_4 = $deck[$seed_4];
+  unset($deck[$seed_4]);
+  array_unshift($deck);
+  
+  $seed_5 = (random_int(0, 1));
+  $credit_5 = $deck[$seed_5];
+  unset($deck[$seed_5]);
+  array_unshift($deck);
+  
+  $credit_6 = $deck[0];
+
 }
+
 //request choice from player
 //and after clicking return them with
 //max bet text pick a jewel for additional prize
