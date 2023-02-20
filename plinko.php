@@ -1156,6 +1156,12 @@ let y = 0;
 
 let timestamp = "";
 
+function game_info() {
+  console.log("toggled");
+  window.alert("Malfunction voids all pays.");
+
+}
+
 function addCommas(nStr)
 {
     nStr += '';
@@ -2171,7 +2177,7 @@ window.onload = refresh_jackpots;
   <tr>
     <th>
       <input type="button" name="button3"
-      class="button" id="game_info" onclick="myFunction()" value="GAME INFO" style="background-color:#1f1e1e;" onclick=""/>
+      class="button" id="game_info" onclick="game_info()" value="GAME INFO" style="background-color:#1f1e1e;"/>
     </th>
   <th style="padding-left:50px;">
   <span class="dot" style="color:white;padding-left:7px; padding-top:6px;height: 30px;
