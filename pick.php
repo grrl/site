@@ -258,7 +258,7 @@ array_push($results_array, $under_5);
 array_push($results_array, $under_6);
 array_push($results_array, $under_7);
 array_push($results_array, $under_8);
-array_push($results_array, $win);
+//array_push($results_array, $win);
 
 //$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 

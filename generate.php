@@ -985,6 +985,9 @@ else if ($jackpotseed >= 875 && $jackpotseed <= 999){
 
 }
 
+
+$id = mysqli_insert_id($conn);
+
 $opal_multiplier = floatval($bet_value) * 0.01 * 0.1;
 $ruby_multiplier = floatval($bet_value) * 0.01 * 0.1;
 $emerald_multiplier = floatval($bet_value) * 0.01 * 0.2;
@@ -1006,8 +1009,6 @@ $results_array = array();
 array_push($results_array, $win_multiplier);
 //array_push($results_array, $id);
 array_push($results_array, $array);
-
-$id = mysqli_insert_id($conn);
 
 array_push($results_array, $id);
 
@@ -1087,7 +1088,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
 
 
 }
