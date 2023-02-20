@@ -164,7 +164,7 @@ $bonus = false;
 
 //$array = array(60, 0, 0, 53, -30, 15, 50, 48, -50, 35, 50, 40, -50, 40, 48, 40, 15, 50);
 
-if ($seed == 0 || $seed == 1){ //bonus
+if ($seed >= 0 && $seed <= 9){ //bonus
 //activate bonus to ask client choice
 //draw wins for choices 0,1,2,3,4,5
 //then send win back to user
@@ -173,7 +173,7 @@ if ($seed == 0 || $seed == 1){ //bonus
   $bonus = true;
 
 }
-else if ($seed >= 2 && $seed <= 45){ //2
+else if ($seed >= 10 && $seed <= 45){ //2
 
   $win_multiplier = 2;
 
@@ -199,7 +199,7 @@ else if ($seed >=46 && $seed <= 317){ //1.1
 }
 else if ($seed >= 318 && $seed <= 771){ // 1.05
 
-  $win_multiplier = 1.05;
+  $win_multiplier = 0.7;
   //generate array path to return
   $array = array(63, 0, 0, 51, -65, 55, 55, 40, -55, 40, 55, 50, 53, 90);
 

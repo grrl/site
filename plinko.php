@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //left 4
   ctx.beginPath();
-  ctx.fillText("1.05", 215, 339);
+  ctx.fillText("0.7", 215, 339);
   ctx.closePath();
 
   //middle 5
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //right 6
   ctx.beginPath();
-  ctx.fillText("1.05", 335, 339);
+  ctx.fillText("0.7", 335, 339);
   ctx.closePath();
 
   //right 7
@@ -1090,7 +1090,7 @@ ctx.closePath();
 
 //left 4
 ctx.beginPath();
-ctx.fillText("1.05", 215, 339);
+ctx.fillText("0.7", 215, 339);
 ctx.closePath();
 
 //middle 5
@@ -1100,7 +1100,7 @@ ctx.closePath();
 
 //right 6
 ctx.beginPath();
-ctx.fillText("1.05", 335, 339);
+ctx.fillText("0.7", 335, 339);
 ctx.closePath();
 
 //right 7
@@ -1586,7 +1586,7 @@ function change_cash(){
 
 if (!cash){
 
-  document.getElementById("balance").value = document.getElementById("balance").value / 100;
+  document.getElementById("balance").value = toFixedTrunc(parseFloat(document.getElementById("balance").value / 100),2);
   document.getElementById("credit_cash").innerHTML =  "CASH $";
 
   switch (bet_level){
@@ -1622,7 +1622,7 @@ break;
 }
 else{
 
-  document.getElementById("balance").value = document.getElementById("balance").value * 100;
+  document.getElementById("balance").value = toFixedTrunc(document.getElementById("balance").value * 100,0);
   document.getElementById("credit_cash").innerHTML =  "CREDIT";
 
   switch (bet_level){
