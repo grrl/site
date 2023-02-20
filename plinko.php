@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //left 4
   ctx.beginPath();
-  ctx.fillText("0.7", 215, 339);
+  ctx.fillText("0.7", 220, 339);
   ctx.closePath();
 
   //middle 5
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //right 6
   ctx.beginPath();
-  ctx.fillText("0.7", 335, 339);
+  ctx.fillText("0.7", 338, 339);
   ctx.closePath();
 
   //right 7
@@ -1090,7 +1090,7 @@ ctx.closePath();
 
 //left 4
 ctx.beginPath();
-ctx.fillText("0.7", 215, 339);
+ctx.fillText("0.7", 220, 339);
 ctx.closePath();
 
 //middle 5
@@ -1100,7 +1100,7 @@ ctx.closePath();
 
 //right 6
 ctx.beginPath();
-ctx.fillText("0.7", 335, 339);
+ctx.fillText("0.7", 338, 339);
 ctx.closePath();
 
 //right 7
