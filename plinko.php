@@ -1455,7 +1455,7 @@ async function closeForm(pick) {
 
   console.log("hereherehere");
   document.getElementById("play_button").disabled = false;
-  document.getElementById("gamestate").innerHTML = "GAME OVER!";
+  document.getElementById("gamestate").innerHTML = "GAME OVER";
 
       if (winamount > 0){
 
