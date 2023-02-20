@@ -822,7 +822,7 @@ var time = timestamp;
        cards_dealt = false;
        document.getElementById("play_button").value = "DEAL";
        //document.getElementById("txtHint").innerHTML = "GAME OVER!";
-       document.getElementById("gamestate").innerHTML = "GAME OVER!";
+       document.getElementById("gamestate").innerHTML = "GAME OVER";
        refresh_jackpot();
     }
     

@@ -1544,7 +1544,7 @@ async function move(array){
   else {
   document.getElementById("play_button").disabled = false;
 
-  document.getElementById("gamestate").innerHTML = "GAME OVER!";
+  document.getElementById("gamestate").innerHTML = "GAME OVER";
 
   if (winamount > 0){
 
