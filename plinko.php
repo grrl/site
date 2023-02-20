@@ -2134,10 +2134,10 @@ window.onload = refresh_jackpots;
     </tr>
     </table>
     <h4 id="selecting" style="color:white; padding-left: 170px; font-weight: bold;">SELECT A JEWEL</h5>
-    <!--<button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
+    <!--<button type="button" class="btn cancel" onclick="closeForm()">Close</button> border:5px solid blue;-->
   </form>
 </div>
-<canvas id="mycanvas" src="plinko.js" width="580" height="360" style="border:5px solid blue; margin-left:-27px;"></canvas>
+<canvas id="mycanvas" src="plinko.js" width="580" height="360" style="margin-left:-27px;"></canvas>
 
 <table>
   <tr>
