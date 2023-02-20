@@ -149,7 +149,7 @@ if ($conn->query($sql) === TRUE) {
 
 //$conn->close();
 
-$seed = (random_int(0, 1)); //999
+$seed = (random_int(0, 999)); //999
 
 //echo $seed;
 //echo " ";
