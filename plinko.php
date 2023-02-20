@@ -1360,6 +1360,7 @@ async function closeForm(pick) {
       bonuswin = mydata[9];
 
       console.log("pic " + picknumber);
+      console.log("bonuswin " + bonuswin);
       switch (picknumber){
         case "1":
           document.getElementById("button1").style.display = "none";
@@ -1470,9 +1471,9 @@ async function closeForm(pick) {
     }
   }
 
-winamount = 0;
+  winamount = 0;
 
-refresh_jackpots();
+  refresh_jackpots();
     
 }
 
