@@ -185,28 +185,28 @@ else{
 }
 
 if ($pick == "1"){
-    $win = $pick_1; //+ $pick_1_credits;
+    $win = $pick_1+ $pick_1_credits;
 }
 else if ($pick == "2"){
-    $win = $pick_2; //+ $pick_2_credits;
+    $win = $pick_2+ $pick_2_credits;
 }
 else if ($pick == "3"){
-    $win = $pick_3; // + $pick_3_credits;
+    $win = $pick_3 + $pick_3_credits;
 }
 else if ($pick == "4"){
-    $win = $pick_4; //+ $pick_4_credits;
+    $win = $pick_4 + $pick_4_credits;
 }
 else if ($pick == "5"){
-    $win = $pick_5; //+ $pick_5_credits;
+    $win = $pick_5 + $pick_5_credits;
 }
 else if ($pick == "6"){
-    $win = $pick_6; //+ $pick_6_credits;
+    $win = $pick_6 + $pick_6_credits;
 }
 else if ($pick == "7"){
-    $win = $pick_7; //+ $pick_7_credits;
+    $win = $pick_7 + $pick_7_credits;
 }
 else if ($pick == "8"){
-    $win = $pick_8; //+ $pick_8_credits;
+    $win = $pick_8 + $pick_8_credits;
 }
 
 array_push($results_array, $pick);
@@ -219,14 +219,14 @@ array_push($results_array, $under_6);
 array_push($results_array, $under_7);
 array_push($results_array, $under_8);
 
-$sql = "UPDATE plinkosession SET win=" . $win.
-", pick=". $pick . "complete=1 WHERE id=" . $my_id;
+$sql = "UPDATE plinkosession SET win='" . $win. "', pick='". $pick . "', complete='" . 1 . "' WHERE id=" . $my_id;
+
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
-  } else {
+} else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+}
 
 //$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 
