@@ -1461,7 +1461,7 @@ async function closeForm(pick) {
   document.getElementById("play_button").disabled = false;
   document.getElementById("gamestate").innerHTML = "GAME OVER";
 
-  if (winamount > 0){
+  if (bonuswin > 0){
 
     if (cash) {
       document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(bonuswin).toFixed(2));
@@ -1471,7 +1471,7 @@ async function closeForm(pick) {
     }
   }
 
-  winamount = 0;
+  bonuswin = 0;
 
   refresh_jackpots();
     
@@ -2152,7 +2152,7 @@ window.onload = refresh_jackpots;
   <th>
   </th>
   <th>
-    <label id="credit_cash" style="margin-left:-4px;">CREDIT</label>
+    <label id="credit_cash" style="margin-left:-10px;">CREDIT</label>
     <input type="button" id="balance" onclick="change_cash()" value="" style="border:none;background-color:#1f1e1e;"/>
   </th>
   </tr>
