@@ -1135,7 +1135,7 @@ var redraw = function(){
   ctx.closePath();
   ctx.fill();
   //}
-  console.log("we are still her");  
+  console.log("running animation");  
 }
 
 //ball middle 0.3
