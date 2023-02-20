@@ -1320,7 +1320,7 @@ var res_5;
 var res_6;
 var res_7;
 var res_8;
-
+var bonuswin;
 async function closeForm(pick) {
   //get number from button send to server and update win to user
   //end game
@@ -1357,7 +1357,8 @@ async function closeForm(pick) {
       res_6 = mydata[6];
       res_7 = mydata[7];
       res_8 = mydata[8];
-      
+      bonuswin = mydata[9];
+
       console.log("pic " + picknumber);
       switch (picknumber){
         case "1":
@@ -1462,10 +1463,10 @@ async function closeForm(pick) {
       if (winamount > 0){
 
         if (cash) {
-          document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+          document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(bonuswin).toFixed(2));
         }
         else{
-          document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
+          document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(bonuswin * 100).toFixed(0);
         }
       }
 
