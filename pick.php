@@ -219,14 +219,22 @@ array_push($results_array, $under_6);
 array_push($results_array, $under_7);
 array_push($results_array, $under_8);
 
-$sql = "UPDATE plinkosession SET win='" . $win.
-"', complete='". 1 . "', pick=". $pick . " WHERE id=" . $my_id;
+$sql = "UPDATE plinkosession SET win=" . $win.
+", pick=". $pick . "complete=1 WHERE id=" . $my_id;
+
+if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+  } else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
 //$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 
 echo json_encode($results_array);
 //echo $win_amount;
 echo " ";
+
+$conn->close();
 
 }
 
