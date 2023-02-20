@@ -217,7 +217,7 @@ if ($conn->query($sql) === TRUE) {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE plinko SET coinout=coinout +" . $win;
+$sql = "UPDATE plinko SET coinout=coinout +'" . $win . "'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -233,7 +233,7 @@ if ($conn->query($sql) === TRUE) {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE users SET balance=balance +" . $win . " WHERE username='$user'";
+$sql = "UPDATE users SET balance=balance +'" . $win . "' WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
 //echo "New record created successfully";
@@ -241,7 +241,7 @@ if ($conn->query($sql) === TRUE) {
 //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "UPDATE users SET winloss=winloss +" . $win . " WHERE username='$user'";
+$sql = "UPDATE users SET winloss=winloss +'" . $win . "' WHERE username='$user'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
