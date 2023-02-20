@@ -1027,10 +1027,12 @@ echo " ";
 //plinkosession
 $win_amount = $win_multiplier * $bet_value;
 
+$id = mysqli_insert_id($conn);
+
 //pick_1, pick_2, pick_3, pick_4, pick_5, pick_6, pick_7, pick_8
 $sql = "INSERT INTO plinkosession (id, time, username, seed, bonus, bet, multiplier, win, balance, complete) 
 VALUES (default," . $time_stamp . ",'" . $user . "'," . $seed .
-"," . $bonus . "," . $bet_value . ",". $win_multiplier . "," .  $win_amount . ",". $newbalance . ", 1)";
+"," . 0 . "," . $bet_value . ",". $win_multiplier . "," .  $win_amount . ",". $newbalance . ", 1)";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -1054,9 +1056,9 @@ $emerald_multiplier = floatval($bet_value) * 0.01 * 0.2;
 $sapphire_multiplier = floatval($bet_value) * 0.01 * 0.2;
 $diamond_multiplier = floatval($bet_value) * 0.01 * 0.4;
 
-$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", coinout=coinout +" . $win_amount . ", cycle=cycle +" . 1 .
-", opal=opal +" . $opal_multiplier . ", ruby=ruby +" . $ruby_multiplier . ", emerald=emerald +" . $emerald_multiplier .
-", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
+$sql = "UPDATE plinko SET coinin=coinin +'" . $bet_value . "', coinout=coinout +'" . $win_amount . "', cycle=cycle +" . 1 .
+", opal=opal +'" . $opal_multiplier . "', ruby=ruby +'" . $ruby_multiplier . "', emerald=emerald +'" . $emerald_multiplier .
+"', sapphire=sapphire +'" . $sapphire_multiplier . "', diamond=diamond +'" . $diamond_multiplier ."'";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
