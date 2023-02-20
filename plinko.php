@@ -2072,7 +2072,7 @@ window.onload = refresh_jackpots;
 
 <!--</div>-->
 <main class="main-content">
-  <div class="col-md-6 col-md-offset-4">
+<div class="col-md-6 col-md-offset-4">
 
 <!--
 <h4 style="color:white;">Your account data, <?php echo $_SESSION['username'] ?>.</h4>
@@ -2080,28 +2080,27 @@ window.onload = refresh_jackpots;
 <table>
     <tr>
       <th>
-        <h4 id="opal">$2.5</h2>
-      <p>Opal</p>
+        <h4 id="opal" style="text-align:center;">$2.5</h2>
+        <p style="text-align:center;">Opal</p>
       </th>
       <th>
-        <h4 id="ruby">$5</h2>
-      <p style="color: #E0115F;">Ruby</p>
+        <h4 id="ruby" style="text-align:center;">$5</h2>
+        <p style="color: #E0115F;text-align:center;">Ruby</p>
       </th>
       <th>
-        <h4 id="emerald">$10</h2>
-      <p style="color: #50C878;">Emerald</p>
+        <h4 id="emerald" style="text-align:center;">$10</h2>
+        <p style="color: #50C878;text-align:center;">Emerald</p>
       </th>
       <th>
-        <h4 id="sapphire">$100</h2>
-      <p style="color: #0f52ba;">Sapphire</p>
+        <h4 id="sapphire" style="text-align:center;">$100</h2>
+        <p style="color: #0f52ba;text-align:center;">Sapphire</p>
       </th>
       <th>
-        <h4 id="diamond">$1,000</h2>
-      <p style="color: #b9f2ff;">Diamond</p>
+        <h4 id="diamond" style="text-align:center;">$1,000</h2>
+        <p style="color: #b9f2ff;text-align:center;">Diamond</p>
       </th>
     </tr>
-    </table>
-
+</table>
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
     <h1 style="color:white;" id="jackpotname">Jackpot name: Make a pick</h1>
