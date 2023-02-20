@@ -1247,6 +1247,8 @@ function openForm() {
 
   //document.getElementsByClassName('form-container').backgroundColor = "red";
 
+  document.getElementById("selecting").innerHTML = "SELECT A JEWEL";
+
   var bet_in_credits;
   switch  (bet_level){
 
@@ -1327,7 +1329,7 @@ async function closeForm(pick) {
   //then 1 by one show rest awards
   //increase credits counter then go back to base game
 
-
+  document.getElementById("selecting").innerHTML = "";
   //here post value from button
 
   $.ajax({
@@ -1643,65 +1645,6 @@ break;
 }
 }
 
-function generate(){
-
-  var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-
-        document.getElementById("txtHint").innerHTML = "";
-
-        //document.getElementById("box1").disabled = false;
-        //document.getElementById("box2").disabled = false;
-        //document.getElementById("box3").disabled = false;
-        //document.getElementById("box4").disabled = false;
-        //document.getElementById("box5").disabled = false;
-
-        let text = this.responseText;
-        const myArray = text.split(" ");
-        let size = myArray.length;
-        let card_1 = myArray[0];
-        let card_2 = myArray[1];
-        let card_3 = myArray[2];
-        let card_4 = myArray[3];
-        let card_5 = myArray[4];
-        timestamp = myArray[5];
-        console.log("id is " + timestamp);
-
-
-        let my_string = "";
-        for (let i = 6; i< size; i++){
-            if (i == size - 1)
-              my_string += myArray[i];
-            else
-              my_string += myArray[i] + " ";
-        }
-        //let win = myArray[6];
-        //console.log(my_string);
-
-        console.log("win is " + my_string)
-
-        if (my_string != "")
-          document.getElementById("txtHint").innerHTML = my_string;
-
-        //document.getElementById("card1").innerHTML = card_1 + " " + card_2 + " " + card_3 + " " + card_4 + " " + card_5;
-
-        //console.log(typeof card_1);
-        //console.log(typeof card_2);
-        //console.log(typeof card_3);
-        //console.log(typeof card_4);
-        //console.log(typeof card_5);
-
-        cards_dealt = true;
-        document.getElementById("play_button").value = "DRAW";
-      }
-    };
-    xmlhttp.open("GET", "draw.php?q=" + str, true);
-    xmlhttp.send();
-
-}
-
-
 //let move_array = [80, 0, 0, 49, 205, 270];
 //let move_array = [80, 0, 0, 51, 63, 60, -85, 81, 60, 50, 45, 80];
 //let move_array = [63, 0, 0, 51, -65, 55, 55, 40, -55, 40, 55, 50, 53, 90];
@@ -1858,20 +1801,6 @@ else{
     }
 });
 
-//drawball = true;
-//move(move_array);
-//drawball = false;
-
-/*
-if(drawball == true){
-  if (start == true){
-    drawball = true;
-    move(path_array);
-    drawball = false;
-  }
-}
-else{*/
-//}
 }
 
 function increase_bet(){
@@ -2201,7 +2130,7 @@ window.onload = refresh_jackpots;
       </th>
     </tr>
     </table>
-    <h5>SELECT A JEWEL</h5>
+    <h4 id="selecting" style="color:white; padding-left: 170px; font-weight: bold;">SELECT A JEWEL</h5>
     <!--<button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
   </form>
 </div>
