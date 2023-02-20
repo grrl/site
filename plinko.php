@@ -2151,7 +2151,7 @@ window.onload = refresh_jackpots;
   <th>
   </th>
   <th>
-    <label id="credit_cash">CREDIT</label>
+    <label id="credit_cash" style="margin-left:-4px;">CREDIT</label>
     <input type="button" id="balance" onclick="change_cash()" value="" style="border:none;background-color:#1f1e1e;"/>
   </th>
   </tr>
