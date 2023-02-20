@@ -1018,7 +1018,6 @@ echo json_encode($results_array);
 //echo $win_amount;
 echo " ";
 
-
 } else {
 
 //update seed and win multiplier with bet to sql database
