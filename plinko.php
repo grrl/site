@@ -1169,6 +1169,16 @@ function addCommas(nStr)
     return x1 + x2;
 }
 
+function toFixedTrunc(x, n) {
+  const v = (typeof x === 'string' ? x : x.toString()).split('.');
+  if (n <= 0) return v[0];
+  let f = v[1] || '';
+  if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
+  while (f.length < n) f += '0';
+  return `${v[0]}.${f}`
+}
+
+
 //let jackpot_value;
 function refresh_jackpots() {
 
@@ -1194,10 +1204,10 @@ $.ajax({
          //jackpot_value = data;
          //console.log("jackpot_value is " + jackpot_value);
 
-         document.getElementById("opal").innerHTML = "$ " + parseFloat(mydata[0]).toFixed(2);
-         document.getElementById("ruby").innerHTML = "$ " + parseFloat(mydata[1]).toFixed(2);
-         document.getElementById("emerald").innerHTML = "$ " + parseFloat(mydata[2]).toFixed(2);
-         document.getElementById("sapphire").innerHTML = "$ " + parseFloat(mydata[3]).toFixed(2);
+         document.getElementById("opal").innerHTML = "$ " + toFixedTrunc(parseFloat(mydata[0]), 2);
+         document.getElementById("ruby").innerHTML = "$ " + toFixedTrunc(parseFloat(mydata[1]),2);
+         document.getElementById("emerald").innerHTML = "$ " + toFixedTrunc(parseFloat(mydata[2]),2);
+         document.getElementById("sapphire").innerHTML = "$ " + toFixedTrunc(parseFloat(mydata[3]),2);
          document.getElementById("diamond").innerHTML = "$ " + addCommas(mydata[4]);
 
       }
@@ -1219,10 +1229,10 @@ $.ajax({
         let mydata = JSON.parse(data);
 
         if (cash == true){
-          document.getElementById("balance").value = addCommas(parseFloat(mydata.balance).toFixed(2));
+          document.getElementById("balance").value = toFixedTrunc(parseFloat(mydata.balance), 2);
          }
          else{
-          document.getElementById("balance").value = (mydata.balance * 100).toFixed(0);
+          document.getElementById("balance").value = toFixedTrunc((mydata.balance * 100), 0);
          } 
 
          let mytext = '<?php echo $_SESSION['username'] ?>';
@@ -1464,10 +1474,10 @@ async function closeForm(pick) {
   if (bonuswin > 0){
 
     if (cash) {
-      document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(bonuswin).toFixed(2));
+      document.getElementById("winlabel").innerHTML = "WIN $ " + toFixedTrunc(parseFloat(bonuswin), 2);
     }
     else{
-      document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(bonuswin * 100).toFixed(0);
+      document.getElementById("winlabel").innerHTML = "WIN " + toFixedTrunc(parseFloat(bonuswin * 100), 0);
     }
   }
 
@@ -1555,10 +1565,10 @@ async function move(array){
   if (winamount > 0){
 
     if (cash) {
-    document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(winamount).toFixed(2));
+    document.getElementById("winlabel").innerHTML = "WIN $ " + toFixedTrunc(parseFloat(winamount),2);
     }
     else{
-      document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(winamount * 100).toFixed(0);
+      document.getElementById("winlabel").innerHTML = "WIN " + toFixedTrunc(parseFloat(winamount * 100), 0);
     }
   }
 
@@ -1728,7 +1738,7 @@ else{
       return;
     }
     else{
-      document.getElementById("balance").value = parseFloat(document.getElementById("balance").value - creditvalue).toFixed(2);
+      document.getElementById("balance").value = toFixedTrunc(parseFloat(document.getElementById("balance").value - creditvalue), 2);
       document.getElementById("winlabel").innerHTML = "";
     }
   }
@@ -1737,7 +1747,7 @@ else{
       return;
     }
     else {
-      document.getElementById("balance").value = parseFloat(document.getElementById("balance").value - creditvalue).toFixed(0);
+      document.getElementById("balance").value = toFixedTrunc(parseFloat(document.getElementById("balance").value - creditvalue),0);
       document.getElementById("winlabel").innerHTML = "";
     }
   }
