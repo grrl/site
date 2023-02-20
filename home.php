@@ -35,8 +35,9 @@ if(!isset($_SESSION['username'])){
         <li><a href="login.php">LogIN</a></li>
         <li><a href="register.php">SignUp</a></li>
         -->
-        <li><a href="index.php">Bonus Poker</a></li>
         <li><a href="account.php">Account</a></li>
+        <li><a href="index.php">Bonus Poker</a></li>
+        <li><a href="plinko.php">Plinko</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </nav>

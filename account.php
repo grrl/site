@@ -105,6 +105,7 @@ window.onload = refresh_jackpot;
         -->
         <li><a href="home.php">Home</a></li>
         <li><a href="index.php">Bonus Poker</a></li>
+        <li><a href="plinko.php">Plinko</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </nav>
