@@ -985,6 +985,21 @@ else if ($jackpotseed >= 875 && $jackpotseed <= 999){
 
 }
 
+$opal_multiplier = floatval($bet_value) * 0.01 * 0.1;
+$ruby_multiplier = floatval($bet_value) * 0.01 * 0.1;
+$emerald_multiplier = floatval($bet_value) * 0.01 * 0.2;
+$sapphire_multiplier = floatval($bet_value) * 0.01 * 0.2;
+$diamond_multiplier = floatval($bet_value) * 0.01 * 0.4;
+
+$sql = "UPDATE plinko SET coinin=coinin +" . $bet_value . ", cycle=cycle +" . 1 .
+", opal=opal +" . $opal_multiplier . ", ruby=ruby +" . $ruby_multiplier . ", emerald=emerald +" . $emerald_multiplier .
+", sapphire=sapphire +" . $sapphire_multiplier . ", diamond=diamond +" . $diamond_multiplier;
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $results_array = array();
 

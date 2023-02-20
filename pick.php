@@ -209,6 +209,46 @@ else if ($pick == "8"){
     $win = $pick_8 + $pick_8_credits;
 }
 
+$sql = "UPDATE plinkosession SET win='" . $win. "', pick='". $pick . "', complete='" . 1 . "' WHERE id=" . $my_id;
+
+if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+} else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE plinko SET coinout=coinout +" . $win;
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE plinko SET payback=coinout/coinin";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE users SET balance=balance +" . $win . " WHERE username='$user'";
+
+if ($conn->query($sql) === TRUE) {
+//echo "New record created successfully";
+} else {
+//echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "UPDATE users SET winloss=winloss +" . $win . " WHERE username='$user'";
+
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 array_push($results_array, $pick);
 array_push($results_array, $under_1);
 array_push($results_array, $under_2);
@@ -218,15 +258,6 @@ array_push($results_array, $under_5);
 array_push($results_array, $under_6);
 array_push($results_array, $under_7);
 array_push($results_array, $under_8);
-
-$sql = "UPDATE plinkosession SET win='" . $win. "', pick='". $pick . "', complete='" . 1 . "' WHERE id=" . $my_id;
-
-
-if ($conn->query($sql) === TRUE) {
-    //echo "New record created successfully";
-} else {
-    //echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 //$sql = "SELECT " . $card1 . ", " . $card2 . ", " . $card3 . ", " . $card4 . ", " . $card5 . " FROM session WHERE id=" . $my_id;
 
