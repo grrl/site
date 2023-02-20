@@ -1460,17 +1460,19 @@ async function closeForm(pick) {
   document.getElementById("play_button").disabled = false;
   document.getElementById("gamestate").innerHTML = "GAME OVER";
 
-      if (winamount > 0){
+  if (winamount > 0){
 
-        if (cash) {
-          document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(bonuswin).toFixed(2));
-        }
-        else{
-          document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(bonuswin * 100).toFixed(0);
-        }
-      }
+    if (cash) {
+      document.getElementById("winlabel").innerHTML = "WIN $ " + addCommas(parseFloat(bonuswin).toFixed(2));
+    }
+    else{
+      document.getElementById("winlabel").innerHTML = "WIN " + parseFloat(bonuswin * 100).toFixed(0);
+    }
+  }
 
-      winamount = 0;
+winamount = 0;
+
+refresh_jackpots();
     
 }
 

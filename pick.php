@@ -185,28 +185,405 @@ else{
 }
 
 if ($pick == "1"){
+
     $win = $pick_1+ $pick_1_credits;
+
+    if ($pick_1 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "2"){
+
     $win = $pick_2+ $pick_2_credits;
+
+    if ($pick_2 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "3"){
+
+
     $win = $pick_3 + $pick_3_credits;
+
+    if ($pick_3 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "4"){
+
     $win = $pick_4 + $pick_4_credits;
+
+    if ($pick_4 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "5"){
+
     $win = $pick_5 + $pick_5_credits;
+
+    if ($pick_5 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "6"){
+
     $win = $pick_6 + $pick_6_credits;
+
+    if ($pick_6 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "7"){
+
     $win = $pick_7 + $pick_7_credits;
+
+    if ($pick_7 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 else if ($pick == "8"){
+
     $win = $pick_8 + $pick_8_credits;
+
+    if ($pick_8 > 0){
+
+        switch ($jackpot){
+            case "opal":
+                $sql = "UPDATE plinko SET opal=" . 2.5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "ruby":
+                $sql = "UPDATE plinko SET ruby=" . 5;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "emerald":
+                $sql = "UPDATE plinko SET emerald=" . 10;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "sapphire":
+                $sql = "UPDATE plinko SET sapphire=" . 100;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+            case "diamond":
+                $sql = "UPDATE plinko SET diamond=" . 1000;
+                if ($conn->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            break;
+        }
+    }
 }
 
 $sql = "UPDATE plinkosession SET win='" . $win. "', pick='". $pick . "', complete='" . 1 . "' WHERE id=" . $my_id;
